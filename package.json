@@ -1,0 +1,34 @@
+{
+  "name": "cw",
+  "version": "1.0.0",
+  "description": "CourtWatch",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --watch",
+    "build": "parcel build index.html"
+  },
+  "author": "Haydn, Giulia",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-recommended": "^2.0.0",
+    "eslint-plugin-react": "^7.8.2",
+    "jest": "^23.1.0",
+    "parcel-bundler": "^1.8.1"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "node-sass": "^4.9.0",
+    "nodemon": "^1.17.5",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  }
+}
