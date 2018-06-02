@@ -4,10 +4,9 @@
   "description": "A notifications, bookings and data gathering app for court observers at hearings where defendants are women.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "parcel ./public/index.html",
     "test": "DATABASE_URL=mongodb://localhost/testdb jest --watch",
-    "build": "parcel build index.html"
+    "build": "parcel build ./public/index.html | node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,9 +26,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
-    "jest": "^23.1.0",
-    "nodemon": "^1.17.5",
-    "parcel-bundler": "^1.8.1"
+    "jest": "^23.1.0"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
