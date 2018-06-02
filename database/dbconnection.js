@@ -2,8 +2,16 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('Environment variable DATABASE_URL should be set');
+let { DATABASE_URL } = process.env;
+
+if (process.env.NODE_ENV === 'test') {
+  DATABASE_URL = process.env.TEST_DATABASE_URL;
 }
 
-mongoose.connect(process.env.DATABASE_URL);
+if (!DATABASE_URL) {
+  throw new Error('DATABASE_URL should be set');
+}
+
+module.exports = () => {
+  mongoose.connect(DATABASE_URL);
+};
