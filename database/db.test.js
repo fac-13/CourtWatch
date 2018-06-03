@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const dbconnection = require('./dbconnection');
 
 beforeAll(() => {
