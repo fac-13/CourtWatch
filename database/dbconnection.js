@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-if (!process.env.DATABASE_URL) {
+const { DATABASE_URL } = process.env;
+
+if (!DATABASE_URL) {
   throw new Error('Environment variable DATABASE_URL should be set');
 }
 
-mongoose.connect(process.env.DATABASE_URL);
+mongoose.connect(DATABASE_URL);
