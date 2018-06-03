@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Resources = () => <p>Helloooo</p>; 
+const Resources = () => <h1>Resources</h1>; 
 
 export default Resources; 
