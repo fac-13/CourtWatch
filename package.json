@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "DATABASE_URL=mongodb://localhost/cwdb_test jest",
+    "test": "jest",
     "build": "parcel build index.html"
   },
   "repository": {
