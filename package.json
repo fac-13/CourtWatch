@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./public/index.html",
-    "test": "DATABASE_URL=mongodb://localhost/test_cwdb jest",
+    "test": "jest",
     "build": "parcel build ./public/index.html | node src/index.js"
   },
   "repository": {

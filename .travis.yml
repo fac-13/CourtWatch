@@ -2,6 +2,8 @@ language:
   - node_js
 node_js:
   - "8"
+env:
+  - TEST_DATABASE_URL=mongodb://localhost/testdb
 services:
   - mongodb
 before_script:
