@@ -4,9 +4,9 @@ require('dotenv').config();
 
 let { DATABASE_URL } = process.env;
 
-if (process.env.TRAVIS === 'true') {
-  DATABASE_URL = 'cwdb_test';
-}
+// if (process.env.TRAVIS === 'true') {
+//   DATABASE_URL = 'cwdb_test';
+// }
 
 if (process.env.NODE_ENV === 'test') {
   DATABASE_URL = process.env.TEST_DATABASE_URL;
