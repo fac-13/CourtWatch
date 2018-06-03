@@ -2,10 +2,8 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-const dbconnection = require('./dbconnection');
-
 beforeAll(() => {
-  dbconnection();
+  mongoose.connect(process.env.DATABASE_URL);
 });
 
 afterAll((done) => {
@@ -17,5 +15,5 @@ test('Should fail when env not test ', () => {
 });
 
 test('Test if database connection exists', () => {
-  expect(mongoose.connection.name).toBe('cwdb_test');
+  expect(mongoose.connection.name).toBe('test_cwdb');
 });
