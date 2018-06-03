@@ -1,11 +1,12 @@
 {
   "name": "court-watch",
   "version": "1.0.0",
-  "description": "A notifications, bookings and data gathering app for court observers at hearings where defendants are women.",
+  "description":
+    "A notifications, bookings and data gathering app for court observers at hearings where defendants are women.",
   "main": "index.js",
   "scripts": {
     "start": "parcel ./public/index.html",
-    "test": "DATABASE_URL=mongodb://localhost/testdb jest --watch",
+    "test": "DATABASE_URL=mongodb://localhost/test_cwdb jest",
     "build": "parcel build ./public/index.html | node src/index.js"
   },
   "repository": {
