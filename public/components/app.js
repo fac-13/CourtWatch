@@ -13,7 +13,7 @@ export default class App extends React.Component {
                 <Navbar />
             <Route exact={true} path='/' component={Home} /> 
             <Route path='/schedule' component={Schedule} />
-            <Router path='/resources' component={Resources} />
+            <Route path='/resources' component={Resources} />
             </React.Fragment>
             </Router>
         )
