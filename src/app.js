@@ -1,12 +1,22 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
+const dbConnection = require('./database/dbConnection');
 const controllers = require('./controllers');
 
+// invoke mongo db connection and log status
+dbConnection();
+const db = mongoose.connection;
+db.once('open', () => {
+  console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`);
+});
+
+// declare application
 const app = express();
 
-// form data parsing
+// data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
