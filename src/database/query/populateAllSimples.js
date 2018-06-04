@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
 const { connection } = require('../dbconnection');
-const { Court } = require('./../model');
+const { Simple } = require('./../model');
 
-const court_dump = require('../../../court_dump.json');
+const dummy = require('../../../dummy_simple.json');
 
-// console.log(courts);
+// console.log(dummy.simples);
 
-function populateAllCourts(data) {
+function populateAllSimples(data) {
   console.log('running the populator!');
-  Court.insertMany(data, (err, court) => {
+  Simple.insertMany(data, (err, court) => {
     if (err) {
       console.log('Populate all courts error: ', err);
     } else {
@@ -24,6 +24,6 @@ db.once('open', () => {
   console.log(db.states[db.readyState]);
 });
 
-populateAllCourts(court_dump.courts);
+populateAllSimples(dummy.simples);
 
-// module.exports = { populateAllCourts };
+// module.exports = { populateAllSimples };
