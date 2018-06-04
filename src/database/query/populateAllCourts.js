@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 
-const { connection } = require('../dbconnection');
 const { Court } = require('./../model');
 
 const court_dump = require('../../../court_dump.json');
-
-// console.log(courts);
 
 function populateAllCourts(data) {
   Court.insertMany(data, (err, court) => {
@@ -17,11 +14,6 @@ function populateAllCourts(data) {
   });
 }
 
-const db = mongoose.connection;
-
-db.once('open', () => {
-  console.log(db.states[db.readyState]);
-});
 
 populateAllCourts(court_dump.courts);
 
