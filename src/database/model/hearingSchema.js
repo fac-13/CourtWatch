@@ -1,15 +1,17 @@
 const mongoose = require('mongoose');
 
-const HearingSchema = mongoose.Schema(
+const { Schema } = mongoose;
+
+const HearingSchema = new Schema(
   {
     date: Date,
-    court_id: Number, // { type: ObjectId, ref: Court }, // eslint-disable-line
+    court_id: { type: ObjectId, ref: Court }, // eslint-disable-line
     court_name: String,
     court_number: Number,
     watching: [
       {
         name: String,
-        volunteer_id: Number, // { type: ObjectId, ref: Volunteer }, // eslint-disable-line
+        volunteer_id: { type: ObjectId, ref: Volunteer }, // eslint-disable-line
       },
     ],
     contact: [
