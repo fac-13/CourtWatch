@@ -2,6 +2,14 @@
   "env": {
     "jest": true
   },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "parser": "babel-eslint",
   "extends": ["airbnb", "plugin:react/recommended"]
 }
