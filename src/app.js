@@ -10,7 +10,7 @@ const controllers = require('./controllers');
 dbConnection();
 const db = mongoose.connection;
 db.once('open', () => {
-  console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`);
+  console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`); // eslint-disable-line
 });
 
 // declare application

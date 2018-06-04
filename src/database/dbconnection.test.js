@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-require('dotenv').config();
+const dbConnection = require('./dbConnection');
 
 let db;
 
 beforeAll(async () => {
-  db = await mongoose.createConnection(process.env.TEST_DATABASE_URL);
+  await dbConnection();
+  db = await mongoose.connection;
 });
 
 afterAll(async (done) => {
