@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const VolunteerSchema = mongoose.Schema(
+const { Schema } = mongoose;
+
+const VolunteerSchema = new Schema(
   {
     name: { first: String, last: String },
     contact: { email: String, mobile: Number },

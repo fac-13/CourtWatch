@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const SimpleSchema = mongoose.Schema({
+const { Schema } = mongoose;
+
+const SimpleSchema = new Schema({
   name: String,
   age: Number,
   colour: Boolean,
