@@ -1,5 +1,13 @@
 import React from 'react';
 
-const Schedule = () => <h1>Schedule</h1>;
+export default class Schedule extends React.Component {
+  state = {
 
-export default Schedule;
+  }
+  render() {
+    return (
+      <h1 > Schedule</h1 >
+    );
+  }
+}
+
