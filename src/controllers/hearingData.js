@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const { addHearing, getHearing } = require('../database/query');
 
 exports.get = async (req, res) => {
@@ -12,7 +10,9 @@ exports.get = async (req, res) => {
 };
 
 exports.post = (req, res) => {
-  const { date, court_name, name, type, email, number, description } = req.body;
+  const {
+    date, court_name, name, type, email, number, description,
+  } = req.body;
 
   // function to retrieve court id
 
