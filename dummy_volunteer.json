@@ -1,0 +1,52 @@
+[
+  {
+    "name": {
+      "first": "Haydn",
+      "last": "Appleby"
+    },
+    "contact": {
+      "email": "haydn@email.com",
+      "mobile": "+447543498273"
+    },
+    "location": {
+      "county": "London",
+      "postcode": "SE84HR"
+    },
+    "availability": [
+      { "day": "MON", "morning": true, "afternoon": true },
+      { "day": "TUE", "morning": true, "afternoon": false },
+      { "day": "FRI", "morning": false, "afternoon": true }
+    ],
+    "notifications": {
+      "email": true,
+      "mobile": true
+    },
+    "password": "haydnpassword",
+    "admin": false
+  },
+  {
+    "name": {
+      "first": "Giulia",
+      "last": "Teggi"
+    },
+    "contact": {
+      "email": "giulia@email.com",
+      "mobile": "+447547389073"
+    },
+    "location": {
+      "county": "London",
+      "postcode": "NW35HY"
+    },
+    "availability": [
+      { "day": "TUE", "morning": false, "afternoon": true },
+      { "day": "WED", "morning": true, "afternoon": false },
+      { "day": "THU", "morning": true, "afternoon": true }
+    ],
+    "notifications": {
+      "email": true,
+      "mobile": false
+    },
+    "password": "giuliapassword",
+    "admin": true
+  }
+]

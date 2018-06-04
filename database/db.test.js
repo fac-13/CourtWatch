@@ -29,8 +29,3 @@ test('Active connection is for test database', async () => {
   const dbName = await db.name;
   expect(dbName).toBe('testdb');
 });
-
-// test('Connection is password protected', async () => {
-//   const dbPass = await db.pass;
-//   expect(dbPass).toBe('test');
-// });
