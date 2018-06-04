@@ -1,23 +1,17 @@
 const mongoose = require('mongoose');
 
-const CourtSchema = mongoose.Schema(
+const { Schema } = mongoose;
+
+const CourtSchema = new Schema(
   {
-    name: { type: String, unique: true },
-    addresses: [
-      {
-        town: String,
-        county: String,
-        type: String,
-        postcode: String,
-        address: String,
-      },
-    ],
-    contacts: [{ name: String, number: Number }],
-    opening_times: [{ opening_time: String }],
+    name: { type: String },
+    addresses: [],
+    contacts: [{ _id: false, name: String, number: String }],
+    opening_times: [{ _id: false, opening_time: String }],
     court_types: { type: Array },
-    areas_of_law: [{ name: String }],
-    facilities: [{ name: String }],
-    court_number: { type: Number, unique: true },
+    areas_of_law: [{ _id: false, name: String }],
+    facilities: [{ _id: false, name: String }],
+    court_number: Schema.Types.Mixed,
     lat: Number,
     lon: Number,
   },
