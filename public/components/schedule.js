@@ -1,5 +1,10 @@
 import React from 'react';
 
-const Schedule = () => <h1>Schedule</h1>;
+export default class Schedule extends React.Component {
 
-export default Schedule;
+
+  render(
+    <h1> Schedule</h1 >;
+  )
+}
+
