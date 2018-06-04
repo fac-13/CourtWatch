@@ -1,7 +1,8 @@
 const { Hearing } = require('./../model');
 
-function createHearing(data) {
-  return Hearing.create(data);
+function addHearing(data) {
+  const hearing = new Hearing(data);
+  return hearing.save();
 }
 
-module.exports = { createHearing };
+module.exports = { addHearing };
