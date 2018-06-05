@@ -1,7 +1,7 @@
-[ 
- {
+[
+  {
     "date": "2018-06-12",
-    "court_id": ,
+    "court_id": "ObjectId('5b16b3aaad06d397f7723673')",
     "court_name": "North Shields County Court and Family Court",
     "addresses": [
       {
@@ -9,21 +9,24 @@
         "county": "Tyne & Wear",
         "type": "Visiting",
         "postcode": "NE29 6AR",
-        "address": "North Shields County Court and Family Court Hearing Centre\nKings Court\nEarl Grey Way\nRoyal Quays"
+        "address":
+          "North Shields County Court and Family Court Hearing Centre\nKings Court\nEarl Grey Way\nRoyal Quays"
       }
     ],
-    "admin_id": 3094,
+    "admin_id": "3094",
     "watching": [],
-    "contact": [{
-      "name": "Nico Cypriot",
-      "type": "Parole Officer",
-      "email": "nico@parole.co.uk",
-      "phone": 07966332485
-    }]
+    "contact": [
+      {
+        "name": "Nico Cypriot",
+        "type": "Parole Officer",
+        "email": "nico@parole.co.uk",
+        "phone": "07966332485"
+      }
+    ]
   },
   {
     "date": "2018-06-18",
-    "court_id": ,
+    "court_id": "ObjectId('5b16b3aaad06d397f7723675')",
     "court_name": "Nottingham County Court and Family Court",
     "addresses": [
       {
@@ -34,18 +37,20 @@
         "address": "Nottingham County Court and Family Court hearing centre\n60 Canal Street\n\n"
       }
     ],
-    "admin_id": 3103,
+    "admin_id": "3103",
     "watching": [],
-    "contact": [{
-      "name": "Ivana Cosgrove",
-      "type": "Solicitor",
-      "email": "ivana@solicitor.com",
-      "phone": null
-    }]
+    "contact": [
+      {
+        "name": "Ivana Cosgrove",
+        "type": "Solicitor",
+        "email": "ivana@solicitor.com",
+        "phone": null
+      }
+    ]
   },
   {
     "date": "2018-06-14",
-    "court_id": ,
+    "court_id": "ObjectId('5b16b3aaad06d397f7723677')",
     "court_name": "Shrewsbury Crown Court",
     "addresses": [
       {
@@ -56,18 +61,20 @@
         "address": "The Shirehall\nAbbey Foregate\n\n"
       }
     ],
-    "admin_id": 3150,
+    "admin_id": "3150",
     "watching": [],
-    "contact": [{
-      "name": "Isaac Raskin",
-      "type": "Social Worker",
-      "email": "isaac@socialservices.com",
-      "phone": null
-    }]
+    "contact": [
+      {
+        "name": "Isaac Raskin",
+        "type": "Social Worker",
+        "email": "isaac@socialservices.com",
+        "phone": null
+      }
+    ]
   },
   {
     "date": "2018-06-13",
-    "court_id": ,
+    "court_id": "ObjectId('5b16b3aaad06d397f7723679')",
     "court_name": "Peterborough Magistrates' Court",
     "addresses": [
       {
@@ -78,18 +85,20 @@
         "address": "The Court House\nBridge Street\n\n"
       }
     ],
-    "admin_id": 3116,
+    "admin_id": "3116",
     "watching": [],
-    "contact": [{
-      "name": "Giulia Teggi",
-      "type": "Defendant",
-      "email": "",
-      "phone": 07754328635
-    }]
+    "contact": [
+      {
+        "name": "Giulia Teggi",
+        "type": "Defendant",
+        "email": null,
+        "phone": "07754328635"
+      }
+    ]
   },
   {
     "date": "2018-06-15",
-    "court_id": ,
+    "court_id": "ObjectId('5b16b3aaad06d397f772367b')",
     "court_name": "Poole Magistrates' Court",
     "addresses": [
       {
@@ -100,20 +109,22 @@
         "address": "Dorset Magistrates Court\nc/o Bournemouth Combined Court\nDeansleigh Road\n"
       },
       {
-          "town": "Poole",
-          "county": "Dorset",
-          "type": "Visiting",
-          "postcode": "BH15 2NS",
-          "address": "The Law Courts\nPark Road\n\n"
+        "town": "Poole",
+        "county": "Dorset",
+        "type": "Visiting",
+        "postcode": "BH15 2NS",
+        "address": "The Law Courts\nPark Road\n\n"
       }
     ],
-    "admin_id": 3123,
+    "admin_id": "3123",
     "watching": [],
-    "contact": [{
-      "name": "Haydn Appleby",
-      "type": "Solicitor",
-      "email": "haydn@solicitor.com",
-      "phone": null
-    }]
+    "contact": [
+      {
+        "name": "Haydn Appleby",
+        "type": "Solicitor",
+        "email": "haydn@solicitor.com",
+        "phone": null
+      }
+    ]
   }
 ]
