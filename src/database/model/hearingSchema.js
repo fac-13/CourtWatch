@@ -10,7 +10,7 @@ const contactSchema = new Schema({
   name: String,
   type: String,
   email: String,
-  number: Number,
+  phone: Number,
 });
 
 const HearingSchema = new Schema(
@@ -18,7 +18,7 @@ const HearingSchema = new Schema(
     date: String,
     court_id: { type: Schema.Types.ObjectId, ref: Court },
     court_name: String,
-    court_number: Number,
+    admin_id: Number,
     watching: [
       {
         name: String,
