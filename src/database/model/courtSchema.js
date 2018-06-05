@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 
+const { Address } = require('.');
+const { Contact } = require('.');
+
 const { Schema } = mongoose;
 
 const CourtSchema = new Schema(
   {
     name: { type: String },
-    addresses: [],
-    contacts: [{ _id: false, name: String, number: String }],
+    addresses: [Address],
+    contacts: [Contact],
     opening_times: [{ _id: false, opening_time: String }],
     court_types: { type: Array },
     areas_of_law: [{ _id: false, name: String }],
