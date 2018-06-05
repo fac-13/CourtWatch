@@ -21,6 +21,7 @@ const courtSchema = new Schema(
     areas_of_law: [{ _id: false, name: String }],
     facilities: [{ _id: false, name: String }],
     admin_id: Number,
+    display: Boolean,
     lat: Number,
     lon: Number,
   },
