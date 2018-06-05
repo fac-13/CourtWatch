@@ -3,13 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-<<<<<<< HEAD
-const mongoose = require('mongoose');
-const dbconnection = require('./database/dbconnection');
-
-=======
 const dbConnection = require('./database/dbconnection');
->>>>>>> master
 const controllers = require('./controllers');
 
 // log db connection status and error events
@@ -31,7 +25,6 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 
-// -- all database and external requests will go here --
 app.use(controllers);
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '..', 'dist/index.html')));
