@@ -13,3 +13,4 @@ if (!DATABASE_URL) {
 }
 
 mongoose.connect(DATABASE_URL);
+

@@ -8,16 +8,17 @@ import Schedule from './schedule';
 import Resources from './resources';
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <Router>
-        <React.Fragment>
-          <Navbar />
-          <Route exact path="/" component={Home} />
-          <Route path="/schedule" component={Schedule} />
-          <Route path="/resources" component={Resources} />
-        </React.Fragment>
-      </Router>
-    );
-  }
+
+	render() {
+		return (
+			<Router>
+				<React.Fragment>
+					<Navbar />
+					<Route exact path="/" component={Home} />
+					<Route path="/schedule" component={Schedule} />
+					<Route path="/resources" component={Resources} />
+				</React.Fragment>
+			</Router>
+		);
+	}
 }
