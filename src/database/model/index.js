@@ -1,5 +1,5 @@
-const { Address } = require('./addressSchema');
-const { Contact } = require('./contactSchema');
+const { AddressSchema: Address } = require('./addressSchema');
+const { ContactSchema: Contact } = require('./contactSchema');
 const { Court } = require('./courtSchema');
 const { Hearing } = require('./hearingSchema');
 const { Volunteer } = require('./volunteerSchema');
