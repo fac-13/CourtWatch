@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const VolunteerSchema = new Schema(
+const volunteerSchema = new Schema(
   {
     name: { first: String, last: String },
     contact: { email: String, mobile: Number },
@@ -15,6 +15,6 @@ const VolunteerSchema = new Schema(
   { timestamps: true },
 );
 
-const Volunteer = mongoose.model('Volunteer', VolunteerSchema);
+const Volunteer = mongoose.model('Volunteer', volunteerSchema);
 
 module.exports = { Volunteer };

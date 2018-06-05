@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const Court = require('./courtSchema');
-const Volunteer = require('./volunteerSchema');
+
+const { Court } = require('.');
+const { Volunteer } = require('.');
 
 const { Schema } = mongoose;
 
