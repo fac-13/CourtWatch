@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
-const Court = require('./courtSchema');
-const Volunteer = require('./volunteerSchema');
+
+const { Court } = require('.');
+const { Volunteer } = require('.');
+const { Contact } = require('.');
 
 const { Schema } = mongoose;
-
-const contactSchema = new Schema({
-  _id: false,
-  name: String,
-  type: String,
-  email: String,
-  number: Number,
-});
 
 const HearingSchema = new Schema(
   {
@@ -24,7 +18,7 @@ const HearingSchema = new Schema(
         volunteer_id: { type: Schema.Types.ObjectId, ref: Volunteer },
       },
     ],
-    contact: [contactSchema],
+    contact: [Contact],
   },
   { timestamps: true },
 );
