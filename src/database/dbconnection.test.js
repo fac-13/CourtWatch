@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbConnection = require('./dbConnection');
+const dbConnection = require('./dbconnection');
 
 let db;
 

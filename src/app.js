@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const dbConnection = require('./database/dbConnection');
+const dbConnection = require('./database/dbconnection');
 const controllers = require('./controllers');
 
 // log db connection status and error events
