@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const ContactSchema = new Schema({
+const ContactSchema = new Schema();
+
+ContactSchema.add({
   _id: false,
   name: String,
   type: String,
