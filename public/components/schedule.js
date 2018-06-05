@@ -20,9 +20,7 @@ export default class Schedule extends React.Component {
           <h3>Loading schedule...</h3>
         }
         {this.state.data &&
-          <article>
-            <Hearings hearings={this.state.data} />
-          </article>
+          <Hearings hearings={this.state.data} />
         }
       </React.Fragment>
     );
