@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const AddressSchema = new Schema({
+const addressSchema = new Schema({
   _id: false,
   town: String,
   county: String,
@@ -11,4 +11,4 @@ const AddressSchema = new Schema({
   address: Number,
 });
 
-module.exports = { AddressSchema };
+module.exports = { addressSchema };

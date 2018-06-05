@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const ContactSchema = new Schema({
+const aontactSchema = new Schema({
   _id: false,
   name: String,
   type: String,
@@ -10,4 +10,4 @@ const ContactSchema = new Schema({
   number: Number,
 });
 
-module.exports = { ContactSchema };
+module.exports = { aontactSchema };

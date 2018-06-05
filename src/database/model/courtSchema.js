@@ -5,7 +5,7 @@ const { Contact } = require('.');
 
 const { Schema } = mongoose;
 
-const CourtSchema = new Schema(
+const courtSchema = new Schema(
   {
     name: { type: String },
     addresses: [Address],
@@ -21,6 +21,6 @@ const CourtSchema = new Schema(
   { timestamps: true },
 );
 
-const Court = mongoose.model('Court', CourtSchema);
+const Court = mongoose.model('Court', courtSchema);
 
 module.exports = { Court };
