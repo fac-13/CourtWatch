@@ -47,6 +47,55 @@
       "mobile": false
     },
     "password": "giuliapassword",
+    "admin": false
+  },
+  {
+    "name": {
+      "first": "Tom",
+      "last": "Eurovision"
+    },
+    "contact": {
+      "email": "tom@email.com",
+      "mobile": "+447392389073"
+    },
+    "location": {
+      "county": "London",
+      "postcode": "SE35HY"
+    },
+    "availability": [
+      { "day": "MON", "morning": false, "afternoon": true },
+      { "day": "TUE", "morning": true, "afternoon": false },
+      { "day": "WED", "morning": true, "afternoon": true }
+    ],
+    "notifications": {
+      "email": true,
+      "mobile": false
+    },
+    "password": "tompassword",
+    "admin": false
+  },
+  {
+    "name": {
+      "first": "Jenna",
+      "last": "Forever"
+    },
+    "contact": {
+      "email": "jenna@email.com",
+      "mobile": "+447765493027"
+    },
+    "location": {
+      "county": "Surrey",
+      "postcode": "RH35HY"
+    },
+    "availability": [
+      { "day": "MON", "morning": true, "afternoon": false },
+      { "day": "THU", "morning": false, "afternoon": true }
+    ],
+    "notifications": {
+      "email": true,
+      "mobile": false
+    },
+    "password": "jennapassword",
     "admin": true
   }
 ]
