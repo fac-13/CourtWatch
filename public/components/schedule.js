@@ -1,5 +1,6 @@
 import React from 'react';
 import { getSchedule } from '../utils/fetch';
+import AddHearing from './addhearing';
 import Hearings from './hearings';
 
 export default class Schedule extends React.Component {
@@ -16,6 +17,7 @@ export default class Schedule extends React.Component {
     return (
       <React.Fragment>
         <h1 > Schedule</h1>
+        <AddHearing />
         {!this.state.data &&
           <h3>Loading schedule...</h3>
         }
