@@ -19,8 +19,6 @@ db.once('open', () => {
   console.log(db.states[db.readyState]);
 });
 
-// console.log(courts);
-
 function populateAllCourts(data) {
   Court.insertMany(data, (err, court) => {
     if (err) {
