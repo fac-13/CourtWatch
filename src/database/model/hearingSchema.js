@@ -19,6 +19,7 @@ const HearingSchema = new Schema(
     court_id: { type: Schema.Types.ObjectId, ref: Court },
     court_name: String,
     court_number: Number,
+
     watching: [
       {
         name: String,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { getSchedule } from '../utils/fetch';
+import Hearings from './hearings';
 
 export default class Schedule extends React.Component {
   state = {
@@ -7,7 +8,8 @@ export default class Schedule extends React.Component {
   }
 
   componentDidMount() {
-    getSchedule('/schedule-data').then(hearings => this.setState({ data: hearings }));
+    getSchedule('/schedule-data')
+      .then(hearings => this.setState({ data: hearings }));
   }
 
   render() {
@@ -19,8 +21,7 @@ export default class Schedule extends React.Component {
         }
         {this.state.data &&
           <article>
-            <p>{this.state.data[0].date}</p>
-            <p>{this.state.data[0].court_name}</p>
+            <Hearings hearings={this.state.data} />
           </article>
         }
       </React.Fragment>
