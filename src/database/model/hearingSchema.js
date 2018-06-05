@@ -16,14 +16,14 @@ const contactSchema = new Schema({
 const HearingSchema = new Schema(
   {
     date: String,
-    court_id: { type: Schema.Types.ObjectId, ref: Court },
+    court_id: String,
     court_name: String,
     addresses: [],
     admin_id: Number,
     watching: [
       {
         name: String,
-        volunteer_id: { type: Schema.Types.ObjectId, ref: Volunteer },
+        volunteer_id: String,
       },
     ],
     contact: [contactSchema],
