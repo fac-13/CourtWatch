@@ -2,11 +2,18 @@ const mongoose = require('mongoose');
 
 const { Court } = require('.');
 const { Volunteer } = require('.');
-const { contactSchema } = require('.');
 
 const { Schema } = mongoose;
 
-const hearingSchema = new Schema(
+const contactSchema = new Schema({
+  _id: false,
+  name: String,
+  type: String,
+  email: String,
+  number: Number,
+});
+
+const HearingSchema = new Schema(
   {
     date: String,
     court_id: { type: Schema.Types.ObjectId, ref: Court },
@@ -23,6 +30,6 @@ const hearingSchema = new Schema(
   { timestamps: true },
 );
 
-const Hearing = mongoose.model('Hearing', hearingSchema);
+const Hearing = mongoose.model('Hearing', HearingSchema);
 
 module.exports = { Hearing };
