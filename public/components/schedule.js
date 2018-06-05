@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSchedule, postHearing } from '../utils/fetch';
+import { getSchedule } from '../utils/fetch';
 import AddHearing from './addhearing';
 import Hearings from './hearings';
 
