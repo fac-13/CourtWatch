@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const Court = require('./courtSchema');
-const Volunteer = require('./volunteerSchema');
+
+const { Court } = require('.');
+const { Volunteer } = require('.');
 
 const { Schema } = mongoose;
 
@@ -15,13 +16,13 @@ const contactSchema = new Schema({
 const HearingSchema = new Schema(
   {
     date: String,
-    court_id: { type: Schema.Types.ObjectId, ref: Court }, // eslint-disable-line
+    court_id: { type: Schema.Types.ObjectId, ref: Court },
     court_name: String,
     court_number: Number,
     watching: [
       {
         name: String,
-        volunteer_id: { type: Schema.Types.ObjectId, ref: Volunteer }, // eslint-disable-line
+        volunteer_id: { type: Schema.Types.ObjectId, ref: Volunteer },
       },
     ],
     contact: [contactSchema],

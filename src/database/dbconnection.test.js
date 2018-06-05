@@ -1,19 +1,15 @@
 const mongoose = require('mongoose');
 
-require('dotenv').config();
+const dbConnection = require('./dbconnection');
 
 let db;
 
 beforeAll(async () => {
-  db = await mongoose.createConnection(process.env.TEST_DATABASE_URL);
+  db = await mongoose.connection;
 });
 
 afterAll(async (done) => {
   await mongoose.disconnect(done);
-});
-
-test('Jest is working', () => {
-  expect(2 + 2).toBe(4);
 });
 
 test('Should fail when env not test ', () => {

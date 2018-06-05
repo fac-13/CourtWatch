@@ -1,8 +1,8 @@
 const { Simple } = require('./../model');
 
-function createSimple(data) {
+function addSimple(data) {
   const simple = new Simple(data);
   return simple.save();
 }
 
-module.exports = { createSimple };
+module.exports = { addSimple };
