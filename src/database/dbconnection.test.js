@@ -5,16 +5,11 @@ const dbConnection = require('./dbConnection');
 let db;
 
 beforeAll(async () => {
-  await dbConnection();
   db = await mongoose.connection;
 });
 
 afterAll(async (done) => {
   await mongoose.disconnect(done);
-});
-
-test('Jest is working', () => {
-  expect(2 + 2).toBe(4);
 });
 
 test('Should fail when env not test ', () => {

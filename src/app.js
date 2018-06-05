@@ -6,12 +6,15 @@ const mongoose = require('mongoose');
 const dbConnection = require('./database/dbConnection');
 const controllers = require('./controllers');
 
-// invoke mongo db connection and log status
-dbConnection();
+// log db connection status and error events
 const db = mongoose.connection;
-db.once('open', () => {
-  console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`); // eslint-disable-line
-});
+db
+  .on('error', () => {
+    console.error.bind(console, 'MongoDB connection error: ');
+  })
+  .once('open', () => {
+    console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`); // eslint-disable-line
+  });
 
 // declare application
 const app = express();
