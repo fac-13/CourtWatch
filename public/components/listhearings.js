@@ -1,11 +1,9 @@
 /* eslint-disable */
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Hearings = (props) => {
+const ListHearings = (props) => {
   const { hearings } = props;
-  console.log(hearings)
 
   const listItems = hearings.map(item =>
     (<li key={item.admin_id}>
@@ -19,4 +17,4 @@ const Hearings = (props) => {
   );
 };
 
-export default Hearings;
+export default ListHearings;
