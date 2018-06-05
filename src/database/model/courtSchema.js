@@ -8,7 +8,7 @@ const addressSchema = new Schema({
   county: String,
   type: String,
   postcode: String,
-  address: Number,
+  address: String,
 });
 
 const courtSchema = new Schema(
@@ -20,7 +20,8 @@ const courtSchema = new Schema(
     court_types: { type: Array },
     areas_of_law: [{ _id: false, name: String }],
     facilities: [{ _id: false, name: String }],
-    court_number: Schema.Types.Mixed,
+    admin_id: Number,
+    display: Boolean,
     lat: Number,
     lon: Number,
   },

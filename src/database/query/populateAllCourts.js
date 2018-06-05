@@ -1,8 +1,23 @@
 const mongoose = require('mongoose');
 
+const court_dump = require('../../../court_dump.json');
 const { Court } = require('./../model');
 
-const court_dump = require('../../../court_dump.json');
+require('dotenv').config();
+
+const DATABASE_URL = process.env.MLAB_DATABASE_URL;
+
+if (!DATABASE_URL) {
+  throw new Error('Environment variable DATABASE_URL should be set');
+}
+
+mongoose.connect(DATABASE_URL);
+
+const db = mongoose.connection;
+
+db.once('open', () => {
+  console.log(db.states[db.readyState]);
+});
 
 function populateAllCourts(data) {
   Court.insertMany(data, (err, court) => {
@@ -14,7 +29,4 @@ function populateAllCourts(data) {
   });
 }
 
-
 populateAllCourts(court_dump.courts);
-
-// module.exports = { populateAllCourts };
