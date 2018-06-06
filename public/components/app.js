@@ -7,6 +7,7 @@ import Navbar from './navbar';
 import Schedule from './schedule';
 import Resources from './resources';
 import Hearing from './hearing';
+import NewHearing from './newhearing.js';
 
 export default class App extends React.Component {
 
