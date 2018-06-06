@@ -6,31 +6,48 @@ const { getAllVolunteers } = require('../database/query');
 // set send-grid credentials
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const getRecipients = async () => {
+const getRecipients = async (option, filter) => {
   try {
-    return (volunteers = await getAllVolunteers(null, 'name contact'));
-    // console.log(volunteers);
+    const volunteers = await getAllVolunteers(option, filter);
+    return volunteers;
   } catch (err) {
-    console.log('allVols error', err);
+    console.log('error retrieving all volunteers', err);
   }
 };
 
-const generateEmail = async () => {
+const generateEmail = async (option, filter, subject, text) => {
   try {
-    const recipientsList = await getRecipients().then(recipients =>
+    const to = await getRecipients(option, filter).then(recipients =>
       recipients.map(item => item.contact.email));
+    const from = 'alerts@wip.org';
     const alert = {
-      to: recipientsList,
-      from: 'alerts@wip.org',
-      subject: 'Hello world',
-      text: 'Hello plain world!',
+      to,
+      from,
+      subject,
+      text,
     };
-    console.log(alert);
+    sgMail.send(alert);
   } catch (err) {
-    console.log('gererate email error', err);
+    console.log('error generating email', err);
   }
 };
 
-generateEmail();
+const emailAlert = (option, filter, subject, text) => generateEmail(option, filter, subject, text);
 
-// module.exports = sgMail.send(alert);
+// emailAlert(
+//   null,
+//   'name contact',
+//   'WIP Alert: Upcoming Hearing',
+//   'This is going to be a big string of text we need you please help!',
+// );
+
+// const msg = {
+//   to: 'recipient@example.org',
+//   cc: 'someone@example.org',
+//   bcc: ['me@example.org', 'you@example.org'],
+//   from: 'sender@example.org',
+//   replyTo: 'othersender@example.org',
+//   subject: 'Hello world',
+//   text: 'Hello plain world!',
+//   html: '<p>Hello HTML world!</p>',
+// };

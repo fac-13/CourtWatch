@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 const { addHearing, getHearing } = require('../database/query');
-const { emailAlertHearing } = require('../messaging/emailAlert');
+const { emailAlert } = require('../messaging/emailAlert');
 
 exports.get = async (req, res) => {
   try {
@@ -33,9 +33,10 @@ exports.post = (req, res) => {
     notes,
   });
 
-  emailAlertHearing({
-    date,
-    court_name,
-    notes,
-  });
+  emailAlert(
+    null,
+    'name contact',
+    'WIP Alert: Upcoming Hearing',
+    'This is going to be a big string of text we need you please help!',
+  );
 };
