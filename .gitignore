@@ -61,7 +61,7 @@ typings/
 .next
 
 # etc.
-court_dump.json
+src/data_helpers/court_dump.json
 
 #dist 
 dist/ 

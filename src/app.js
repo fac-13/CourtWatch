@@ -3,10 +3,16 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const dbConnection = require('./database/dbconnection');
+const { dbConnection } = require('./database/connection');
 const controllers = require('./controllers');
 
-// log db connection status and error events
+// declare application
+const app = express();
+
+// invoke db connection
+dbConnection();
+
+// log db connection events
 const db = mongoose.connection;
 db
   .on('error', () => {
@@ -15,9 +21,6 @@ db
   .once('open', () => {
     console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`); // eslint-disable-line
   });
-
-// declare application
-const app = express();
 
 // data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
