@@ -1,7 +1,7 @@
 import React from 'react';
-import { getSchedule, postHearing } from '../utils/fetch';
+import { getData } from '../utils/fetch';
 import AddHearing from './addhearing';
-import Hearings from './hearings';
+import ListHearings from './listhearings';
 
 export default class Schedule extends React.Component {
   state = {
@@ -9,7 +9,7 @@ export default class Schedule extends React.Component {
   }
 
   componentDidMount() {
-    getSchedule('/schedule-data')
+    getData('/schedule-data')
       .then(hearings => this.setState({ data: hearings }));
   }
 
@@ -23,7 +23,7 @@ export default class Schedule extends React.Component {
         }
         {this.state.data &&
           <section>
-            <Hearings hearings={this.state.data} />
+            <ListHearings hearings={this.state.data} />
           </section>
         }
       </React.Fragment>
