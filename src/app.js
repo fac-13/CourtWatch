@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const dbConnection = require('./database/dbconnection');
 const controllers = require('./controllers');
 
+// declare application
+const app = express();
+
 // log db connection events
 const db = mongoose.connection;
 db
@@ -15,9 +18,6 @@ db
   .once('open', () => {
     console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`); // eslint-disable-line
   });
-
-// declare application
-const app = express();
 
 // data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
