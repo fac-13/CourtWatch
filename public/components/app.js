@@ -19,6 +19,7 @@ export default class App extends React.Component {
 					<Route path="/schedule" component={Schedule} />
 					<Route path="/resources" component={Resources} />
 					<Route path="/hearing/" component={Hearing} />
+					<Route path="/new-hearing" component={NewHearing} />
 				</React.Fragment>
 			</Router>
 		);
