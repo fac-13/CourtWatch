@@ -33,10 +33,10 @@ exports.post = (req, res) => {
     notes,
   });
 
-  emailAlert(
-    null,
-    'name contact',
-    'WIP Alert: Upcoming Hearing',
-    'This is going to be a big string of text we need you please help!',
-  );
+  // emailAlert(
+  //   null,
+  //   'name contact',
+  //   'WIP Alert: Upcoming Hearing',
+  //   'This is going to be a big string of text we need you please help!',
+  // );
 };
