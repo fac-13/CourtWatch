@@ -11,7 +11,12 @@ export default class NewHearing extends React.Component {
     type: '',
     email: '',
     phone: '',
+  }
 
+  handleChange = event => {
+    const target = event.target;
+    const value = target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
