@@ -3,9 +3,9 @@ import React from 'react';
 const DetailsHearings = (props) => {
   const { hearing } = props;
   const { addresses } = hearing[0];
-
-  addresses.map(item => console.log(item.type));
-
+  const regex = /visit/i;
+  const address = addresses.filter(item => regex.test(item.type) === true);
+  console.log('Visiting address', address);
   return (
     <section>
       <h4>Date:</h4>
@@ -13,6 +13,9 @@ const DetailsHearings = (props) => {
       <h4>Court</h4>
       <p>{hearing[0].court_name}</p>
       <h4>Address</h4>
+      <p>{address[0].address}</p>
+      <p>{address[0].town}</p>
+      <p>{address[0].county}</p>
     </section>
   );
 };
