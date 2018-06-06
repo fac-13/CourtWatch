@@ -3,11 +3,14 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const dbConnection = require('./database/dbconnection');
+const { dbConnection } = require('./database/connection');
 const controllers = require('./controllers');
 
 // declare application
 const app = express();
+
+// invoke db connection
+dbConnection();
 
 // log db connection events
 const db = mongoose.connection;
