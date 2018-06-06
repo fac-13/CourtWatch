@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ListHearings = (props) => {
   const { hearings } = props;
-  console.log("Hello!");
-  console.log("Object Id", hearings[0]._id)
+
   const listItems = hearings.map((item, index) =>
     (<li key={index}>
       <p>{item.date}</p>

@@ -1,10 +1,11 @@
 /* eslint-disable */
-
 const { addHearing, getHearing } = require('../database/query');
 
 exports.get = async (req, res) => {
+  const { id } = req.params;
+
   try {
-    const hearing = await getHearing();
+    const hearing = await getHearing(id);
     res.send(hearing);
   } catch (err) {
     console.log('getHearing error', err);

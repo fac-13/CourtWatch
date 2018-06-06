@@ -8,12 +8,13 @@ const checkResponse = (response) => {
   return response.json();
 };
 
-export const getSchedule = (url) => {
+export const getData = (url) => {
   return fetch(url)
     .then(checkResponse)
     .catch((err) => {
       throw new Error(`fetch getSchedule failed ${err}`);
     });
 };
+
 
 
