@@ -27,6 +27,7 @@ const HearingSchema = new Schema(
       },
     ],
     contact: [contactSchema],
+    notes: String,
   },
   { timestamps: true },
 );
