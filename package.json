@@ -1,11 +1,11 @@
 {
   "name": "court-watch",
   "version": "1.0.0",
-  "description":
-    "A notifications, bookings and data gathering app for court observers at hearings where defendants are women.",
+  "description": "A notifications, bookings and data gathering app for court observers at hearings where defendants are women.",
   "main": "index.js",
   "scripts": {
     "start": "parcel ./public/index.html | node src/index.js",
+    "dev": "parcel ./public/index.html | nodemon src/index.js",
     "test": "jest",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
     "build": "parcel build ./public/index.html | node src/index.js"
