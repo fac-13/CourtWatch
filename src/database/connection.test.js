@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
-const dbConnection = require('./dbconnection');
+const { dbConnection } = require('./connection');
 
 let db;
 
 beforeAll(async () => {
+  await dbConnection();
   db = await mongoose.connection;
 });
 
