@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const dbConnection = require('./database/dbconnection');
 const controllers = require('./controllers');
 
-// log db connection status and error events
+// log db connection events
 const db = mongoose.connection;
 db
   .on('error', () => {
