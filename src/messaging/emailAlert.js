@@ -1,40 +1,36 @@
 const sgMail = require('@sendgrid/mail');
-const mongoose = require('mongoose');
-
 require('dotenv').config();
-
-let { DATABASE_URL } = process.env;
-
-if (process.env.NODE_ENV === 'test') {
-  DATABASE_URL = process.env.TEST_DATABASE_URL;
-}
-
-if (!DATABASE_URL) {
-  throw new Error('Environment variable DATABASE_URL should be set');
-}
-
-mongoose.connect(DATABASE_URL);
 
 const { getAllVolunteers } = require('../database/query');
 
+// set send-grid credentials
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const getRecipients = async () => {
   try {
-    const recipients = await getAllVolunteers(null, 'name contact');
-    console.log(recipients);
+    return (volunteers = await getAllVolunteers(null, 'name contact'));
+    // console.log(volunteers);
   } catch (err) {
     console.log('allVols error', err);
   }
 };
 
-getRecipients();
+const generateEmail = async () => {
+  try {
+    const recipientsList = await getRecipients().then(recipients =>
+      recipients.map(item => item.contact.email));
+    const alert = {
+      to: recipientsList,
+      from: 'alerts@wip.org',
+      subject: 'Hello world',
+      text: 'Hello plain world!',
+    };
+    console.log(alert);
+  } catch (err) {
+    console.log('gererate email error', err);
+  }
+};
 
-// const alert = {
-//   to: recipients,
-//   from: 'alerts@wip.org',
-//   subject: `Upcoming Hearing: ${}`,
-//   text: 'Hello plain world!',
-// };
+generateEmail();
 
 // module.exports = sgMail.send(alert);
