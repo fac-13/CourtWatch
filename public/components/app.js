@@ -6,6 +6,7 @@ import Home from './home';
 import Navbar from './navbar';
 import Schedule from './schedule';
 import Resources from './resources';
+import Hearing from './hearing';
 
 export default class App extends React.Component {
 
@@ -17,6 +18,7 @@ export default class App extends React.Component {
 					<Route exact path="/" component={Home} />
 					<Route path="/schedule" component={Schedule} />
 					<Route path="/resources" component={Resources} />
+					<Route path="/hearing/" component={Hearing} />
 				</React.Fragment>
 			</Router>
 		);

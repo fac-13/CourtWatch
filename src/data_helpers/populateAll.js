@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // const courts_dump = require('./courts_dump.json');
 // const dummy_courts = require('./dummy_courts');
 // const dummy_hearing = require('./dummy_hearing');
-const dummy_volunteer = require('./dummy_volunteer');
+// const dummy_volunteer = require('./dummy_volunteer');
 
 // import relevant schemas
 const { Court } = require('../database/model');
@@ -49,4 +49,4 @@ function populateAll(schema, data) {
 // populateAll(Court, courts_dump.courts);
 // populateAll(Court, dummy_courts.courts);
 // populateAll(Hearing, dummy_hearing);
-populateAll(Volunteer, dummy_volunteer);
+// populateAll(Volunteer, dummy_volunteer);
