@@ -16,5 +16,13 @@ export const getData = (url) => {
     });
 };
 
+export const postData = (data) => {
+  return fetch('/match-court', { method: 'POST', body: data })
+    .then(checkResponse)
+    .catch((err) => {
+      throw new Error(`fetch getData failed ${err}`);
+    });
+};
+
 
 
