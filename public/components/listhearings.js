@@ -2,30 +2,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { getData } from '../utils/fetch';
 
-const ListHearings = (props) => {
-  const { hearings } = props;
+export default class ListHearings extends React.Component {
+  state = {
+    data: null,
+  };
 
-  //generate calendar rows 
-  const TwoWeeks = () => {
-    let start = moment().subtract(1, 'days');
-    const arr = Array.from({ length: 14 });
-    const result = arr.map((item, index) => <tr key={index}>{start.add(1, 'days').format("dddd DD")}</tr>);
-    return result;
+  componentDidMount() {
+    getData('/schedule-data').then(hearings =>
+      this.setState({ data: hearings }, () => console.log(hearings)),
+    );
   }
 
-  return (
-    <table>
-      <thead>
-        <Month />
-      </thead>
-      <tbody>
-        <tr>
-          <TwoWeeks />
-        </tr>
-      </tbody>
-    </table>
-  );
-};
+  //generate calendar rows
+  twoWeeks = () => {
+    let start = moment().subtract(1, 'days');
+    const arr = Array.from({ length: 14 });
+    return arr.map((item, index) => {
+      // const dayOfWeek = start.add(1, 'days').format('dddd DD');
+      <article key={index}>
+        <section>{start.add(1, 'days').format('dddd DD')}</section>
+        <section>
+          <p>HaydnGiulia</p>
+        </section>
+      </article>;
+    });
+  };
 
-export default ListHearings;
+  // MonthYear = () => {
+  //   let date = moment().format('MMMM YYYY');
+  //   return [date];
+  // };
+
+  render() {
+    return (
+      <main>
+        {/* <header>
+          <MonthYear />
+        </header> */}
+        <section>{this.twoWeeks}</section>
+      </main>
+    );
+  }
+}
