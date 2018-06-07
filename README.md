@@ -1,6 +1,8 @@
 
 [![Build Status](https://travis-ci.org/fac-13/CourtWatch.svg?branch=master)](https://travis-ci.org/fac-13/CourtWatch)
 
+[![codecov](https://codecov.io/gh/fac-13/CourtWatch/branch/master/graph/badge.svg)](https://codecov.io/gh/fac-13/CourtWatch)
+
 # CourtWatch
 
 ## Problem statement
