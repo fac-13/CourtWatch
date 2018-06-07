@@ -23,7 +23,7 @@ const Weeks = (props) => {
         <section>{day.format('dddd DD')}</section>
         <section />
         {match.length > 0 &&
-          <p><Link to={`/hearing/${match[0]._id}`}>{match[0].court_name}</Link></p>
+          <p><Link to={`/hearing/${match[0]._id}`} className="link">{match[0].court_name}</Link></p>
         }
       </article >
     );

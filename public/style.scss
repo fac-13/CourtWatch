@@ -1,6 +1,6 @@
 //variables
 $font-stack: Helvetica, Arial, sans-serif;
-$white: #fff; 
+$white: #fff4fd; 
 $grey: #424242; 
 $darkgrey: #303030; 
 $purple: #be24a3; 
@@ -8,8 +8,8 @@ $green: #00AE65;
 
 //styles
 * {
-    // margin: 0; 
-    // padding: 0; 
+    margin: 0; 
+    padding: 0; 
     box-sizing: border-box; 
     font-family: $font-stack; 
     text-align: center; 
@@ -19,8 +19,9 @@ html, body, #root {
     height: 100%; 
 }
 
-a {
-    text-decoration: none; 
+a, .button_link {
+    text-decoration: none;
+    color: inherit;  
 }
 
 nav {
@@ -63,3 +64,18 @@ h1 {
     margin: 5%; 
     font-size: 2em; 
 }
+
+button {
+    background-color: $white; 
+    border: $purple; 
+    color: $purple; 
+    text-align: centre; 
+    padding: 0.5em; 
+    margin: 3%; 
+}
+
+.button_link {
+    font-size: 1.3em; 
+}
+
+
