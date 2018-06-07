@@ -4,7 +4,6 @@ node_js:
   - "8"
 env:
   - TEST_DATABASE_URL=mongodb://localhost/testdb
-  - CODECOV_TOKEN=d8f74d39-238a-4566-97c9-d0873ef83c36
 install:
   - npm install
   - npm install -g codecov
