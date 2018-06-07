@@ -16,5 +16,10 @@ export const getData = (url) => {
     });
 };
 
+export const postData = (data) => {
+  return fetch(`/match-court/${data}`)
+    .then(data => console.log("Matching courts", data))
+};
+
 
 
