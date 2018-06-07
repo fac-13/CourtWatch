@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel ./public/index.html | node src/index.js",
     "dev": "parcel ./public/index.html | nodemon src/index.js",
-    "test": "jest",
+    "test": "jest --coverage",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
     "build": "parcel build ./public/index.html | node src/index.js"
   },

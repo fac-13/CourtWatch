@@ -4,6 +4,12 @@ node_js:
   - "8"
 env:
   - TEST_DATABASE_URL=mongodb://localhost/testdb
+install:
+  - npm install
+  - npm install -g codecov
+script:
+  - npm run test
+  - codecov
 services:
   - mongodb
 before_script:
