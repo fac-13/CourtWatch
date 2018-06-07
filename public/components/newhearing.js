@@ -24,7 +24,7 @@ export default class NewHearing extends React.Component {
   handleAutocomplete = event => {
     this.handleChange(event);
     postData(this.state.court)
-      .then(courts => console.log(courts));
+      .then(courts => console.log("Courts:", courts));
   }
 
 
