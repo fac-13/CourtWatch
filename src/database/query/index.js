@@ -1,19 +1,31 @@
-const { createCourt } = require('./addCourt');
-const { createHearing } = require('./addHearing');
-const { createVolunteer } = require('./addVolunteer');
-const { getAllCourts } = require('./getAllCourts');
-const { getAllHearings } = require('./getAllHearings');
-const { getAllVolunteers } = require('./getAllVolunteers');
-const { getHearing } = require('./getHearing');
-const { getVolunteer } = require('./getVolunteer');
+const {
+  createVolunteer,
+  getAllVolunteers,
+  /* getVolunteer, */ deleteVolunteer,
+} = require('./volunteers');
+const { createCourt, getAllCourts, /* getCourt, */ deleteCourt } = require('./courts');
+const {
+  createHearing, getAllHearings, getHearing, deleteHearing,
+} = require('./hearings');
 
 module.exports = {
+  // creating
   createCourt,
   createHearing,
   createVolunteer,
+
+  // getting all
   getAllCourts,
   getAllHearings,
   getAllVolunteers,
+
+  // getting one - detail views
+  /* getCourt, */
   getHearing,
-  getVolunteer,
+  /* getVolunteer, */
+
+  // deleting
+  deleteCourt,
+  deleteHearing,
+  deleteVolunteer,
 };
