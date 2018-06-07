@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./public/index.html | node src/index.js",
+    "dev": "parcel ./public/index.html | nodemon src/index.js",
     "test": "jest",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
     "build": "parcel build ./public/index.html | node src/index.js"
@@ -28,6 +29,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "jest": "^23.1.0",
+    "nodemon": "^1.17.5",
     "parcel-bundler": "^1.8.1",
     "supertest": "^3.1.0"
   },

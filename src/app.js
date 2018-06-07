@@ -9,18 +9,14 @@ const controllers = require('./controllers');
 // declare application
 const app = express();
 
-// invoke db connection
-dbConnection();
-
-// log db connection events
+// access db connection
 const db = mongoose.connection;
-db
-  .on('error', () => {
-    console.error.bind(console, 'MongoDB connection error: ');
-  })
-  .once('open', () => {
-    console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`); // eslint-disable-line
-  });
+
+// invoke db connection and log connection events
+dbConnection().catch(console.error.bind(console, 'MongoDB connection error: '));
+db.once('open', () => {
+  console.log(`${db.states[db.readyState]} to mongoDB on ${db.host}:${db.port}`); // eslint-disable-line
+});
 
 // data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
