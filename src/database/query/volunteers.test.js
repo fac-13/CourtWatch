@@ -14,6 +14,8 @@ const {
 
 let db;
 
+jest.setTimeout(10000);
+
 beforeAll(async () => {
   await dbConnection();
   db = await mongoose.connection;
