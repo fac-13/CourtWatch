@@ -51,11 +51,11 @@
   },
   {
     "name": {
-      "first": "Tom",
-      "last": "Eurovision"
+      "first": "Eade",
+      "last": "Hemingway"
     },
     "contact": {
-      "email": "lawrence@foundersandcoders.com",
+      "email": "eade.hemingway@gmail.com",
       "mobile": "+447392389073"
     },
     "location": {
@@ -71,16 +71,16 @@
       "email": true,
       "mobile": false
     },
-    "password": "tompassword",
+    "password": "eadepassword",
     "admin": false
   },
   {
     "name": {
-      "first": "Jenna",
-      "last": "Forever"
+      "first": "Katia",
+      "last": "Punter"
     },
     "contact": {
-      "email": "phat@foundersandcoders.com",
+      "email": "katiapunter@gmail.com",
       "mobile": "+447765493027"
     },
     "location": {
@@ -95,7 +95,32 @@
       "email": true,
       "mobile": false
     },
-    "password": "jennapassword",
+    "password": "katiapassword",
     "admin": true
+  },
+  {
+    "name": {
+      "first": "Parissa",
+      "last": "Jamali"
+    },
+    "contact": {
+      "email": "parissajamali@gmail.com",
+      "mobile": "+447392389073"
+    },
+    "location": {
+      "county": "London",
+      "postcode": "SE35HY"
+    },
+    "availability": [
+      { "day": "MON", "morning": false, "afternoon": true },
+      { "day": "TUE", "morning": true, "afternoon": false },
+      { "day": "WED", "morning": true, "afternoon": true }
+    ],
+    "notifications": {
+      "email": true,
+      "mobile": false
+    },
+    "password": "parissapassword",
+    "admin": false
   }
 ]
