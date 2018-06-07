@@ -1,19 +1,30 @@
 /* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const ListHearings = (props) => {
   const { hearings } = props;
 
-  const listItems = hearings.map((item, index) =>
-    (<li key={index}>
-      <p>{item.date}</p>
-      <h4><Link to={'/hearing/' + item._id}> {item.court_name}</Link></h4>
-      {/* <p>{item.addresses[0].postcode}</p> */}
-    </li >));
+  //generate calendar rows 
+  const TwoWeeks = () => {
+    let start = moment().subtract(1, 'days');
+    const arr = Array.from({ length: 14 });
+    const result = arr.map((item, index) => <tr key={index}>{start.add(1, 'days').format("dddd DD")}</tr>);
+    return result;
+  }
 
   return (
-    <ul>{listItems}</ul>
+    <table>
+      <thead>
+        <Month />
+      </thead>
+      <tbody>
+        <tr>
+          <TwoWeeks />
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
