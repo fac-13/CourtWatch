@@ -1,9 +1,16 @@
 const {
   createVolunteer,
   getAllVolunteers,
-  /* getVolunteer, */ deleteVolunteer,
+  getVolunteer,
+  deleteVolunteer,
+  updateVolunteer,
 } = require('./volunteers');
-const { createCourt, getAllCourts, /* getCourt, */ deleteCourt } = require('./courts');
+const {
+  createCourt,
+  getAllCourts,
+  /* getCourt, */
+  deleteCourt,
+} = require('./courts');
 const {
   createHearing, getAllHearings, getHearing, deleteHearing,
 } = require('./hearings');
@@ -22,10 +29,13 @@ module.exports = {
   // getting one - detail views
   /* getCourt, */
   getHearing,
-  /* getVolunteer, */
+  getVolunteer,
 
   // deleting
   deleteCourt,
   deleteHearing,
   deleteVolunteer,
+
+  // updating
+  updateVolunteer,
 };

@@ -20,6 +20,7 @@ const Weeks = (props) => {
     const match = hearings.filter(hearing => hearing.date === date);
 
     return (
+<<<<<<< HEAD
       <article key={index} className="schedule_article">
         <section className="schedule_section left_column">
           <p>{day.format('dddd')}</p>
@@ -30,6 +31,14 @@ const Weeks = (props) => {
             <p><Link to={`/hearing/${match[0]._id}`} className="link">{match[0].court_name}</Link></p>
           }
         </section>
+=======
+      <article key={index}>
+        <section>{day.format('dddd DD')}</section>
+        <section />
+        {match.length > 0 &&
+          <p><Link to={`/hearing/${match[0]._id}`} className="link">{match[0].court_name}</Link></p>
+        }
+>>>>>>> master
       </article >
     );
   });
