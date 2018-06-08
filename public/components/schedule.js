@@ -1,6 +1,6 @@
 import React from 'react';
 import { getData } from '../utils/fetch';
-import AddHearing from './addhearing';
+import Button from './button';
 import ListHearings from './listhearings';
 
 export default class Schedule extends React.Component {
@@ -13,11 +13,13 @@ export default class Schedule extends React.Component {
       .then(hearings => this.setState({ data: hearings }));
   }
 
+  addHearing = '/new-hearing';
+
   render() {
     return (
       <React.Fragment>
         <h1 > Schedule</h1>
-        <AddHearing />
+        <Button link={this.addHearing} text="Add a hearing" />
         {!this.state.data &&
           <h3>Loading schedule...</h3>
         }
