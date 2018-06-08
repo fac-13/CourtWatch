@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { postData } from '../utils/fetch';
 
 export default class NewHearing extends React.Component {
   state = {
@@ -16,8 +17,16 @@ export default class NewHearing extends React.Component {
   handleChange = event => {
     const target = event.target;
     const value = target.value;
-    this.setState({ [name]: value });
+    const key = target.name;
+    this.setState({ [key]: value });
   }
+
+  handleAutocomplete = event => {
+    this.handleChange(event);
+    postData(this.state.court)
+      .then(courts => console.log("Courts:", courts));
+  }
+
 
   render() {
     return (
@@ -34,11 +43,11 @@ export default class NewHearing extends React.Component {
             </datalist>
 
             <label htmlFor="court">Court:</label>
-            <input list="text" name="court" id="court" value={this.state.court} onChange={this.handleChange} />
+            <input list="text" name="court" id="court" value={this.state.court} onChange={this.handleAutocomplete} />
 
             <h4>Contact details (optional)</h4>
             <label htmlFor="name">Name:</label>
-            <input type="text" name="text" id="name" value={this.state.name} onChange={this.handleChange} />
+            <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
             <label htmlFor="type">I am a...</label>
             <input list="type" name="type" id="type" value={this.state.type} onChange={this.handleChange} />
             <datalist id="type">
