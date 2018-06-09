@@ -3,11 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Button = (props) => {
-  const { link, text } = props;
+  const { link, text, className } = props;
 
   return (
-    <button>
-      <Link to={link} className="link" className="button_link">{text}</Link>
+    <button className={className} >
+      <Link to={link} className="link">{text}</Link>
     </button >
   )
 }

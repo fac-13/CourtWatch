@@ -19,7 +19,7 @@ export default class Schedule extends React.Component {
     return (
       <React.Fragment>
         <h1 > Schedule</h1>
-        <Button link={this.addHearing} text="Add a hearing" />
+        <Button className="schedule_button" link={this.addHearing} text="Add a hearing" />
         {!this.state.data &&
           <h3>Loading schedule...</h3>
         }
