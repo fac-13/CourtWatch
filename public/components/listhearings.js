@@ -8,8 +8,8 @@ const ListHearings = (props) => {
   const { hearings } = props;
 
   return (
-    <section>
-      <header>
+    <section className="schedule_list">
+      <header className="schedule_header">
         <MonthYear />
       </header>
       <Weeks hearings={hearings} />
