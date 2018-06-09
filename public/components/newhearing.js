@@ -9,7 +9,7 @@ export default class NewHearing extends React.Component {
     date: '',
     court: '',
     name: '',
-    type: '',
+    profession: '',
     email: '',
     phone: '',
   }
@@ -37,7 +37,7 @@ export default class NewHearing extends React.Component {
 
             <section className="form_section">
               <label htmlFor="date">Date:</label>
-              <input list="date" name="date" id="name" value={this.state.date} onChange={this.handleChange} />
+              <input list="date" name="date" value={this.state.date} onChange={this.handleChange} />
               <datalist id="date">
                 <option value="hello" />
                 <option value="Ciao" />
@@ -46,20 +46,20 @@ export default class NewHearing extends React.Component {
 
             <section className="form_section">
               <label htmlFor="court">Court:</label>
-              <input list="text" name="court" id="court" value={this.state.court} onChange={this.handleAutocomplete} />
+              <input list="text" name="court" value={this.state.court} onChange={this.handleAutocomplete} />
             </section>
 
             <h4>Contact details (optional):</h4>
 
             <section className="form_section">
               <label htmlFor="name">Name:</label>
-              <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
+              <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
             </section>
 
             <section className="form_section">
-              <label htmlFor="type">I am a...</label>
-              <input list="type" name="type" id="type" value={this.state.type} onChange={this.handleChange} />
-              <datalist id="type">
+              <label htmlFor="profession">I am a...</label>
+              <input list="profession" name="profession" value={this.state.profession} onChange={this.handleChange} />
+              <datalist id="profession">
                 <option value="Solicitor" />
                 <option value="Social worker" />
                 <option value="Defendant" />
@@ -67,14 +67,15 @@ export default class NewHearing extends React.Component {
               </datalist>
             </section>
 
+
             <section className="form_section">
               <label htmlFor="email">Email:</label>
-              <input type="text" name="email" id="email" value={this.state.email} onChange={this.handleChange} />
+              <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
             </section>
 
             <section className="form_section">
               <label htmlFor="phone">Phone number:</label>
-              <input type="text" name="number" id="phone" value={this.state.phone} onChange={this.handleChange} />
+              <input type="text" name="number" value={this.state.phone} onChange={this.handleChange} />
             </section>
 
             <button type="submit"><Link to="/schedule">Add hearing</Link></button>
