@@ -18,7 +18,8 @@ html, body, #root {
 
 a, .link {
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  text-align: center; }
 
 nav {
   min-height: 8%;
@@ -62,7 +63,7 @@ button {
   padding: 0.5em;
   margin: 5%;
   width: 200px; }
-  button.hearing_section {
+  button.hearing_button {
     align-self: center; }
 
 .schedule_header {
@@ -108,10 +109,8 @@ button {
 
 .hearing_left_column {
   padding: 1em;
-  width: 30%;
-  text-align: left; }
+  width: 30%; }
 
 .hearing_right_column {
   padding: 1em;
-  width: 70%;
-  text-align: left; }
+  width: 70%; }
