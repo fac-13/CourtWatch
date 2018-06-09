@@ -1,12 +1,14 @@
 [
   {
-    "name": {
-      "first": "Haydn",
-      "last": "Appleby"
-    },
+    "first_name": "Haydn",
+    "last_name": "Appleby",
     "contact": {
       "email": "haydnba@gmail.com",
-      "mobile": "+447543498273"
+      "mobile": "+447543498273",
+      "notifications": {
+        "email": true,
+        "mobile": true
+      }
     },
     "location": {
       "county": "London",
@@ -17,21 +19,19 @@
       { "day": "TUE", "morning": true, "afternoon": false },
       { "day": "FRI", "morning": false, "afternoon": true }
     ],
-    "notifications": {
-      "email": true,
-      "mobile": true
-    },
     "password": "haydnpassword",
     "admin": false
   },
   {
-    "name": {
-      "first": "Giulia",
-      "last": "Teggi"
-    },
+    "first_name": "Giulia",
+    "last_name": "Teggi",
     "contact": {
       "email": "teggi.giulia@gmail.com",
-      "mobile": "+447547389073"
+      "mobile": "+447547389073",
+      "notifications": {
+        "email": true,
+        "mobile": false
+      }
     },
     "location": {
       "county": "London",
@@ -42,21 +42,19 @@
       { "day": "WED", "morning": true, "afternoon": false },
       { "day": "THU", "morning": true, "afternoon": true }
     ],
-    "notifications": {
-      "email": true,
-      "mobile": false
-    },
     "password": "giuliapassword",
     "admin": false
   },
   {
-    "name": {
-      "first": "Eade",
-      "last": "Hemingway"
-    },
+    "first_name": "Eade",
+    "last_name": "Hemingway",
     "contact": {
       "email": "eade.hemingway@gmail.com",
-      "mobile": "+447392389073"
+      "mobile": "+447840382648",
+      "notifications": {
+        "email": true,
+        "mobile": false
+      }
     },
     "location": {
       "county": "London",
@@ -67,21 +65,19 @@
       { "day": "TUE", "morning": true, "afternoon": false },
       { "day": "WED", "morning": true, "afternoon": true }
     ],
-    "notifications": {
-      "email": true,
-      "mobile": false
-    },
     "password": "eadepassword",
     "admin": false
   },
   {
-    "name": {
-      "first": "Katia",
-      "last": "Punter"
-    },
+    "first_name": "Katia",
+    "last_name": "Punter",
     "contact": {
       "email": "katiapunter@gmail.com",
-      "mobile": "+447765493027"
+      "mobile": "+447204836482",
+      "notifications": {
+        "email": true,
+        "mobile": false
+      }
     },
     "location": {
       "county": "Surrey",
@@ -91,21 +87,19 @@
       { "day": "MON", "morning": true, "afternoon": false },
       { "day": "THU", "morning": false, "afternoon": true }
     ],
-    "notifications": {
-      "email": true,
-      "mobile": false
-    },
     "password": "katiapassword",
     "admin": true
   },
   {
-    "name": {
-      "first": "Parissa",
-      "last": "Jamali"
-    },
+    "first_name": "Parissa",
+    "last_name": "Jamali",
     "contact": {
       "email": "parissajamali@gmail.com",
-      "mobile": "+447392389073"
+      "mobile": "+447860493765",
+      "notifications": {
+        "email": true,
+        "mobile": false
+      }
     },
     "location": {
       "county": "London",
@@ -116,10 +110,6 @@
       { "day": "TUE", "morning": true, "afternoon": false },
       { "day": "WED", "morning": true, "afternoon": true }
     ],
-    "notifications": {
-      "email": true,
-      "mobile": false
-    },
     "password": "parissapassword",
     "admin": false
   }
