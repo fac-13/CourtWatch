@@ -12,7 +12,15 @@ export const getData = (url) => {
   return fetch(url)
     .then(checkResponse)
     .catch((err) => {
-      throw new Error(`fetch getSchedule failed ${err}`);
+      throw new Error(`fetch getData failed ${err}`);
+    });
+};
+
+export const postData = (data) => {
+  return fetch('/match-court', { method: 'POST', body: data })
+    .then(checkResponse)
+    .catch((err) => {
+      throw new Error(`fetch getData failed ${err}`);
     });
 };
 

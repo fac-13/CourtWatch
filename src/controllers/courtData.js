@@ -1,8 +1,9 @@
 const { getAllCourts } = require('../database/query');
 
-exports.get = async (req, res) => {
+exports.post = async (req, res) => {
   // mathStr will take the string value passed in the body of the request from the client form
-  const matchStr = 'Mar';
+  const matchStr = req.body;
+  console.log('Matchstr', matchStr);
   // matchStr is interpolated into a regex pattern
   // excludes common irrelevant words (court, family, centre...)
   const pattern = new RegExp(`\\b(?!Court|Centre|Family|Magistrate)(${matchStr})`, 'i');
