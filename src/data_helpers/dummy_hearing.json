@@ -1,7 +1,7 @@
 [
   {
-    "date": "2018-06-12",
-    "court_id": "ObjectId('5b16bf9ea461886ddf59f0b9')",
+    "hearing_date": "2018-06-12",
+    "court_id": "5b16bf9ea461886ddf59f0b9",
     "court_name": "North Shields County Court and Family Court",
     "addresses": [
       {
@@ -9,7 +9,8 @@
         "county": "Tyne & Wear",
         "type": "Visiting",
         "postcode": "NE29 6AR",
-        "address": "North Shields County Court and Family Court Hearing Centre\nKings Court\nEarl Grey Way\nRoyal Quays"
+        "address":
+          "North Shields County Court and Family Court Hearing Centre\nKings Court\nEarl Grey Way\nRoyal Quays"
       }
     ],
     "admin_id": "3094",
@@ -24,8 +25,8 @@
     ]
   },
   {
-    "date": "2018-06-18",
-    "court_id": "ObjectId('5b16bf9ea461886ddf59f0bb')",
+    "hearing_date": "2018-06-18",
+    "court_id": "5b16bf9ea461886ddf59f0bb",
     "court_name": "Nottingham County Court and Family Court",
     "addresses": [
       {
@@ -48,8 +49,8 @@
     ]
   },
   {
-    "date": "2018-06-14",
-    "court_id": "ObjectId('5b16bf9ea461886ddf59f0bd')",
+    "hearing_date": "2018-06-14",
+    "court_id": "5b16bf9ea461886ddf59f0bd",
     "court_name": "Shrewsbury Crown Court",
     "addresses": [
       {
@@ -72,8 +73,8 @@
     ]
   },
   {
-    "date": "2018-06-13",
-    "court_id": "ObjectId('5b16bf9ea461886ddf59f0bf')",
+    "hearing_date": "2018-06-13",
+    "court_id": "5b16bf9ea461886ddf59f0bf",
     "court_name": "Peterborough Magistrates' Court",
     "addresses": [
       {
@@ -96,8 +97,8 @@
     ]
   },
   {
-    "date": "2018-06-15",
-    "court_id": "ObjectId('5b16bf9ea461886ddf59f0c1')",
+    "hearing_date": "2018-06-15",
+    "court_id": "5b16bf9ea461886ddf59f0c1",
     "court_name": "Poole Magistrates' Court",
     "addresses": [
       {
