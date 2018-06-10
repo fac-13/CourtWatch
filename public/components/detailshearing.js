@@ -6,10 +6,10 @@ import Button from './button';
 
 const DetailsHearings = (props) => {
   const { hearing } = props;
-  const { addresses, contact } = hearing[0];
+  const { addresses, contact } = hearing;
 
   //Change format of date 
-  const date = moment(hearing[0].date).format('dddd D MMMM YYYY')
+  const date = moment(hearing.date).format('dddd D MMMM YYYY')
 
   // Regex and filter function to render only address for visits (not postal address)
   const regex = /visit/i;
@@ -37,7 +37,7 @@ const DetailsHearings = (props) => {
           <h4>Court:</h4>
         </section>
         <section className="hearing_right_column">
-          <span>{hearing[0].court_name}</span>
+          <span>{hearing.court_name}</span>
         </section>
       </section>
 
@@ -47,8 +47,8 @@ const DetailsHearings = (props) => {
         </section>
         <section className="hearing_right_column">
           <Address />
-          <span>{addressBlock[0].town}<br /></span>
-          <span>{addressBlock[0].county}</span>
+          <span>{addressBlock.town}<br /></span>
+          <span>{addressBlock.county}</span>
         </section>
       </section>
 
@@ -57,7 +57,7 @@ const DetailsHearings = (props) => {
           <h4>Postcode:</h4>
         </section>
         <section className="hearing_right_column">
-          <span>{addressBlock[0].postcode}</span>
+          <span>{addressBlock.postcode}</span>
         </section>
       </section>
       <Button className="hearing_button" link="/schedule" text="Attend" />

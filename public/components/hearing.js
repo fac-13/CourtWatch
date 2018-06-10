@@ -11,7 +11,7 @@ export default class Hearing extends React.Component {
   componentDidMount() {
     const id = window.location.pathname.split('/')[2];
     getData(`/hearing-data/${id}`)
-      .then(hearing => this.setState({ data: hearing }, () => console.log(this.state.data[0])));
+      .then(hearing => this.setState({ data: hearing }, () => console.log(this.state.data)));
   }
 
   render() {
