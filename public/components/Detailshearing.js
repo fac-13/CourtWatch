@@ -2,7 +2,7 @@
 
 import React from 'react';
 import moment from 'moment';
-import Button from './button';
+import Button from './Button';
 
 const DetailsHearings = (props) => {
   const { hearing } = props;

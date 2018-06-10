@@ -176,12 +176,21 @@ button {
 
 .hearing_left_column {
     padding: 1em; 
-    width: 30%; 
+    width: 30%;
+    
+    & h4 {
+        padding: 0.3em; 
+    }
 }
 
 .hearing_right_column {
     padding: 1em; 
     width: 70%;
-    text-align: left; 
+
+    & span{
+        display: block; 
+        text-align: left; 
+        padding: 0.3em; 
+    }
 }
 

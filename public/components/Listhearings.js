@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
-import Weeks from './weeks';
-import MonthYear from './monthyear';
+import Weeks from './Weeks';
+import MonthYear from './Monthyear';
 
 const ListHearings = (props) => {
 
