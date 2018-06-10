@@ -8,7 +8,8 @@
     "dev": "parcel ./public/index.html | nodemon src/index.js",
     "test": "jest --coverage",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
-    "build": "parcel build ./public/index.html | node src/index.js"
+    "build": "parcel build ./public/index.html | node src/index.js",
+    "heroku-postbuild: parcel build ./public/index.html | node src/index.js"
   },
   "repository": {
     "type": "git",
