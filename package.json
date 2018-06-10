@@ -8,12 +8,8 @@
     "dev": "parcel ./public/index.html | nodemon src/index.js",
     "test": "jest --coverage",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
-<<<<<<< HEAD
-    "build": "parcel build ./public/index.html"
-=======
     "build": "parcel build ./public/index.html | node src/index.js",
     "heroku-postbuild": "parcel build ./public/index.html | node src/index.js"
->>>>>>> master
   },
   "repository": {
     "type": "git",
