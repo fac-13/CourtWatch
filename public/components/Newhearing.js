@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { postData } from '../utils/fetch';
 import Courts from './Courts';
+import Date from './Date';
 
 export default class NewHearing extends React.Component {
   state = {
@@ -43,8 +44,7 @@ export default class NewHearing extends React.Component {
               <label htmlFor="date">Date:</label>
               <input list="date" name="date" value={this.state.date} onChange={this.handleChange} />
               <datalist id="date">
-                <option value="hello" />
-                <option value="Ciao" />
+                <Date />
               </datalist>
             </section>
 
