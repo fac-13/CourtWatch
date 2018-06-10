@@ -6,7 +6,7 @@ exports.get = async (req, res) => {
   const { id } = req.params;
 
   try {
-    console.log("Get hearing reached")
+
     const hearing = await getHearing(id, {});
 
     res.send(hearing);
