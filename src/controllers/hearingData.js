@@ -8,7 +8,6 @@ exports.get = async (req, res) => {
   try {
 
     const hearing = await getHearing(id, {});
-
     res.send(hearing);
   } catch (err) {
     console.log('getHearing error', err);

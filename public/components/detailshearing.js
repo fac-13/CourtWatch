@@ -17,7 +17,7 @@ const DetailsHearings = (props) => {
 
   //replace new line symbol with break
   const Address = () => {
-    return addressBlock.address.split('\n').map((item, key) => <span key={key}>{item}<br /></span>);
+    return addressBlock[0].address.split('\n').map((item, key) => <span key={key}>{item}<br /></span>);
   }
 
   return (
@@ -47,8 +47,8 @@ const DetailsHearings = (props) => {
         </section>
         <section className="hearing_right_column">
           <Address />
-          <span>{addressBlock.town}<br /></span>
-          <span>{addressBlock.county}</span>
+          <span>{addressBlock[0].town}<br /></span>
+          <span>{addressBlock[0].county}</span>
         </section>
       </section>
 
@@ -57,7 +57,7 @@ const DetailsHearings = (props) => {
           <h4>Postcode:</h4>
         </section>
         <section className="hearing_right_column">
-          <span>{addressBlock.postcode}</span>
+          <span>{addressBlock[0].postcode}</span>
         </section>
       </section>
       <Button className="hearing_button" link="/schedule" text="Attend" />
