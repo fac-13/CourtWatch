@@ -12,16 +12,20 @@ const {
   deleteCourt,
 } = require('./courts');
 const {
-  createHearing, getAllHearings, getHearing, deleteHearing,
+  createHearing,
+  getAllHearings,
+  getHearing,
+  deleteHearing,
+  updateHearing,
 } = require('./hearings');
 
 module.exports = {
-  // creating
+  // creating - add new
   createCourt,
   createHearing,
   createVolunteer,
 
-  // getting all
+  // getting all - list views
   getAllCourts,
   getAllHearings,
   getAllVolunteers,
@@ -37,5 +41,6 @@ module.exports = {
   deleteVolunteer,
 
   // updating
+  updateHearing,
   updateVolunteer,
 };

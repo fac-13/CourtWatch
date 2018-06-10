@@ -13,5 +13,5 @@ if (!DATABASE_URL) throw new Error('Environment variable DATABASE_URL should be 
 
 // export the connection to be invoked in requiring file
 module.exports = {
-  dbConnection: () => mongoose.connect(DATABASE_URL),
+  dbConnection: async () => mongoose.connect(DATABASE_URL),
 };
