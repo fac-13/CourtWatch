@@ -8,7 +8,7 @@ exports.get = async (req, res) => {
   try {
     console.log("Get hearing reached")
     const hearing = await getHearing(id, {});
-    console.log("Hearing", hearing)
+
     res.send(hearing);
   } catch (err) {
     console.log('getHearing error', err);
