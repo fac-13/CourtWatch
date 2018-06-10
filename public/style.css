@@ -1,3 +1,10 @@
+.schedule_list, .form, .hearing_container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 5%;
+  border: 0.8px solid #424242; }
+
 * {
   margin: 0;
   padding: 0;
@@ -9,29 +16,33 @@
 html, body, #root {
   height: 100%; }
 
-a, .link {
+.link {
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  text-align: center; }
 
-nav {
+.navbar {
   min-height: 8%;
   width: 100%;
   background-color: #424242; }
-  nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1em 2em; }
-  nav div.nav_list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around; }
-  nav div.nav_list li {
-    padding: 0.5em; }
-  nav a {
+
+.nav_container {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em; }
+
+.nav_list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; }
+
+.nav_list li {
+  padding: 0.5em; }
+  .nav_list li .link {
     color: #fffcfe; }
 
 h1 {
@@ -55,13 +66,8 @@ button {
   padding: 0.5em;
   margin: 5%;
   width: 200px; }
-
-.schedule_list {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 5%;
-  border: 0.8px solid #424242; }
+  button.hearing_button {
+    align-self: center; }
 
 .schedule_header {
   display: flex;
@@ -78,22 +84,19 @@ button {
   min-height: 40px; }
 
 .schedule_section {
-  text-align: 0.3em;
   padding: 0.3em; }
   .schedule_section.left_column {
     font-size: 0.8em;
     width: 30%; }
   .schedule_section.right_column {
-    width: 70%; }
+    width: 70%;
+    color: #be24a3;
+    text-decoration: underline; }
   .schedule_section p {
     padding: inherit 0.5em; }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 90%;
-  margin: 5%; }
+  justify-content: center; }
 
 .form_section {
   margin: 5%;
@@ -102,3 +105,16 @@ button {
   .form_section label {
     text-align: left;
     margin-bottom: 2%; }
+
+.hearing_section {
+  display: flex;
+  flex-direction: row; }
+
+.hearing_left_column {
+  padding: 1em;
+  width: 30%; }
+
+.hearing_right_column {
+  padding: 1em;
+  width: 70%;
+  text-align: left; }

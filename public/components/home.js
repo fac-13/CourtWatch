@@ -9,8 +9,8 @@ const Home = () => {
     <React.Fragment>
       <h1 className="home_title">CourtWatch</h1>
       <section className="home_section">
-        <Button link={becomeVolunteer} text="Join CourtWatch" />
-        <Button link={addHearing} text="Add a hearing" />
+        <Button className="home_button" link={becomeVolunteer} text="Join CourtWatch" />
+        <Button className="home_button" link={addHearing} text="Add a hearing" />
       </section>
     </React.Fragment>
   );
