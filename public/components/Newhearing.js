@@ -42,47 +42,45 @@ export default class NewHearing extends React.Component {
 
             <section className="form_section">
               <label htmlFor="date">Date:</label>
-              <input list="date" name="date" value={this.state.date} onChange={this.handleChange} />
-              <datalist id="date">
+              <select id="date" name="date" className="input" value={this.state.date} onChange={this.handleChange}>
                 <Date />
-              </datalist>
+              </select>
             </section>
 
-            <section className="form_section">
+            <section className="form_section autocomplete">
               <label htmlFor="court">Court:</label>
-              <input list="court" name="court" value={this.state.court} onChange={this.handleAutocomplete} />
-              <datalist id="court">
+              <input id="court" name="court" className="input" value={this.state.court} onChange={this.handleAutocomplete} />
+              <ul className="list">
                 <Courts courts={this.state.court_options} />
-              </datalist>
+              </ul>
             </section>
 
             <h4>Contact details (optional):</h4>
 
             <section className="form_section">
               <label htmlFor="name">Name:</label>
-              <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+              <input className="input" type="text" name="name" value={this.state.name} onChange={this.handleChange} />
             </section>
 
             <section className="form_section">
               <label htmlFor="profession">I am a...</label>
-              <input list="profession" name="profession" value={this.state.profession} onChange={this.handleChange} />
-              <datalist id="profession">
-                <option value="Solicitor" />
-                <option value="Social worker" />
-                <option value="Defendant" />
-                <option value="Other" />
-              </datalist>
+              <select id="profession" name="profession" className="input" value={this.state.profession} onChange={this.handleChange}>
+                <option value="Solicitor" className="select_item">Solicitor</option>
+                <option value="Social worker" className="select_item">Social worker</option>
+                <option value="Defendant" className="select_item">Defendant</option>
+                <option value="Other" className="select_item">Other</option>
+              </select>
             </section>
 
 
             <section className="form_section">
               <label htmlFor="email">Email:</label>
-              <input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+              <input type="text" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
             </section>
 
             <section className="form_section">
               <label htmlFor="phone">Phone number:</label>
-              <input type="text" name="number" value={this.state.phone} onChange={this.handleChange} />
+              <input type="text" name="number" className="input" value={this.state.phone} onChange={this.handleChange} />
             </section>
 
             <button type="submit"><Link to="/schedule" className="link">Add hearing</Link></button>

@@ -161,7 +161,30 @@ button {
         text-align: left; 
         margin-bottom: 2%; 
     }
+
 }
+
+.input {
+    width: 90%;
+    position: relative; 
+}
+
+.list {
+ list-style: none; 
+ cursor: pointer; 
+ width: 90%; 
+ z-index: 1; 
+ border: 1px solid $darkgrey; 
+}
+
+.list_item {
+    padding: 0.5em; 
+
+    &:hover{
+        background-color: lightblue; 
+    }
+}
+
 
 //Hearing details page
 .hearing_container{

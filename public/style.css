@@ -106,6 +106,22 @@ button {
     text-align: left;
     margin-bottom: 2%; }
 
+.input {
+  width: 90%;
+  position: relative; }
+
+.list {
+  list-style: none;
+  cursor: pointer;
+  width: 90%;
+  z-index: 1;
+  border: 1px solid #303030; }
+
+.list_item {
+  padding: 0.5em; }
+  .list_item:hover {
+    background-color: lightblue; }
+
 .hearing_section {
   display: flex; }
   .hearing_section.first {
