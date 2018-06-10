@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const { Court } = require('.');
-const { Volunteer } = require('.');
+// const { Court } = require('.');
+// const { Volunteer } = require('.');
 
 const { Schema } = mongoose;
 
-const contactSchema = new Schema({
+const hearingContactSchema = new Schema({
   _id: false,
   name: String,
   type: String,
@@ -15,19 +15,27 @@ const contactSchema = new Schema({
 
 const HearingSchema = new Schema(
   {
-    date: String,
+    hearing_date: {
+      type: String,
+      required: 'Hearing Date is a required field',
+    },
     court_id: String,
-    court_name: String,
+    court_name: {
+      type: String,
+      required: 'Court Name is a required field',
+    },
     addresses: [],
     admin_id: Number,
     watching: [
       {
-        name: String,
+        full_name: String,
         volunteer_id: String,
       },
     ],
-    contact: [contactSchema],
+    contact: [hearingContactSchema],
     notes: String,
+    report: [],
+    alerts: [],
   },
   { timestamps: true },
 );
