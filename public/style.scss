@@ -29,7 +29,7 @@ html, body, #root {
     height: 100%; 
 }
 
-a, .link {
+.link {
     text-decoration: none; 
     color: inherit; 
     text-align: center; 
@@ -37,12 +37,13 @@ a, .link {
 
 //Navbar
 
-nav {
+.navbar {
     min-height: 8%; 
     width: 100%; 
     background-color: $grey; 
+    }
 
-    ul {
+.nav_container {
       list-style: none; 
       display: flex; 
       flex-direction: row; 
@@ -51,21 +52,21 @@ nav {
       padding: 1em 2em; 
     }
 
-    div.nav_list {
+.nav_list {
         display: flex; 
         flex-direction: row; 
         align-items: center; 
         justify-content: space-around; 
     }
 
-    div.nav_list li {
+.nav_list li {
         padding: 0.5em; 
-    }
-
-    a {
+    
+    & .link {
         color: $white; 
     }
 }
+
 
 //Headings
 
@@ -181,5 +182,6 @@ button {
 .hearing_right_column {
     padding: 1em; 
     width: 70%;
+    text-align: left; 
 }
 

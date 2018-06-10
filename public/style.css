@@ -16,30 +16,33 @@
 html, body, #root {
   height: 100%; }
 
-a, .link {
+.link {
   text-decoration: none;
   color: inherit;
   text-align: center; }
 
-nav {
+.navbar {
   min-height: 8%;
   width: 100%;
   background-color: #424242; }
-  nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1em 2em; }
-  nav div.nav_list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around; }
-  nav div.nav_list li {
-    padding: 0.5em; }
-  nav a {
+
+.nav_container {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em; }
+
+.nav_list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; }
+
+.nav_list li {
+  padding: 0.5em; }
+  .nav_list li .link {
     color: #fffcfe; }
 
 h1 {
@@ -113,4 +116,5 @@ button {
 
 .hearing_right_column {
   padding: 1em;
-  width: 70%; }
+  width: 70%;
+  text-align: left; }
