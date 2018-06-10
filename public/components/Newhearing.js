@@ -2,12 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { postData } from '../utils/fetch';
+import Courts from './Courts';
 
 export default class NewHearing extends React.Component {
   state = {
     input: '',
     date: '',
     court: '',
+    court_options: [],
     name: '',
     profession: '',
     email: '',
@@ -24,9 +26,11 @@ export default class NewHearing extends React.Component {
   handleAutocomplete = event => {
     this.handleChange(event);
     postData(this.state.court)
-      .then(courts => console.log("Courts:", courts));
+      .then(data => {
+        console.log("Courts:", data)
+        this.setState({ court_options: data })
+      });
   }
-
 
   render() {
     return (
@@ -46,7 +50,10 @@ export default class NewHearing extends React.Component {
 
             <section className="form_section">
               <label htmlFor="court">Court:</label>
-              <input list="text" name="court" value={this.state.court} onChange={this.handleAutocomplete} />
+              <input list="court" name="court" value={this.state.court} onChange={this.handleAutocomplete} />
+              <datalist id="court">
+                <Courts courts={this.state.court_options} />
+              </datalist>
             </section>
 
             <h4>Contact details (optional):</h4>
@@ -78,7 +85,7 @@ export default class NewHearing extends React.Component {
               <input type="text" name="number" value={this.state.phone} onChange={this.handleChange} />
             </section>
 
-            <button type="submit"><Link to="/schedule">Add hearing</Link></button>
+            <button type="submit"><Link to="/schedule" className="link">Add hearing</Link></button>
           </form>
         </section>
       </React.Fragment >

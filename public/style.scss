@@ -171,7 +171,18 @@ button {
 
 .hearing_section {
     display: flex; 
+
+    &.first{
     flex-direction: row; 
+    }
+
+    &.second{
+        flex-direction: column;
+        justify-content: space-around; 
+        padding: 1em; 
+        min-height: 150px; 
+
+    }
 }
 
 .hearing_left_column {
@@ -179,7 +190,7 @@ button {
     width: 30%;
     
     & h4 {
-        padding: 0.3em; 
+        padding: 0.2em; 
     }
 }
 
@@ -190,7 +201,7 @@ button {
     & span{
         display: block; 
         text-align: left; 
-        padding: 0.3em; 
+        padding: 0.2em; 
     }
 }
 

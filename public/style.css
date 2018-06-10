@@ -107,14 +107,20 @@ button {
     margin-bottom: 2%; }
 
 .hearing_section {
-  display: flex;
-  flex-direction: row; }
+  display: flex; }
+  .hearing_section.first {
+    flex-direction: row; }
+  .hearing_section.second {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1em;
+    min-height: 150px; }
 
 .hearing_left_column {
   padding: 1em;
   width: 30%; }
   .hearing_left_column h4 {
-    padding: 0.3em; }
+    padding: 0.2em; }
 
 .hearing_right_column {
   padding: 1em;
@@ -122,4 +128,4 @@ button {
   .hearing_right_column span {
     display: block;
     text-align: left;
-    padding: 0.3em; }
+    padding: 0.2em; }

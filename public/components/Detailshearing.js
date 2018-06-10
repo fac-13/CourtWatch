@@ -23,7 +23,7 @@ const DetailsHearings = (props) => {
   return (
     <article className="hearing_container">
 
-      <section className="hearing_section">
+      <section className="hearing_section first">
         <section className="hearing_left_column">
           <h4> Date:</h4>
         </section>
@@ -32,7 +32,7 @@ const DetailsHearings = (props) => {
         </section>
       </section>
 
-      <section className="hearing_section">
+      <section className="hearing_section first">
         <section className="hearing_left_column">
           <h4>Court:</h4>
         </section>
@@ -41,7 +41,7 @@ const DetailsHearings = (props) => {
         </section>
       </section>
 
-      <section className="hearing_section">
+      <section className="hearing_section first">
         <section className="hearing_left_column">
           <h4>Address:</h4>
         </section>
@@ -52,7 +52,7 @@ const DetailsHearings = (props) => {
         </section>
       </section>
 
-      <section className="hearing_section">
+      <section className="hearing_section first">
         <section className="hearing_left_column">
           <h4>Postcode:</h4>
         </section>
@@ -61,9 +61,10 @@ const DetailsHearings = (props) => {
         </section>
       </section>
       <Button className="hearing_button" link="/schedule" text="Attend" />
-      <section>
+
+      <section className="hearing_section second">
         <h4>CourtWatchers attending the hearing:</h4>
-        <p>No CourtWatchers are booked to attend the hearing</p>
+        <p>No CourtWatchers are booked to attend the hearing.</p>
       </section>
     </article >
   );
