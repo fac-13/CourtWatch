@@ -96,7 +96,7 @@ button {
     padding: inherit 0.5em; }
 
 .form {
-  justify-content: center; }
+  justify-content: space-around; }
 
 .form_section {
   margin: 5%;
@@ -107,6 +107,7 @@ button {
     margin-bottom: 2%; }
 
 .select {
+  width: 90%;
   background-color: #fffcfe; }
   .select option {
     background-color: #fffcfe; }
@@ -117,16 +118,21 @@ button {
   background-color: #fffcfe; }
 
 .list {
-  width: 90%; }
-  .list ul {
-    list-style: none;
-    cursor: pointer;
-    border: 1px solid #424242;
-    border-top: 0; }
-    .list ul .list_item {
-      padding: 0.5em; }
-      .list ul .list_item:hover {
-        background-color: #be24a3; }
+  width: 90%;
+  list-style: none;
+  cursor: pointer;
+  border: 1px solid #424242;
+  border-top: 0; }
+  .list .list_item {
+    padding: 0.5em; }
+    .list .list_item:hover {
+      background-color: #be24a3; }
+    .list .list_item button {
+      border: none;
+      background-color: inherit;
+      height: inherit;
+      margin: 0;
+      padding: 0.2em; }
 
 .hearing_section {
   display: flex; }

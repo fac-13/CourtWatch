@@ -37,58 +37,56 @@ export default class NewHearing extends React.Component {
     return (
       < React.Fragment >
         <h1>Add a new hearing</h1>
-        <section className="form">
-          <form action="/add-hearing" method="post">
+        <form action="/add-hearing" method="post" className="form">
 
-            <section className="form_section">
-              <label htmlFor="date">Date:</label>
-              <select id="date" name="date" className="select" value={this.state.date} onChange={this.handleChange}>
-                <Date />
-              </select>
-            </section>
+          <section className="form_section">
+            <label htmlFor="date">Date:</label>
+            <select id="date" name="date" className="select" value={this.state.date} onChange={this.handleChange}>
+              <Date />
+            </select>
+          </section>
 
-            <section className="form_section autocomplete">
-              <label htmlFor="court">Court:</label>
-              <input id="court" name="court" className="input" value={this.state.court} onChange={this.handleAutocomplete} />
-              <ul className="list">
-                {this.state.court_options &&
-                  <Courts courts={this.state.court_options} />
-                }
-              </ul>
-            </section>
+          <section className="form_section autocomplete">
+            <label htmlFor="court">Court:</label>
+            <input id="court" name="court" className="input" value={this.state.court} onChange={this.handleAutocomplete} />
+            <ul className="list">
+              {this.state.court_options &&
+                <Courts courts={this.state.court_options} />
+              }
+            </ul>
+          </section>
 
-            <h4>Contact details (optional):</h4>
+          <h4>Contact details (optional):</h4>
 
-            <section className="form_section">
-              <label htmlFor="name">Name:</label>
-              <input className="input" type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-            </section>
+          <section className="form_section">
+            <label htmlFor="name">Name:</label>
+            <input className="input" type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+          </section>
 
-            <section className="form_section">
-              <label htmlFor="profession">I am a...</label>
-              <select id="profession" name="profession" className="select" value={this.state.profession} onChange={this.handleChange}>
-                <option value="" selected disabled hidden>Please select one:</option>
-                <option value="Solicitor" className="select_item">Solicitor</option>
-                <option value="Social worker" className="select_item">Social worker</option>
-                <option value="Defendant" className="select_item">Defendant</option>
-                <option value="Other" className="select_item">Other</option>
-              </select>
-            </section>
+          <section className="form_section">
+            <label htmlFor="profession">I am a...</label>
+            <select id="profession" name="profession" className="select" value={this.state.profession} onChange={this.handleChange}>
+              <option value="" selected disabled hidden>Please select one:</option>
+              <option value="Solicitor" className="select_item">Solicitor</option>
+              <option value="Social worker" className="select_item">Social worker</option>
+              <option value="Defendant" className="select_item">Defendant</option>
+              <option value="Other" className="select_item">Other</option>
+            </select>
+          </section>
 
 
-            <section className="form_section">
-              <label htmlFor="email">Email:</label>
-              <input type="text" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
-            </section>
+          <section className="form_section">
+            <label htmlFor="email">Email:</label>
+            <input type="text" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
+          </section>
 
-            <section className="form_section">
-              <label htmlFor="phone">Phone number:</label>
-              <input type="text" name="number" className="input" value={this.state.phone} onChange={this.handleChange} />
-            </section>
+          <section className="form_section">
+            <label htmlFor="phone">Phone number:</label>
+            <input type="text" name="number" className="input" value={this.state.phone} onChange={this.handleChange} />
+          </section>
 
-            <button type="submit"><Link to="/schedule" className="link">Add hearing</Link></button>
-          </form>
-        </section>
+          <button type="submit"><Link to="/schedule" className="link">Add hearing</Link></button>
+        </form>
       </React.Fragment >
     )
   }

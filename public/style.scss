@@ -149,7 +149,7 @@ button {
 
 .form {
     @extend %container_shared; 
-    justify-content: center;
+    justify-content: space-around; 
 }
 
 .form_section {
@@ -165,6 +165,7 @@ button {
 }
 
 .select {
+    width: 90%; 
     background-color: $white; 
 
     option {
@@ -180,9 +181,7 @@ button {
 }
 
 .list {
-    width: 90%; 
-
- & ul {
+ width: 90%; 
  list-style: none; 
  cursor: pointer; 
  border: 1px solid $grey; 
@@ -194,9 +193,16 @@ button {
       &:hover{
         background-color: $purple; 
     }
+
+    button {
+        border: none; 
+        background-color: inherit; 
+        height: inherit; 
+        margin: 0; 
+        padding: 0.2em; 
+    }
    }
  }
-}
 
 
 //Hearing details page
