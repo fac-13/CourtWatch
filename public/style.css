@@ -106,21 +106,27 @@ button {
     text-align: left;
     margin-bottom: 2%; }
 
+.select {
+  background-color: #fffcfe; }
+  .select option {
+    background-color: #fffcfe; }
+
 .input {
   width: 90%;
-  position: relative; }
+  position: relative;
+  background-color: #fffcfe; }
 
 .list {
-  list-style: none;
-  cursor: pointer;
-  width: 90%;
-  z-index: 1;
-  border: 1px solid #303030; }
-
-.list_item {
-  padding: 0.5em; }
-  .list_item:hover {
-    background-color: lightblue; }
+  width: 90%; }
+  .list ul {
+    list-style: none;
+    cursor: pointer;
+    border: 1px solid #424242;
+    border-top: 0; }
+    .list ul .list_item {
+      padding: 0.5em; }
+      .list ul .list_item:hover {
+        background-color: #be24a3; }
 
 .hearing_section {
   display: flex; }

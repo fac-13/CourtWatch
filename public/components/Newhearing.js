@@ -21,7 +21,7 @@ export default class NewHearing extends React.Component {
     const target = event.target;
     const value = target.value;
     const key = target.name;
-    this.setState({ [key]: value });
+    this.setState({ [key]: value }, () => console.log("This state court", this.state.court));
   }
 
   handleAutocomplete = event => {
@@ -42,7 +42,7 @@ export default class NewHearing extends React.Component {
 
             <section className="form_section">
               <label htmlFor="date">Date:</label>
-              <select id="date" name="date" className="input" value={this.state.date} onChange={this.handleChange}>
+              <select id="date" name="date" className="select" value={this.state.date} onChange={this.handleChange}>
                 <Date />
               </select>
             </section>
@@ -51,7 +51,9 @@ export default class NewHearing extends React.Component {
               <label htmlFor="court">Court:</label>
               <input id="court" name="court" className="input" value={this.state.court} onChange={this.handleAutocomplete} />
               <ul className="list">
-                <Courts courts={this.state.court_options} />
+                {this.state.court_options &&
+                  <Courts courts={this.state.court_options} />
+                }
               </ul>
             </section>
 
@@ -64,7 +66,8 @@ export default class NewHearing extends React.Component {
 
             <section className="form_section">
               <label htmlFor="profession">I am a...</label>
-              <select id="profession" name="profession" className="input" value={this.state.profession} onChange={this.handleChange}>
+              <select id="profession" name="profession" className="select" value={this.state.profession} onChange={this.handleChange}>
+                <option value="" selected disabled hidden>Please select one:</option>
                 <option value="Solicitor" className="select_item">Solicitor</option>
                 <option value="Social worker" className="select_item">Social worker</option>
                 <option value="Defendant" className="select_item">Defendant</option>

@@ -164,25 +164,38 @@ button {
 
 }
 
+.select {
+    background-color: $white; 
+
+    option {
+        background-color: $white; 
+    }
+}
+
 .input {
     width: 90%;
-    position: relative; 
+    position: relative;
+    background-color: $white; 
+
 }
 
 .list {
+    width: 90%; 
+
+ & ul {
  list-style: none; 
  cursor: pointer; 
- width: 90%; 
- z-index: 1; 
- border: 1px solid $darkgrey; 
-}
+ border: 1px solid $grey; 
+ border-top: 0; 
 
-.list_item {
+   & .list_item {
     padding: 0.5em; 
 
-    &:hover{
-        background-color: lightblue; 
+      &:hover{
+        background-color: $purple; 
     }
+   }
+ }
 }
 
 
