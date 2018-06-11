@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './home';
-import Navbar from './navbar';
-import Schedule from './schedule';
-import Resources from './resources';
-import Hearing from './hearing';
-import NewHearing from './newhearing.js';
-import Volunteer from './newvolunteer';
+import Home from './Home';
+import Navbar from './Navbar';
+import Schedule from './Schedule';
+import Resources from './Resources';
+import Hearing from './Hearing';
+import NewHearing from './Newhearing.js';
+import Volunteer from './Newvolunteer';
 
 export default class App extends React.Component {
 

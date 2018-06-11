@@ -1,5 +1,5 @@
 /* eslint-disable */
-const { addHearing, getHearing } = require('../database/query');
+const { createHearing, getHearing } = require('../database/query');
 const { emailAlert } = require('../messaging/emailAlert');
 
 exports.get = async (req, res) => {
@@ -28,7 +28,7 @@ exports.post = (req, res) => {
     },
   ];
 
-  addHearing({
+  createHearing({
     date,
     court_name,
     contact,

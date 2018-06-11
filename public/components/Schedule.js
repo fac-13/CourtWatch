@@ -1,7 +1,7 @@
 import React from 'react';
 import { getData } from '../utils/fetch';
-import Button from './button';
-import ListHearings from './listhearings';
+import Button from './Button';
+import ListHearings from './Listhearings';
 
 export default class Schedule extends React.Component {
   state = {

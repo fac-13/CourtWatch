@@ -149,7 +149,7 @@ button {
 
 .form {
     @extend %container_shared; 
-    justify-content: center;
+    justify-content: space-around; 
 }
 
 .form_section {
@@ -161,7 +161,49 @@ button {
         text-align: left; 
         margin-bottom: 2%; 
     }
+
 }
+
+.select {
+    width: 90%; 
+    background-color: $white; 
+
+    option {
+        background-color: $white; 
+    }
+}
+
+.input {
+    width: 90%;
+    position: relative;
+    background-color: $white; 
+
+}
+
+.list {
+ width: 90%; 
+ list-style: none; 
+ cursor: pointer; 
+ border: 1px solid $grey; 
+ border-top: 0; 
+
+   & .list_item {
+    padding: 0.5em; 
+
+      &:hover{
+        background-color: $purple; 
+    }
+
+    button {
+        border: none; 
+        background-color: inherit; 
+        height: inherit; 
+        margin: 0; 
+        padding: 0.2em; 
+    }
+   }
+ }
+
 
 //Hearing details page
 .hearing_container{
@@ -171,17 +213,37 @@ button {
 
 .hearing_section {
     display: flex; 
+
+    &.first{
     flex-direction: row; 
+    }
+
+    &.second{
+        flex-direction: column;
+        justify-content: space-around; 
+        padding: 1em; 
+        min-height: 150px; 
+
+    }
 }
 
 .hearing_left_column {
     padding: 1em; 
-    width: 30%; 
+    width: 30%;
+    
+    & h4 {
+        padding: 0.2em; 
+    }
 }
 
 .hearing_right_column {
     padding: 1em; 
     width: 70%;
-    text-align: left; 
+
+    & span{
+        display: block; 
+        text-align: left; 
+        padding: 0.2em; 
+    }
 }
 

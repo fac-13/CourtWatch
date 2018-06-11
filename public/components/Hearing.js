@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { getData } from '../utils/fetch';
-import DetailsHearing from './detailshearing';
+import DetailsHearing from './Detailshearing';
 
 export default class Hearing extends React.Component {
   state = {
