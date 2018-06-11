@@ -26,7 +26,8 @@ export default class NewHearing extends React.Component {
 
   handleAutocomplete = event => {
     this.handleChange(event);
-    postData(this.state.court)
+    const url = '/match-court/';
+    postData(url, this.state.court)
       .then(data => {
         this.setState({ court_options: data })
       });

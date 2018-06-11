@@ -16,9 +16,9 @@ export const getData = (url) => {
     });
 };
 
-export const postData = (data) => {
-  console.log("Postdata courts", data)
-  return fetch('/match-court/', { method: 'POST', body: JSON.stringify({ data }), headers: { 'Content-Type': 'application/json' } })
+export const postData = (url, data) => {
+  console.log("PostData data", data)
+  return fetch(url, { method: 'POST', body: JSON.stringify({ data }), headers: { 'Content-Type': 'application/json' } })
     .then(checkResponse)
     .catch((err) => {
       throw new Error(`fetch getData failed ${err}`);
