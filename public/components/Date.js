@@ -8,7 +8,7 @@ const Date = () => {
 
   return arr.map((item, index) => {
     const day = start.add(1, 'days');
-    const date = day.format('dddd D MMMM');
+    const date = day.format('dddd D MMMM YYYY');
     return <option key={date} className="select_item">{date}</option>;
   });
 };

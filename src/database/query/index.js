@@ -5,12 +5,14 @@ const {
   deleteVolunteer,
   updateVolunteer,
 } = require('./volunteers');
+
 const {
   createCourt,
   getAllCourts,
-  /* getCourt, */
+  getCourt,
   deleteCourt,
 } = require('./courts');
+
 const {
   createHearing,
   getAllHearings,
@@ -31,7 +33,7 @@ module.exports = {
   getAllVolunteers,
 
   // getting one - detail views
-  /* getCourt, */
+  getCourt,
   getHearing,
   getVolunteer,
 
