@@ -1,10 +1,9 @@
 /* eslint-disable */
-const { addHearing, getHearing } = require('../database/query');
-const { emailAlert } = require('../messaging/emailAlert');
+const { createHearing, getHearing } = require('../database/query');
+const { hearingAlertEmail } = require('../messaging/email');
 
 exports.get = async (req, res) => {
   const { id } = req.params;
-
   try {
     const hearing = await getHearing(id);
     res.send(hearing);
@@ -13,31 +12,17 @@ exports.get = async (req, res) => {
   }
 };
 
-exports.post = (req, res) => {
-  const { date, court_name, name, type, email, number, notes } = req.body;
-
-  // function to retrieve court id
-
-  const contact = [
-    {
-      name,
-      type,
-      email,
-      number,
-    },
-  ];
-
-  addHearing({
-    date,
-    court_name,
-    contact,
-    notes,
-  });
-
-  // emailAlert(
-  //   null,
-  //   'name contact',
-  //   'WIP Alert: Upcoming Hearing',
-  //   'This is going to be a big string of text we need you please help!',
-  // );
+exports.post = async (req, res) => {
+  const { hearing_date, court_id, court_name, notes } = req.body;
+  const contact = [({ name, type, email, number } = req.body)];
+  try {
+    await createHearing({
+      hearing_date,
+      court_id,
+      court_name,
+      contact,
+      notes,
+    });
+    hearingAlertEmail(hearing_date, court_id);
+  } catch (error) {}
 };
