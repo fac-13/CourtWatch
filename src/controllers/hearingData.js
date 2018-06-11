@@ -18,8 +18,8 @@ exports.get = async (req, res) => {
 exports.post = async (req, res) => {
 
   const { date, court, name, type, email, phone } = req.body;
-  // console.log("Date", date)
-  // const formattedDate = moment(date).format('YYYY-MM-D');
+  console.log("Date", date)
+  const formattedDate = moment(date).format('YYYY-MM-D');
 
   const contact = [
     {
@@ -30,24 +30,21 @@ exports.post = async (req, res) => {
     },
   ];
 
-  console.log("Contact", contact)
-
   try {
     const formattedCourt = court.trim();
     const courtData = await getCourt(formattedCourt);
-    console.log("CourtData", courtData);
+    const newHearing = await createHearing({
+      hearing_date: formattedDate,
+      court_id: courtData.id,
+      court_name: formattedCourt,
+      addresses: courtData.addresses,
+      admin_id: courtData.admin_id,
+      contact,
+    });
+    console.log("New hearing", newHearing)
   } catch (err) {
-    console.log('getCourt error', err);
+    console.log('add hearing error', err);
   }
-  // createHearing({
-  //   date : formattedDate,
-  //   court_id,
-  //   court_name,
-  //  addresses,
-  //  admin_id,
-  //   contact,
-  //   notes
-  // });
 
   // emailAlert(
   //   null,
