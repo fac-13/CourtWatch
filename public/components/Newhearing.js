@@ -28,10 +28,14 @@ export default class NewHearing extends React.Component {
     this.handleChange(event);
     postData(this.state.court)
       .then(data => {
-        console.log("Courts:", data)
         this.setState({ court_options: data })
       });
   }
+
+  updateCourt = (selected) => {
+    this.setState({ court: selected, court_options: [] })
+  }
+
 
   render() {
     return (
@@ -50,8 +54,8 @@ export default class NewHearing extends React.Component {
             <label htmlFor="court">Court:</label>
             <input id="court" name="court" className="input" value={this.state.court} onChange={this.handleAutocomplete} />
             <ul className="list">
-              {this.state.court_options &&
-                <Courts courts={this.state.court_options} />
+              {this.state.court_options.length > 0 &&
+                <Courts courts={this.state.court_options} updateCourt={this.updateCourt} />
               }
             </ul>
           </section>
