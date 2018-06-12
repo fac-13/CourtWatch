@@ -9,6 +9,7 @@ import Resources from './Resources';
 import Hearing from './Hearing';
 import NewHearing from './Newhearing.js';
 import Volunteer from './Newvolunteer';
+import Thanks from './Thanks';
 
 export default class App extends React.Component {
 
@@ -23,6 +24,7 @@ export default class App extends React.Component {
 					<Route path="/hearing/" component={Hearing} />
 					<Route path="/new-hearing" component={NewHearing} />
 					<Route path="/volunteer" component={Volunteer} />
+					<Route path="/thanks" component={Thanks} />
 				</React.Fragment>
 			</Router>
 		);
