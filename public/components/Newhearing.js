@@ -11,7 +11,7 @@ export default class NewHearing extends React.Component {
     date: '',
     court: '',
     court_options: [],
-    name: null,
+    name: '',
     type: '',
     email: '',
     phone: '',
