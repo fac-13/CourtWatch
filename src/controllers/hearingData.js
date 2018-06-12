@@ -1,8 +1,15 @@
+const sgMail = require('@sendgrid/mail');
 const moment = require('moment');
+
+require('dotenv').config();
+
 const {
   createHearing, getHearing, getCourt, getAllVolunteers,
 } = require('../database/query');
-const { sendManyEmails } = require('../messaging/email');
+
+// set send-grid credentials and config
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setSubstitutionWrappers('{{', '}}');
 
 exports.get = async (req, res) => {
   const { id } = req.params;
@@ -15,7 +22,6 @@ exports.get = async (req, res) => {
 };
 
 exports.post = async (req, res) => {
-  // get all the stuff we need
   const {
     date, court, name, type, email, phone,
   } = req.body;
@@ -27,30 +33,6 @@ exports.post = async (req, res) => {
   };
   const hearingDate = moment(date).format('YYYY-MM-D');
   const courtName = court.trim();
-
-  const content = [
-    {
-      type: 'text/html',
-      value: `<p>Alert! Hearings involving women are scheduled to take place from 10am on ${hearingDate} at ${courtName}. If you can observe these hearings please visit the court watch <a href="https://court-watch.herokuapp.com/schedule/%%id%%">schedule</a> page to confirm your attendance.<br />Regards, the Court Watch Team.</p>`,
-    },
-    {
-      type: 'text/plain',
-      value: `Alert! Hearings involving women are scheduled to take place from 10am on ${hearingDate} at ${courtName}. If you can observe these hearings please visit https://court-watch.herokuapp.com/schedule/%%id%% to confirm your attendance. Regards, the Court Watch Team.`,
-    },
-  ];
-
-  const hearingAlert = await getAllVolunteers({}, 'contact.email _id')
-    .then(recipients =>
-      recipients.map(item => ({
-        to: item.contact.email,
-        subject: 'WIP Alert: Upcoming Hearing',
-        substitutions: { id: item._id },
-      })))
-    .then(personalisations => sendManyEmails(personalisations, content));
-
-  // const hearingAlert = sendManyEmails(personalizations, content);
-
-  // try retrieving court data and adding new hearing to db
   try {
     const courtData = await getCourt(courtName);
     const newHearing = await createHearing({
@@ -61,9 +43,32 @@ exports.post = async (req, res) => {
       admin_id: courtData.admin_id,
       contact,
     });
-    const newEmailAlert = await hearingAlert();
-    console.log(newHearing, newEmailAlert);
-    res.send('thanks LOL!!');
+    const hearingId = newHearing._id;
+    const messageBody = [
+      {
+        type: 'text/html',
+        value: `<p>Alert!<br />Hearings involving women are scheduled to take place from 10am on ${hearingDate} at ${courtName}. If you can observe these hearings please visit the court watch 
+        <a href="https://court-watch.herokuapp.com/hearing/${hearingId}?attend={{volunteer_id}}">hearing details</a> 
+        page to confirm your attendance.<br />Regards, the Court Watch Team.</p>`,
+      },
+    ];
+    await getAllVolunteers({}, 'contact.email _id')
+      .then(recipients =>
+        recipients.map(recipient => ({
+          to: recipient.contact.email,
+          substitutions: { volunteer_id: recipient._id }, // eslint-disable-line
+        })))
+      .then(mailingList =>
+        sgMail.send({
+          personalizations: mailingList,
+          from: 'noreply@wip.org',
+          subject: 'WIP Alert: Upcoming Hearing',
+          content: messageBody,
+        }))
+      .catch((error) => {
+        const { message } = error;
+        throw new Error(`Error sending email to multiple recipients: ${message}`);
+      });
   } catch (err) {
     console.log('add hearing error', err);
   }

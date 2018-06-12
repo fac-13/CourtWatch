@@ -3,22 +3,19 @@ require('dotenv').config();
 
 // set send-grid credentials and config
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-sgMail.setSubstitutionWrappers('%%', '%%');
+// sgMail.setSubstitutionWrappers('%%', '%%');
 
-const sendEmail = (to, bcc, subject, content) => {
-  sgMail
-    .send({
-      to,
-      bcc,
-      from: 'noreply@wip.org',
-      subject,
-      content,
-    })
-    .catch((error) => {
-      const { message } = error;
-      throw new Error(`Error sending single email: ${message}`);
-    });
-};
+const sendEmail = (email, subjectLine, emailContent) => sgMail
+  .send({
+    to: email,
+    from: 'noreply@wip.org',
+    subject: subjectLine,
+    content: emailContent,
+  })
+  .catch((error) => {
+    const { message } = error;
+    throw new Error(`Error sending single email: ${message}`);
+  });
 
 const sendManyEmails = (mailingList, body) => {
   sgMail
