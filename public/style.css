@@ -1,4 +1,4 @@
-.schedule_list, .form, .hearing_container {
+.main, .schedule_list, .form, .hearing_container {
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -15,6 +15,15 @@
 
 html, body, #root {
   height: 100%; }
+
+.main {
+  border: none;
+  justify-content: space around;
+  align-items: center; }
+  .main p, .main h4 {
+    padding: 0.5em; }
+  .main .link {
+    color: #be24a3; }
 
 .link {
   text-decoration: none;
@@ -48,7 +57,8 @@ html, body, #root {
 h1 {
   font-size: 1.5em;
   padding: 0.5em;
-  color: #424242; }
+  color: #424242;
+  margin-top: 5%; }
 
 .home_title {
   margin: 5%;
@@ -97,14 +107,15 @@ button {
 
 .form {
   justify-content: space-around; }
-
-.form_section {
-  margin: 5%;
-  display: flex;
-  flex-direction: column; }
-  .form_section label {
-    text-align: left;
-    margin-bottom: 2%; }
+  .form button {
+    align-self: center; }
+  .form .form_section {
+    margin: 5%;
+    display: flex;
+    flex-direction: column; }
+    .form .form_section label {
+      text-align: left;
+      margin-bottom: 2%; }
 
 .select {
   width: 90%;

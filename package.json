@@ -9,7 +9,7 @@
     "test": "jest --coverage",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
     "build": "parcel build ./public/index.html | node src/index.js",
-    "heroku-postbuild": "parcel build ./public/index.html | node src/index.js"
+    "heroku-postbuild": "parcel build ./public/index.html"
   },
   "repository": {
     "type": "git",
