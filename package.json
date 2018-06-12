@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev-client": "parcel ./public/index.html",
-    "dev-server": "node src/index.js",
+    "client": "parcel ./public/index.html",
+    "server": "node src/index.js",
     "test": "jest --coverage",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
     "build": "parcel build ./public/index.html",
