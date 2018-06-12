@@ -18,7 +18,7 @@ exports.get = async (req, res) => {
 exports.post = async (req, res) => {
 
   const { date, court, name, type, email, phone } = req.body;
-  console.log("Date", date)
+  console.log("Req body", req.body)
   const formattedDate = moment(date).format('YYYY-MM-D');
 
   const contact = [
