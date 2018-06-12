@@ -1,7 +1,7 @@
 import React from 'react';
 import { getData } from '../utils/fetch';
-import Button from './button';
-import ListHearings from './listhearings';
+import Button from './Button';
+import ListHearings from './Listhearings';
 
 export default class Schedule extends React.Component {
   state = {
@@ -19,7 +19,7 @@ export default class Schedule extends React.Component {
     return (
       <React.Fragment>
         <h1 > Schedule</h1>
-        <Button link={this.addHearing} text="Add a hearing" />
+        <Button className="schedule_button" link={this.addHearing} text="Add a hearing" />
         {!this.state.data &&
           <h3>Loading schedule...</h3>
         }

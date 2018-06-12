@@ -5,7 +5,15 @@ $grey: #424242;
 $darkgrey: #303030; 
 $purple: #be24a3; 
 $red: #f92a53; 
-$green: #00AE65; 
+$green: #00AE65;
+
+%container_shared {
+    display: flex; 
+    flex-direction: column; 
+    width: 90%; 
+    margin: 5%; 
+    border: 0.8px solid $grey; 
+}
 
 //styles
 * {
@@ -21,17 +29,21 @@ html, body, #root {
     height: 100%; 
 }
 
-a, .link {
+.link {
     text-decoration: none; 
     color: inherit; 
+    text-align: center; 
 }
 
-nav {
+//Navbar
+
+.navbar {
     min-height: 8%; 
     width: 100%; 
     background-color: $grey; 
+    }
 
-    ul {
+.nav_container {
       list-style: none; 
       display: flex; 
       flex-direction: row; 
@@ -40,27 +52,31 @@ nav {
       padding: 1em 2em; 
     }
 
-    div.nav_list {
+.nav_list {
         display: flex; 
         flex-direction: row; 
         align-items: center; 
         justify-content: space-around; 
     }
 
-    div.nav_list li {
+.nav_list li {
         padding: 0.5em; 
-    }
-
-    a {
+    
+    & .link {
         color: $white; 
     }
 }
+
+
+//Headings
 
 h1 {
     font-size: 1.5em; 
     padding: 0.5em; 
     color: $grey; 
 }
+
+//Home page 
 
 .home_title{
     margin: 5%; 
@@ -73,6 +89,8 @@ h1 {
  align-items: center; 
 }
 
+//Buttons
+
 button {
     background-color: $white; 
     color: $grey; 
@@ -80,14 +98,16 @@ button {
     padding: 0.5em; 
     margin: 5%; 
     width: 200px; 
+
+    &.hearing_button {
+        align-self: center;  
+    }
   }
 
+//Schedule page 
+
 .schedule_list {
-    display: flex; 
-    flex-direction: column; 
-    width: 90%; 
-    margin: 5%; 
-    border: 0.8px solid $grey; 
+    @extend %container_shared; 
 }
 
 .schedule_header {
@@ -107,7 +127,6 @@ button {
 }
 
 .schedule_section {
-    text-align: 0.3em; 
     padding: 0.3em; 
 
     &.left_column {
@@ -116,7 +135,9 @@ button {
     }
 
     &.right_column {
-        width: 70%; 
+        width: 70%;
+        color: $purple; 
+        text-decoration: underline; 
         }
 
     p {
@@ -124,12 +145,11 @@ button {
     }
 }
 
+//Form (add hearing)
+
 .form {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    width: 90%; 
-    margin: 5%; 
+    @extend %container_shared; 
+    justify-content: space-around; 
 }
 
 .form_section {
@@ -140,6 +160,90 @@ button {
     label {
         text-align: left; 
         margin-bottom: 2%; 
+    }
+
+}
+
+.select {
+    width: 90%; 
+    background-color: $white; 
+
+    option {
+        background-color: $white; 
+    }
+}
+
+.input {
+    width: 90%;
+    position: relative;
+    background-color: $white; 
+
+}
+
+.list {
+ width: 90%; 
+ list-style: none; 
+ cursor: pointer; 
+ border: 1px solid $grey; 
+ border-top: 0; 
+
+   & .list_item {
+    padding: 0.5em; 
+
+      &:hover{
+        background-color: $purple; 
+    }
+
+    button {
+        border: none; 
+        background-color: inherit; 
+        height: inherit; 
+        margin: 0; 
+        padding: 0.2em; 
+    }
+   }
+ }
+
+
+//Hearing details page
+.hearing_container{
+    @extend %container_shared; 
+
+}
+
+.hearing_section {
+    display: flex; 
+
+    &.first{
+    flex-direction: row; 
+    }
+
+    &.second{
+        flex-direction: column;
+        justify-content: space-around; 
+        padding: 1em; 
+        min-height: 150px; 
+
+    }
+}
+
+.hearing_left_column {
+    padding: 1em; 
+    width: 30%;
+    
+    & h4 {
+        padding: 0.2em; 
+    }
+}
+
+.hearing_right_column {
+    padding: 1em; 
+    width: 70%;
+
+    & span{
+        display: block; 
+        text-align: left; 
+        padding: 0.2em; 
     }
 }
 

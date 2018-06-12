@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { getData } from '../utils/fetch';
-import DetailsHearing from './detailshearing';
+import DetailsHearing from './Detailshearing';
 
 export default class Hearing extends React.Component {
   state = {
@@ -11,7 +11,7 @@ export default class Hearing extends React.Component {
   componentDidMount() {
     const id = window.location.pathname.split('/')[2];
     getData(`/hearing-data/${id}`)
-      .then(hearing => this.setState({ data: hearing }, () => console.log(this.state.data[0])));
+      .then(hearing => this.setState({ data: hearing }, () => console.log(this.state.data)));
   }
 
   render() {
