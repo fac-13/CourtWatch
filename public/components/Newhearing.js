@@ -41,7 +41,7 @@ export default class NewHearing extends React.Component {
     return (
       <React.Fragment >
         <h1>Add a new hearing</h1>
-        <form action="/add-hearing" method="post" className="form">
+        <form autocomplete="off" action="/add-hearing" method="post" className="form">
 
           <section className="form_section">
             <label htmlFor="date">Date:</label>
@@ -78,15 +78,14 @@ export default class NewHearing extends React.Component {
             </select>
           </section>
 
-
           <section className="form_section">
             <label htmlFor="email">Email:</label>
-            <input type="text" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
+            <input type="email" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
           </section>
 
           <section className="form_section">
             <label htmlFor="phone">Phone number:</label>
-            <input type="text" name="phone" className="input" value={this.state.phone} onChange={this.handleChange} />
+            <input type="number" name="phone" className="input" value={this.state.phone} onChange={this.handleChange} />
           </section>
 
           <button type="submit">Add hearing</button>
