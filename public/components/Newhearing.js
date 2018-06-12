@@ -25,7 +25,6 @@ export default class NewHearing extends React.Component {
     const { target } = event;
     const { value } = target;
     const url = '/match-court/';
-<<<<<<< HEAD
     this.setState({ court: value }, () => {
       postData(url, this.state.court)
         .then(data =>
@@ -36,29 +35,17 @@ export default class NewHearing extends React.Component {
   updateCourt = (selected) => {
     this.setState({ court: selected, court_options: [] })
   }
-=======
-    postData(url, this.state.court).then(data => {
-      this.setState({ court_options: data });
-    });
-  };
->>>>>>> master
 
-  updateCourt = selected => {
+  updateCourt = (selected) => {
     this.setState({ court: selected, court_options: [] });
   };
 
   render() {
     return (
-<<<<<<< HEAD
       <React.Fragment >
         <h1>Add a new hearing</h1>
         <form autocomplete="off" action="/add-hearing" method="post" className="form">
 
-=======
-      <React.Fragment>
-        <h1>Add a new hearing</h1>
-        <form action="/add-hearing" method="post" className="form">
->>>>>>> master
           <section className="form_section">
             <label htmlFor="date">Date:</label>
             <select
@@ -130,9 +117,6 @@ export default class NewHearing extends React.Component {
 
           <section className="form_section">
             <label htmlFor="email">Email:</label>
-<<<<<<< HEAD
-            <input type="email" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
-=======
             <input
               type="text"
               name="email"
@@ -140,14 +124,10 @@ export default class NewHearing extends React.Component {
               value={this.state.email}
               onChange={this.handleChange}
             />
->>>>>>> master
           </section>
 
           <section className="form_section">
             <label htmlFor="phone">Phone number:</label>
-<<<<<<< HEAD
-            <input type="number" name="phone" className="input" value={this.state.phone} onChange={this.handleChange} />
-=======
             <input
               type="text"
               name="phone"
@@ -155,7 +135,6 @@ export default class NewHearing extends React.Component {
               value={this.state.phone}
               onChange={this.handleChange}
             />
->>>>>>> master
           </section>
 
           <button type="submit">Add hearing</button>
