@@ -1,7 +1,7 @@
-exports get = (req, res) => {
+// exports.get = (req, res) => {
 
-}
+// }
 
-exports.post = (req, res) => {
-  
-}
+// exports.post = (req, res) => {
+
+// }

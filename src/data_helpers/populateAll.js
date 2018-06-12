@@ -4,10 +4,10 @@
 const mongoose = require('mongoose');
 
 // import dump and/or dummy data (coment out the ones you wont use)
-const courts_dump = require('./courts_dump.json');
+// const courts_dump = require('./courts_dump.json');
 // const dummy_courts = require('./dummy_courts');
 // const dummy_hearing = require('./dummy_hearing');
-// const dummy_volunteer = require('./dummy_volunteer');
+const dummy_volunteer = require('./dummy_volunteer');
 
 // import relevant schemas
 const { Court } = require('../database/model');
@@ -20,8 +20,8 @@ require('dotenv').config();
 // configure and open database connection:
 // if populating remote database select the MLAB const
 // else use the normal environment variable
-// const { DATABASE_URL } = process.env;
-const DATABASE_URL = process.env.MLAB_DATABASE_URL;
+const { DATABASE_URL } = process.env;
+// const DATABASE_URL = process.env.MLAB_DATABASE_URL;
 if (!DATABASE_URL) {
   throw new Error('Environment variable DATABASE_URL should be set');
 }
@@ -47,7 +47,7 @@ function populateAll(schema, data) {
 }
 
 // Comment out the functions you don't want to invoke now
-populateAll(Court, courts_dump.courts);
+// populateAll(Court, courts_dump.courts);
 // populateAll(Court, dummy_courts.courts);
 // populateAll(Hearing, dummy_hearing);
-// populateAll(Volunteer, dummy_volunteer);
+populateAll(Volunteer, dummy_volunteer);

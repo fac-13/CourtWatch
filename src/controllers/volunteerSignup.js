@@ -1,5 +1,5 @@
-exports.get = (req, res) => {
-  const { email } = req.params;
-};
+// exports.get = (req, res) => {
+//   const { email } = req.params;
+// };
 
-exports.post = (req, res) => {};
+// exports.post = (req, res) => {};

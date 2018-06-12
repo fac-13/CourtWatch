@@ -17,13 +17,13 @@ export const getData = (url) => {
 };
 
 export const postData = (url, data) => {
-  console.log("PostData data", data)
   return fetch(url, { method: 'POST', body: JSON.stringify({ data }), headers: { 'Content-Type': 'application/json' } })
     .then(checkResponse)
     .catch((err) => {
       throw new Error(`fetch getData failed ${err}`);
     });
 };
+
 
 
 

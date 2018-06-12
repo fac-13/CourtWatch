@@ -20,12 +20,12 @@ const sendEmail = (to, bcc, subject, content) => {
     });
 };
 
-const sendManyEmails = (personalisations, content) => {
+const sendManyEmails = (mailingList, body) => {
   sgMail
-    .sendMultiple({
-      personalisations,
+    .send({
+      personalizations: mailingList,
       from: 'noreply@wip.org',
-      content,
+      content: body,
     })
     .catch((error) => {
       const { message } = error;

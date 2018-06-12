@@ -17,7 +17,7 @@ const Weeks = (props) => {
     const date = day.format('YYYY-MM-D');
 
     //Find if any hearings are taking place on the same date, in order to add hearing to row
-    const match = hearings.filter(hearing => hearing.date === date);
+    const match = hearings.filter(hearing => hearing.hearing_date === date);
 
     return (
       <article key={index} className="schedule_article">
