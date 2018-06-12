@@ -107,14 +107,15 @@ button {
 
 .form {
   justify-content: space-around; }
-
-.form_section {
-  margin: 5%;
-  display: flex;
-  flex-direction: column; }
-  .form_section label {
-    text-align: left;
-    margin-bottom: 2%; }
+  .form button {
+    align-self: center; }
+  .form .form_section {
+    margin: 5%;
+    display: flex;
+    flex-direction: column; }
+    .form .form_section label {
+      text-align: left;
+      margin-bottom: 2%; }
 
 .select {
   width: 90%;
