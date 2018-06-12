@@ -12,19 +12,20 @@ export default class NewHearing extends React.Component {
     type: '',
     email: '',
     phone: '',
-  }
+  };
 
   handleChange = (event) => {
     const { target } = event;
     const { value } = target;
     const key = target.name;
     this.setState({ [key]: value });
-  }
+  };
 
   handleAutocomplete = (event) => {
     const { target } = event;
     const { value } = target;
     const url = '/match-court/';
+<<<<<<< HEAD
     this.setState({ court: value }, () => {
       postData(url, this.state.court)
         .then(data =>
@@ -35,28 +36,55 @@ export default class NewHearing extends React.Component {
   updateCourt = (selected) => {
     this.setState({ court: selected, court_options: [] })
   }
+=======
+    postData(url, this.state.court).then(data => {
+      this.setState({ court_options: data });
+    });
+  };
+>>>>>>> master
 
+  updateCourt = selected => {
+    this.setState({ court: selected, court_options: [] });
+  };
 
   render() {
     return (
+<<<<<<< HEAD
       <React.Fragment >
         <h1>Add a new hearing</h1>
         <form autocomplete="off" action="/add-hearing" method="post" className="form">
 
+=======
+      <React.Fragment>
+        <h1>Add a new hearing</h1>
+        <form action="/add-hearing" method="post" className="form">
+>>>>>>> master
           <section className="form_section">
             <label htmlFor="date">Date:</label>
-            <select id="date" name="date" className="select" value={this.state.date} onChange={this.handleChange}>
+            <select
+              id="date"
+              name="date"
+              className="select"
+              value={this.state.date}
+              onChange={this.handleChange}
+            >
               <Date />
             </select>
           </section>
 
           <section className="form_section autocomplete">
             <label htmlFor="court">Court:</label>
-            <input id="court" name="court" className="input" value={this.state.court} onChange={this.handleAutocomplete} />
+            <input
+              id="court"
+              name="court"
+              className="input"
+              value={this.state.court}
+              onChange={this.handleAutocomplete}
+            />
             <ul className="list">
-              {this.state.court_options.length > 0 &&
+              {this.state.court_options.length > 0 && (
                 <Courts courts={this.state.court_options} updateCourt={this.updateCourt} />
-              }
+              )}
             </ul>
           </section>
 
@@ -64,34 +92,75 @@ export default class NewHearing extends React.Component {
 
           <section className="form_section">
             <label htmlFor="name">Name:</label>
-            <input className="input" type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+            <input
+              className="input"
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
           </section>
 
           <section className="form_section">
             <label htmlFor="type">I am a...</label>
-            <select id="type" name="type" className="select" value={this.state.type} onChange={this.handleChange}>
-              <option value="" selected disabled hidden>Please select one:</option>
-              <option value="Solicitor" className="select_item">Solicitor</option>
-              <option value="Social worker" className="select_item">Social worker</option>
-              <option value="Defendant" className="select_item">Defendant</option>
-              <option value="Other" className="select_item">Other</option>
+            <select
+              id="type"
+              name="type"
+              className="select"
+              value={this.state.type}
+              onChange={this.handleChange}
+            >
+              <option value="" selected disabled hidden>
+                Please select one:
+              </option>
+              <option value="Solicitor" className="select_item">
+                Solicitor
+              </option>
+              <option value="Social worker" className="select_item">
+                Social worker
+              </option>
+              <option value="Defendant" className="select_item">
+                Defendant
+              </option>
+              <option value="Other" className="select_item">
+                Other
+              </option>
             </select>
           </section>
 
           <section className="form_section">
             <label htmlFor="email">Email:</label>
+<<<<<<< HEAD
             <input type="email" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
+=======
+            <input
+              type="text"
+              name="email"
+              className="input"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+>>>>>>> master
           </section>
 
           <section className="form_section">
             <label htmlFor="phone">Phone number:</label>
+<<<<<<< HEAD
             <input type="number" name="phone" className="input" value={this.state.phone} onChange={this.handleChange} />
+=======
+            <input
+              type="text"
+              name="phone"
+              className="input"
+              value={this.state.phone}
+              onChange={this.handleChange}
+            />
+>>>>>>> master
           </section>
 
           <button type="submit">Add hearing</button>
         </form>
-      </React.Fragment >
-    )
+      </React.Fragment>
+    );
   }
-};
-
+}
