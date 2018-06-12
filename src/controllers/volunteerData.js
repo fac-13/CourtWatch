@@ -1,5 +1,5 @@
 const { createVolunteer } = require('../database/query');
-const bcrypt = require
+const bcrypt = require('bcrypt');
 
 // Add new volunteer to database
 exports.post = async (req, res) => {
