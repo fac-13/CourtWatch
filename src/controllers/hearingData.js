@@ -13,8 +13,8 @@ exports.get = async (req, res) => {
 };
 
 exports.post = async (req, res) => {
-  const { hearing_date, court_id, court_name, notes } = req.body;
-  const contact = [({ name, type, email, number } = req.body)];
+  const { hearing_date, court_id, court_name } = req.body;
+  const contact = [({ name, type, email, phone } = req.body)];
   const recipients = await getAllVolunteers({}, 'contact.email _id');
   const personalisations = recipients.map(item => ({
     to: item.contact.email,
@@ -31,7 +31,7 @@ exports.post = async (req, res) => {
       value: `Alert! Hearings involving women are scheduled to take place from 10am on ${hearing_data} at ${court_name}. If you can observe these hearings please visit https://court-watch.herokuapp.com/schedule/%%id%% to confirm your attendance. Regards, the Court Watch Team.`,
     },
   ];
-  const hearingAlert = sendEmail(personalisations, message);
+  const hearingAlert = sendEmail(personalisations, content);
   try {
     await createHearing({
       hearing_date,
