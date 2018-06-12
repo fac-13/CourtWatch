@@ -4,11 +4,12 @@
   "description": "A notifications, bookings and data gathering app for court observers at hearings where defendants are women.",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./public/index.html | node src/index.js",
-    "dev": "parcel ./public/index.html | nodemon src/index.js",
+    "start": "node src/index.js",
+    "client": "parcel ./public/index.html",
+    "server": "node src/index.js",
     "test": "jest --coverage",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
-    "build": "parcel build ./public/index.html | node src/index.js",
+    "build": "parcel build ./public/index.html",
     "heroku-postbuild": "parcel build ./public/index.html"
   },
   "repository": {
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",

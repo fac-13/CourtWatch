@@ -10,6 +10,7 @@ import Hearing from './Hearing';
 import NewHearing from './Newhearing';
 import Join from './Join';
 import Thanks from './Thanks';
+import Signup from './Signup';
 
 export default class App extends React.Component {
 
@@ -25,6 +26,7 @@ export default class App extends React.Component {
 					<Route path="/new-hearing" component={NewHearing} />
 					<Route path="/join" component={Join} />
 					<Route path="/thanks" component={Thanks} />
+					<Route path="/signup" component={Signup} />
 				</React.Fragment>
 			</Router>
 		);

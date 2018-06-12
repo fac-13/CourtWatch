@@ -1,13 +1,10 @@
-/* eslint-disable */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { postData } from '../utils/fetch';
 import Courts from './Courts';
 import Date from './Date';
 
 export default class NewHearing extends React.Component {
   state = {
-    input: '',
     date: '',
     court: '',
     court_options: [],
@@ -17,30 +14,38 @@ export default class NewHearing extends React.Component {
     phone: '',
   };
 
-  handleChange = event => {
-    const target = event.target;
-    const value = target.value;
+  handleChange = (event) => {
+    const { target } = event;
+    const { value } = target;
     const key = target.name;
     this.setState({ [key]: value });
   };
 
-  handleAutocomplete = event => {
-    this.handleChange(event);
+  handleAutocomplete = (event) => {
+    const { target } = event;
+    const { value } = target;
     const url = '/match-court/';
-    postData(url, this.state.court).then(data => {
-      this.setState({ court_options: data });
+    this.setState({ court: value }, () => {
+      postData(url, this.state.court)
+        .then(data =>
+          this.setState({ court_options: data }));
     });
-  };
+  }
 
-  updateCourt = selected => {
+  updateCourt = (selected) => {
+    this.setState({ court: selected, court_options: [] })
+  }
+
+  updateCourt = (selected) => {
     this.setState({ court: selected, court_options: [] });
   };
 
   render() {
     return (
-      <React.Fragment>
+      <React.Fragment >
         <h1>Add a new hearing</h1>
-        <form action="/add-hearing" method="post" className="form">
+        <form autocomplete="off" action="/add-hearing" method="post" className="form">
+
           <section className="form_section">
             <label htmlFor="date">Date:</label>
             <select
