@@ -12,7 +12,7 @@ export default class NewHearing extends React.Component {
     court: '',
     court_options: [],
     name: '',
-    profession: '',
+    type: '',
     email: '',
     phone: '',
   }
@@ -21,7 +21,7 @@ export default class NewHearing extends React.Component {
     const target = event.target;
     const value = target.value;
     const key = target.name;
-    this.setState({ [key]: value }, () => console.log("This state court", this.state.court));
+    this.setState({ [key]: value });
   }
 
   handleAutocomplete = event => {
@@ -69,8 +69,8 @@ export default class NewHearing extends React.Component {
           </section>
 
           <section className="form_section">
-            <label htmlFor="profession">I am a...</label>
-            <select id="profession" name="profession" className="select" value={this.state.profession} onChange={this.handleChange}>
+            <label htmlFor="type">I am a...</label>
+            <select id="type" name="type" className="select" value={this.state.type} onChange={this.handleChange}>
               <option value="" selected disabled hidden>Please select one:</option>
               <option value="Solicitor" className="select_item">Solicitor</option>
               <option value="Social worker" className="select_item">Social worker</option>
@@ -87,10 +87,10 @@ export default class NewHearing extends React.Component {
 
           <section className="form_section">
             <label htmlFor="phone">Phone number:</label>
-            <input type="text" name="number" className="input" value={this.state.phone} onChange={this.handleChange} />
+            <input type="text" name="phone" className="input" value={this.state.phone} onChange={this.handleChange} />
           </section>
 
-          <button type="submit"><Link to="/schedule" className="link">Add hearing</Link></button>
+          <button type="submit">Add hearing</button>
         </form>
       </React.Fragment >
     )
