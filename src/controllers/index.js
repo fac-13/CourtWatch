@@ -3,21 +3,25 @@ const express = require('express');
 const router = express.Router();
 
 // route handlers
-const scheduleData = require('./scheduleData');
-const hearingData = require('./hearingData');
 const courtData = require('./courtData');
-const volunteerSignup = require('./volunteerSignup');
 const expressInterest = require('./expressInterest');
+const hearingData = require('./hearingData');
+const scheduleData = require('./scheduleData');
+const resourceLinks = require('./volunteerResources');
+const volunteerSignup = require('./volunteerSignup');
 
 // GET routes
-router.get('/schedule-data', scheduleData.get);
+router.get('/express-interest', expressInterest.get);
 router.get('/hearing-data/:id', hearingData.get);
+router.get('/schedule-data', scheduleData.get);
+router.get('resources', resourceLinks.get);
 router.get('/signup/:email', volunteerSignup.get);
 
 // POST routes
 router.post('/add-hearing', hearingData.post);
+router.post('/add-resources', resourceLinks.post);
+router.post('/join', expressInterest.post);
 router.post('/match-court', courtData.post);
-router.post('/signup', volunteerSignup.post);
-router.post('express-interest', expressInterest.post);
+router.post('/register', volunteerSignup.post);
 
 module.exports = router;
