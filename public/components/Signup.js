@@ -1,4 +1,6 @@
 import React from 'react';
+import { postData } from '../utils/fetch';
+import { withRouter } from 'react-router-dom';
 
 export default class Signup extends React.Component {
   state = {
@@ -8,6 +10,7 @@ export default class Signup extends React.Component {
     confirm_password: '',
     email: '',
     mobile: '',
+    duplicate_error: '',
   }
 
   handleChange = (event) => {
@@ -17,15 +20,30 @@ export default class Signup extends React.Component {
     this.setState({ [key]: value });
   }
 
-  signUp = () => {
+  signUp = (e) => {
+    e.preventDefault();
+    const data = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      password: this.state.password,
+      email: this.state.email,
+      mobile: this.state.mobile,
+    };
 
+    postData('/signup', data)
+      .then((response) => {
+        if (response.success) {
+          console.log('response', response);
+          this.props.history.push('/');
+        }
+      });
   }
 
   render() {
     return (
       <React.Fragment >
         <h1>Sign up</h1>
-        <form className="form">
+        <form className="form" onSubmit={this.signUp}>
 
           <section className="form_section">
             <label htmlFor="first_name">First name:</label>
@@ -57,7 +75,7 @@ export default class Signup extends React.Component {
             <input type="password" name="confirm_password" className="input" value={this.state.confirm_password} onChange={this.handleChange} />
           </section>
 
-          <button type="submit" onClick={this.signUp}>Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </React.Fragment >
     );

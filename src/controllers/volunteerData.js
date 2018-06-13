@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 exports.post = async (req, res) => {
   const {
     first_name, last_name, email, mobile, password,
-  } = req.body;
+  } = req.body.data;
 
   const contact = {
     email,
@@ -29,9 +29,11 @@ exports.post = async (req, res) => {
 
     // Add volunteer to database
     const volunteer = await createVolunteer(data);
-    console.log('Volunteer', volunteer);
+    console.log('New volunteer', volunteer);
+    res.send({ success: true });
     // res.send(hearings);
   } catch (err) {
     console.log('createVolunteer error', err);
+    res.send('Error');
   }
 };
