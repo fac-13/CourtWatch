@@ -19,4 +19,7 @@ router.post('/match-court', courtData.post);
 router.post('/signup', volunteerData.post);
 router.post('/join', join.post);
 
+// PUT routes
+router.put('/update-hearing', hearingData.put);
+
 module.exports = router;
