@@ -2,20 +2,23 @@ import React from 'react';
 import moment from 'moment';
 import Button from './Button';
 import Address from './Address';
+import { getData } from '../utils/fetch';
 
 export default class DetailsHearing extends React.Component {
   state = {
     attending: null,
     viewing: null,
+    addresses: null,
+    contact: null,
   };
 
   componentDidMount() {
-    const { hearing } = props;
-    const { addresses, contact } = hearing;
+    const { addresses, contact } = this.props.hearing;
     const date = moment(hearing.date).format('dddd D MMMM YYYY');
-    const id = window.location.pathname.split('/')[3];
-    getData(`/profile/${id}`).then(volunteer =>
-      this.setState({ viewing: volunteer }, () => console.log(this.state.viewing)));
+    const viewerId = window.location.pathname.split('/')[3];
+    getData(`/profile/${viewerId}`).then(volunteer =>
+      this.setState({ viewing: volunteer, addresses, contact }, () =>
+        console.log(this.state.viewing)));
   }
 
   // Change format of date
@@ -53,16 +56,3 @@ export default class DetailsHearing extends React.Component {
     );
   }
 }
-
-// const DetailsHearings = (props) => {
-//   const { hearing } = props;
-//   const { addresses, contact } = hearing;
-
-//   // Change format of date
-//   const date = moment(hearing.date).format('dddd D MMMM YYYY');
-
-//   return (
-//   );
-// };
-
-// export default DetailsHearings;

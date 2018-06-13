@@ -1,4 +1,5 @@
 import React from 'react';
+import { postData } from '../utils/fetch';
 
 export default class Signup extends React.Component {
   state = {
@@ -8,6 +9,7 @@ export default class Signup extends React.Component {
     confirm_password: '',
     email: '',
     mobile: '',
+    duplicate_error: '',
   }
 
   handleChange = (event) => {
@@ -17,11 +19,35 @@ export default class Signup extends React.Component {
     this.setState({ [key]: value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      password: this.state.password,
+      email: this.state.email,
+      mobile: this.state.mobile,
+    };
+
+    postData('/signup', data)
+      .then((response) => {
+        if (response.success === true) {
+          setTimeout(() => { this.props.history.push('/schedule'); }, 1800);
+        } else {
+          this.setState({ duplicate_error: 'Duplicate value' }, () => {
+            setTimeout(() => { this.setState({ duplicate_error: '' }); }, 1800);
+          });
+        }
+      });
+  }
+
   render() {
+    const duplicate = this.state.duplicate_error;
+
     return (
       <React.Fragment >
         <h1>Sign up</h1>
-        <form action="/signup" method="post" className="form">
+        <form className="form" onSubmit={this.handleSubmit}>
 
           <section className="form_section">
             <label htmlFor="first_name">First name:</label>
@@ -52,6 +78,11 @@ export default class Signup extends React.Component {
             <label htmlFor="confirm_password">Confirm password:</label>
             <input type="password" name="confirm_password" className="input" value={this.state.confirm_password} onChange={this.handleChange} />
           </section>
+          {duplicate &&
+            <section>
+              <p className="form_error">Sorry, a volunteer with these details already exists in our database.</p>
+            </section>
+          }
 
           <button type="submit">Submit</button>
         </form>

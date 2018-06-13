@@ -4,8 +4,8 @@ $white: #fffcfe;
 $grey: #424242; 
 $darkgrey: #303030; 
 $purple: #be24a3; 
-$red: #f92a53; 
-$green: #00AE65;
+$orange: #fc7844; 
+
 
 %container_shared {
     display: flex; 
@@ -55,7 +55,7 @@ html, body, #root {
 .navbar {
     min-height: 8%; 
     width: 100%; 
-    background-color: $grey; 
+    background-color: $orange; 
     }
 
 .nav_container {
@@ -78,7 +78,7 @@ html, body, #root {
         padding: 0.5em; 
     
     & .link {
-        color: $white; 
+        color: $darkgrey; 
     }
 }
 
@@ -87,23 +87,70 @@ html, body, #root {
 
 h1 {
     font-size: 1.5em; 
-    padding: 0.5em; 
-    color: $grey; 
-    margin-top: 5%; 
+    padding: 10%;
+    color: $darkgrey; 
 }
 
 //Home page 
 
-.home_title{
-    margin: 5%; 
-    font-size: 2em; 
-}
+.home{
+  background-color: $orange; 
+  height: 100%; 
 
-.home_section{
- display: flex; 
- flex-direction: column; 
- align-items: center; 
-}
+ & h1 {
+    font-size: 2em; 
+    }
+
+& .home_section{
+    display: flex; 
+ 
+    & div {
+        flex-direction: column; 
+        width: 100%; 
+        padding: 1em 2em; 
+
+        &.first_div {
+            height: 60%;
+
+            & h4 {
+            padding-bottom: 1em; 
+            font-size: 1.2em; 
+            
+        }
+    }
+        &.second_div {
+            background-color: #e2e0de; 
+            height: 40%; 
+
+            & .link {
+                font-weight: bold; 
+                font-size: 1.2em; 
+                color: $purple; 
+            }
+            
+        }
+    }
+    &.text{
+        display: flex; 
+        height: 60%; 
+        align-items:left; 
+        flex-direction: column; 
+
+        h4, p {
+            text-align: left; 
+        }
+        p{
+            line-height: 1.2em; 
+            padding-bottom: 2em; 
+        }
+    }
+
+    &.buttons {
+        display: flex;
+        flex-direction: row; 
+    }
+    }
+} 
 
 //Buttons
 
@@ -180,8 +227,11 @@ button {
         text-align: left; 
         margin-bottom: 2%; 
     }
+   }
 
-}
+    & .form_error{
+        color: $purple; 
+    }
 
 }
 

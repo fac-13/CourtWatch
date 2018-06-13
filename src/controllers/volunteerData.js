@@ -14,7 +14,8 @@ exports.get = async (req, res) => {
 exports.post = async (req, res) => {
   const {
     first_name, last_name, email, mobile, password,
-  } = req.body;
+  } = req.body.data;
+
   const contact = {
     email,
     mobile,
@@ -23,18 +24,25 @@ exports.post = async (req, res) => {
       mobile: true,
     },
   };
-  const data = {
-    first_name,
-    last_name,
-    password,
-    admin: false,
-    contact,
-  };
+
   try {
+    // Hash password
+    const hash = await bcrypt.hash(password, 10);
+    const data = {
+      first_name,
+      last_name,
+      password: hash,
+      admin: false,
+      contact,
+    };
+
+    // Add volunteer to database
     const volunteer = await createVolunteer(data);
-    console.log('Volunteer', volunteer);
+    console.log('New volunteer', volunteer);
+    res.send({ success: true });
     // res.send(hearings);
   } catch (err) {
     console.log('createVolunteer error', err);
+    res.send({ success: false });
   }
 };
