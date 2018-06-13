@@ -3,7 +3,7 @@ const { Volunteer } = require('./../model');
 const createVolunteer = async (data) => {
   if (!data) throw new Error('Query called without data - failed to execute');
   return Volunteer.create(data).catch((error) => {
-    throw new Error(`${error.message} adding new volunteer`);
+    throw new Error(`${error.name} adding new volunteer`);
   });
 };
 
