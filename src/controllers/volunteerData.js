@@ -34,6 +34,6 @@ exports.post = async (req, res) => {
     // res.send(hearings);
   } catch (err) {
     console.log('createVolunteer error', err);
-    res.send('Error');
+    res.send({ success: false });
   }
 };

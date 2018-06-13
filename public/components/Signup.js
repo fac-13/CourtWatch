@@ -1,6 +1,5 @@
 import React from 'react';
 import { postData } from '../utils/fetch';
-import { withRouter } from 'react-router-dom';
 
 export default class Signup extends React.Component {
   state = {
@@ -20,7 +19,7 @@ export default class Signup extends React.Component {
     this.setState({ [key]: value });
   }
 
-  signUp = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       first_name: this.state.first_name,
@@ -32,18 +31,21 @@ export default class Signup extends React.Component {
 
     postData('/signup', data)
       .then((response) => {
-        if (response.success) {
-          console.log('response', response);
-          this.props.history.push('/');
+        if (response.success === true) {
+          setTimeout(() => { this.props.history.push('/schedule'); }, 500);
+        } else {
+          this.setState({ duplicate_error: 'Duplicate value' });
         }
       });
   }
 
   render() {
+    const duplicate = this.state.duplicate_error;
+
     return (
       <React.Fragment >
         <h1>Sign up</h1>
-        <form className="form" onSubmit={this.signUp}>
+        <form className="form" onSubmit={this.handleSubmit}>
 
           <section className="form_section">
             <label htmlFor="first_name">First name:</label>
@@ -74,6 +76,11 @@ export default class Signup extends React.Component {
             <label htmlFor="confirm_password">Confirm password:</label>
             <input type="password" name="confirm_password" className="input" value={this.state.confirm_password} onChange={this.handleChange} />
           </section>
+          {duplicate &&
+            <section>
+              <p className="form_error">Sorry, a volunteer with these details already exists in our database.</p>
+            </section>
+          }
 
           <button type="submit">Submit</button>
         </form>
