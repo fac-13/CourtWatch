@@ -5,7 +5,7 @@ require('dotenv').config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.post = async (req, res) => {
-  const { email, name } = req.body;
+  const { email, name } = req.body.data;
   const emailContent = [
     {
       type: 'text/plain',
@@ -24,11 +24,13 @@ exports.post = async (req, res) => {
         subject: 'WIP Signup: Become a Court-Watch Volunteer',
         content: emailContent,
       })
+      .then(() => res.send({ success: true }))
       .catch((error) => {
         const { message } = error;
         throw new Error(`Error sending single email: ${message}`);
       });
   } catch (err) {
-    console.log(err);
+    console.log('Join error', err);
+    res.send({ success: false });
   }
 };

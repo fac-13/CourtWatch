@@ -25,7 +25,7 @@ export default class Join extends React.Component {
     postData('/join', data)
       .then((response) => {
         if (response.success === true) {
-          setTimeout(() => { this.props.history.push('/thanks'); }, 1800);
+          setTimeout(() => { this.props.history.push('/thanks?q=join'); }, 1800);
         } else {
           this.setState({ duplicate_error: 'Database error' }, () => {
             setTimeout(() => { this.setState({ error: '' }); }, 1800);
