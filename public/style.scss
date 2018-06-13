@@ -227,8 +227,11 @@ button {
         text-align: left; 
         margin-bottom: 2%; 
     }
+   }
 
-}
+    & .form_error{
+        color: $purple; 
+    }
 
 }
 

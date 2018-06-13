@@ -143,6 +143,8 @@ button {
     .form .form_section label {
       text-align: left;
       margin-bottom: 2%; }
+  .form .form_error {
+    color: #be24a3; }
 
 .select {
   width: 90%;

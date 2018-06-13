@@ -32,9 +32,11 @@ export default class Signup extends React.Component {
     postData('/signup', data)
       .then((response) => {
         if (response.success === true) {
-          setTimeout(() => { this.props.history.push('/schedule'); }, 500);
+          setTimeout(() => { this.props.history.push('/schedule'); }, 1800);
         } else {
-          this.setState({ duplicate_error: 'Duplicate value' });
+          this.setState({ duplicate_error: 'Duplicate value' }, () => {
+            setTimeout(() => { this.setState({ duplicate_error: '' }); }, 1800);
+          });
         }
       });
   }
