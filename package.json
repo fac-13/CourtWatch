@@ -7,6 +7,7 @@
     "start": "node src/index.js",
     "client": "parcel ./public/index.html",
     "server": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "jest --coverage",
     "sass": "node-sass --include-path sass public/style.scss public/style.css",
     "build": "parcel build ./public/index.html",
