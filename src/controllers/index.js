@@ -12,6 +12,7 @@ const join = require('./join');
 // GET routes
 router.get('/hearing-data/:id', hearingData.get);
 router.get('/schedule-data', scheduleData.get);
+router.get('/profile/:id', volunteerData.get);
 
 // POST routes
 router.post('/add-hearing', hearingData.post);

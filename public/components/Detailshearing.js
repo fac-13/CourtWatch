@@ -3,43 +3,66 @@ import moment from 'moment';
 import Button from './Button';
 import Address from './Address';
 
-const DetailsHearings = (props) => {
-  const { hearing } = props;
-  const { addresses, contact } = hearing;
+export default class DetailsHearing extends React.Component {
+  state = {
+    attending: null,
+    viewing: null,
+  };
+
+  componentDidMount() {
+    const { hearing } = props;
+    const { addresses, contact } = hearing;
+    const date = moment(hearing.date).format('dddd D MMMM YYYY');
+    const id = window.location.pathname.split('/')[3];
+    getData(`/profile/${id}`).then(volunteer =>
+      this.setState({ viewing: volunteer }, () => console.log(this.state.viewing)));
+  }
 
   // Change format of date
-  const date = moment(hearing.date).format('dddd D MMMM YYYY');
 
-  return (
-    <article className="hearing_container">
-      <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4> Date:</h4>
+  render() {
+    return (
+      <article className="hearing_container">
+        <section className="hearing_section first">
+          <section className="hearing_left_column">
+            <h4> Date:</h4>
+          </section>
+          <section className="hearing_right_column">
+            <span>{date}</span>
+          </section>
         </section>
-        <section className="hearing_right_column">
-          <span>{date}</span>
+
+        <section className="hearing_section first">
+          <section className="hearing_left_column">
+            <h4>Court:</h4>
+          </section>
+          <section className="hearing_right_column">
+            <span>{hearing.court_name}</span>
+          </section>
         </section>
-      </section>
 
-      <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4>Court:</h4>
+        <Address addresses={addresses} />
+
+        <Button className="hearing_button" link="/schedule" text="Attend" />
+
+        <section className="hearing_section second">
+          <h4>CourtWatchers attending the hearing:</h4>
+          <p>No CourtWatchers are booked to attend the hearing.</p>
         </section>
-        <section className="hearing_right_column">
-          <span>{hearing.court_name}</span>
-        </section>
-      </section>
+      </article>
+    );
+  }
+}
 
-      <Address addresses={addresses} />
+// const DetailsHearings = (props) => {
+//   const { hearing } = props;
+//   const { addresses, contact } = hearing;
 
-      <Button className="hearing_button" link="/schedule" text="Attend" />
+//   // Change format of date
+//   const date = moment(hearing.date).format('dddd D MMMM YYYY');
 
-      <section className="hearing_section second">
-        <h4>CourtWatchers attending the hearing:</h4>
-        <p>No CourtWatchers are booked to attend the hearing.</p>
-      </section>
-    </article>
-  );
-};
+//   return (
+//   );
+// };
 
-export default DetailsHearings;
+// export default DetailsHearings;
