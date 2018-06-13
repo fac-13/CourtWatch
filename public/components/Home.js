@@ -14,7 +14,8 @@ const Home = () => {
         </section>
         <section className="home_section text">
           <div className="first_div">
-            <h4>Every woman has a right to a fair trial.</h4><p>Yet many times crucial mitigating circumstances are not taken into account by the justice system. This leads to unfair prison sentences which break the lives of women living at the margins of society.</p>
+            <h4>Every woman has a right to a fair trial.</h4><p>Yet many times crucial mitigating circumstances are not taken into account by the justice system.</p>
+            <h4>Unfair prison sentences break the lives of women and their families.</h4>
           </div>
           <div className="second_div">
             <p><Link to="/join" className="link">Join CourtWatch</Link> to monitor and report on civil and criminal court cases, so to defend the right of every woman to receive a fair and impartial trial.</p>

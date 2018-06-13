@@ -33,7 +33,7 @@ export default class NewHearing extends React.Component {
   }
 
   updateCourt = (selected) => {
-    this.setState({ court: selected, court_options: [] })
+    this.setState({ court: selected, court_options: [] });
   }
 
   updateCourt = (selected) => {
@@ -44,7 +44,7 @@ export default class NewHearing extends React.Component {
     return (
       <React.Fragment >
         <h1>Add a new hearing</h1>
-        <form autocomplete="off" action="/add-hearing" method="post" className="form">
+        <form action="/add-hearing" method="post" className="form">
 
           <section className="form_section">
             <label htmlFor="date">Date:</label>

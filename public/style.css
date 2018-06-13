@@ -71,26 +71,27 @@ h1 {
       width: 100%;
       padding: 1em 2em; }
       .home .home_section div.first_div {
-        height: 45%; }
+        height: 60%; }
         .home .home_section div.first_div h4 {
           padding-bottom: 1em;
           font-size: 1.2em; }
       .home .home_section div.second_div {
         background-color: #e2e0de;
-        height: 55%; }
+        height: 40%; }
         .home .home_section div.second_div .link {
           font-weight: bold;
           font-size: 1.2em;
           color: #be24a3; }
     .home .home_section.text {
       display: flex;
-      height: 75%;
+      height: 60%;
       align-items: left;
       flex-direction: column; }
       .home .home_section.text h4, .home .home_section.text p {
         text-align: left; }
       .home .home_section.text p {
-        line-height: 1.2em; }
+        line-height: 1.2em;
+        padding-bottom: 2em; }
     .home .home_section.buttons {
       display: flex;
       flex-direction: row; }

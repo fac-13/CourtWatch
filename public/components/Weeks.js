@@ -25,6 +25,7 @@ const Weeks = (props) => {
           <p>{day.format('dddd')}</p>
           <p>{day.format('DD')}</p>
         </section>
+
         <section className="schedule_section right_column">
           {match.length > 0 &&
             <p><Link to={`/hearing/${match[0]._id}`} className="link">{match[0].court_name}</Link></p>

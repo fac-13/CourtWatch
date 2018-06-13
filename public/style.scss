@@ -110,7 +110,7 @@ h1 {
         padding: 1em 2em; 
 
         &.first_div {
-            height: 45%;
+            height: 60%;
 
             & h4 {
             padding-bottom: 1em; 
@@ -120,7 +120,7 @@ h1 {
     }
         &.second_div {
             background-color: #e2e0de; 
-            height: 55%; 
+            height: 40%; 
 
             & .link {
                 font-weight: bold; 
@@ -132,7 +132,7 @@ h1 {
     }
     &.text{
         display: flex; 
-        height: 75%; 
+        height: 60%; 
         align-items:left; 
         flex-direction: column; 
 
@@ -141,6 +141,7 @@ h1 {
         }
         p{
             line-height: 1.2em; 
+            padding-bottom: 2em; 
         }
     }
 

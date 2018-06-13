@@ -17,11 +17,15 @@ export default class Signup extends React.Component {
     this.setState({ [key]: value });
   }
 
+  signUp = () => {
+
+  }
+
   render() {
     return (
       <React.Fragment >
         <h1>Sign up</h1>
-        <form action="/signup" method="post" className="form">
+        <form className="form">
 
           <section className="form_section">
             <label htmlFor="first_name">First name:</label>
@@ -53,7 +57,7 @@ export default class Signup extends React.Component {
             <input type="password" name="confirm_password" className="input" value={this.state.confirm_password} onChange={this.handleChange} />
           </section>
 
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={this.signUp}>Submit</button>
         </form>
       </React.Fragment >
     );
