@@ -33,7 +33,7 @@ html, body, #root {
 .navbar {
   min-height: 8%;
   width: 100%;
-  background-color: #424242; }
+  background-color: #fc7844; }
 
 .nav_container {
   list-style: none;
@@ -52,22 +52,49 @@ html, body, #root {
 .nav_list li {
   padding: 0.5em; }
   .nav_list li .link {
-    color: #fffcfe; }
+    color: #303030; }
 
 h1 {
   font-size: 1.5em;
-  padding: 0.5em;
-  color: #424242;
-  margin-top: 5%; }
+  padding: 10%;
+  color: #303030; }
 
-.home_title {
-  margin: 5%;
-  font-size: 2em; }
-
-.home_section {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
+.home {
+  background-color: #fc7844;
+  height: 100%; }
+  .home h1 {
+    font-size: 2em; }
+  .home .home_section {
+    display: flex; }
+    .home .home_section div {
+      flex-direction: column;
+      width: 100%;
+      padding: 1em 2em; }
+      .home .home_section div.first_div {
+        height: 60%; }
+        .home .home_section div.first_div h4 {
+          padding-bottom: 1em;
+          font-size: 1.2em; }
+      .home .home_section div.second_div {
+        background-color: #e2e0de;
+        height: 40%; }
+        .home .home_section div.second_div .link {
+          font-weight: bold;
+          font-size: 1.2em;
+          color: #be24a3; }
+    .home .home_section.text {
+      display: flex;
+      height: 60%;
+      align-items: left;
+      flex-direction: column; }
+      .home .home_section.text h4, .home .home_section.text p {
+        text-align: left; }
+      .home .home_section.text p {
+        line-height: 1.2em;
+        padding-bottom: 2em; }
+    .home .home_section.buttons {
+      display: flex;
+      flex-direction: row; }
 
 button {
   background-color: #fffcfe;
@@ -116,6 +143,8 @@ button {
     .form .form_section label {
       text-align: left;
       margin-bottom: 2%; }
+  .form .form_error {
+    color: #be24a3; }
 
 .select {
   width: 90%;

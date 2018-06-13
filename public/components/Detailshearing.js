@@ -6,17 +6,15 @@ const DetailsHearings = (props) => {
   const { hearing } = props;
   const { addresses, contact } = hearing;
 
-  // Change format of date 
-  const date = moment(hearing.date).format('dddd D MMMM YYYY')
+  // Change format of date
+  const date = moment(hearing.date).format('dddd D MMMM YYYY');
 
   // Regex and filter function to render only address for visits (not postal address)
   const regex = /visit/i;
   const addressBlock = addresses.filter(item => regex.test(item.type) === true);
 
   // Replace new line symbol with break
-  const Address = () => {
-    return addressBlock[0].address.replace(/\n\n/, '\n').split('\n').map((item, key) => <span key={key}>{item}<br /></span>);
-  }
+  const Address = () => addressBlock[0].address.replace(/\n\n/, '\n').split('\n').map((item, key) => <span key={key}>{item}<br /></span>);
 
   return (
     <article className="hearing_container">
