@@ -30,28 +30,8 @@ const DetailsHearings = (props) => {
         </section>
       </section>
 
-      <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4>Address:</h4>
-        </section>
-        <section className="hearing_right_column">
-          <Address addresses={addresses} />
-          {/* <span>
-            {addressBlock[0].town}
-            <br />
-          </span>
-          <span>{addressBlock[0].county}</span> */}
-        </section>
-      </section>
+      <Address addresses={addresses} />
 
-      {/* <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4>Postcode:</h4>
-        </section>
-        <section className="hearing_right_column">
-          <span>{addressBlock[0].postcode}</span>
-        </section>
-      </section> */}
       <Button className="hearing_button" link="/schedule" text="Attend" />
 
       <section className="hearing_section second">
