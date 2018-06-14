@@ -193,14 +193,26 @@ button {
     padding: 0.3em; 
 
     &.left_column {
-        font-size: 0.8em; 
+        font-size: 1em; 
         width: 30%;
+        padding: 0.5em; 
     }
 
     &.right_column {
         width: 70%;
         color: $purple; 
-        text-decoration: underline; 
+        text-decoration: underline;
+        
+        & ul {
+            list-style: none; 
+            padding: 0.5em;
+            
+            & li {
+                padding-bottom: 0.5em;
+                text-align: left;  
+            }
+        }
+
         }
 
     p {
@@ -251,10 +263,9 @@ button {
 }
 
 .list {
- width: 90%; 
+ width: 100%; 
  list-style: none; 
  cursor: pointer; 
- border: 1px solid $grey; 
  border-top: 0; 
 
    & .list_item {
