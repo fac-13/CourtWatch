@@ -80,14 +80,17 @@ exports.post = async (req, res) => {
 };
 
 exports.put = async (req, res) => {
-  const { hearingId, volunteerId } = req.body;
+  const {
+    hearingId, volunteerId, firstName, lastName,
+  } = req.body.data;
+  // console.log(hearingId, volunteerId, firstName, lastName);
   try {
-    const watcher = await getVolunteer(volunteerId, 'first_name last_name contact _id');
-    await updateHearing(hearingId, {
-      'watching.0.volunteer_id': `${watcher._id}`,
-      'watching.0.full_name': `${watcher.first_name} ${watcher.last_name}`,
+    // const watcher = await getVolunteer(volunteerId, 'first_name last_name contact _id');
+    const updatedHearing = await updateHearing(hearingId, {
+      'watching.0.volunteer_id': `${volunteerId}`,
+      'watching.0.full_name': `${firstName} ${lastName}`,
     });
-    res.redirect(`hearing-data/${hearingId}`);
+    res.send(updatedHearing);
   } catch (err) {
     console.log('update hearing error', err);
   }

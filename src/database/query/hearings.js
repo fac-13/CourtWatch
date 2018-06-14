@@ -36,7 +36,10 @@ const deleteHearing = async (id) => {
 
 const updateHearing = async (id, data) => {
   if (!id || !data || typeof data !== 'object') {
-    throw new Error('Query called with one or more null or invalid arguments - failed to execute');
+    throw new Error(
+      'Query called with one or more null or invalid arguments - failed to execute, id: ',
+      id,
+    );
   }
   return Hearing.updateOne({ _id: id }, data).catch((error) => {
     throw new Error(`${error.name} updating hearing where id number is: ${id}`);

@@ -1,8 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import Button from './Button';
+// import Button from './Button';
 import Address from './Address';
-import { getData } from '../utils/fetch';
+import { getData, putData } from '../utils/fetch';
 
 export default class DetailsHearing extends React.Component {
   state = {
@@ -18,9 +18,26 @@ export default class DetailsHearing extends React.Component {
       this.setState({ attending: data }, () => console.log(this.state.attending)));
   }
 
-  updateAttendants = (e) => {
+  updateAttendants = () => {
     console.log('button clicked');
-    this.setState({ click: !this.state.click });
+    console.log(
+      'data to pass: ',
+      this.props.hearing.court_id,
+      this.state.attending._id,
+      this.state.attending.first_name,
+      this.state.attending.last_name,
+    );
+    putData('/update-hearing', {
+      hearingId: this.props.hearing._id,
+      volunteerId: this.state.attending._id,
+      firstName: this.state.attending.first_name,
+      lastName: this.state.attending.last_name,
+    }).then((result) => {
+      console.log(result);
+      if (result.ok === 1) {
+        this.setState({ click: !this.state.click }, () => console.log('Hello HAydn!!'));
+      }
+    });
   };
 
   render() {

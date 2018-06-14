@@ -1,6 +1,6 @@
 /*eslint-disable*/
 
-const checkResponse = (response) => {
+const checkResponse = response => {
   if (response.status !== 200) {
     console.log(`Error with the request! ${response.status}`);
     return;
@@ -8,23 +8,34 @@ const checkResponse = (response) => {
   return response.json();
 };
 
-export const getData = (url) => {
+export const getData = url => {
   return fetch(url)
     .then(checkResponse)
-    .catch((err) => {
+    .catch(err => {
       throw new Error(`fetch getData failed ${err}`);
     });
 };
 
 export const postData = (url, data) => {
-
-  return fetch(url, { method: 'POST', body: JSON.stringify({ data }), headers: { 'Content-Type': 'application/json' } })
+  return fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({ data }),
+    headers: { 'Content-Type': 'application/json' },
+  })
     .then(checkResponse)
-    .catch((err) => {
-      throw new Error(`fetch getData failed ${err}`);
+    .catch(err => {
+      throw new Error(`fetch postData failed ${err}`);
     });
 };
 
-
-
-
+export const putData = (url, data) => {
+  return fetch(url, {
+    method: 'PUT',
+    body: JSON.stringify({ data }),
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then(checkResponse)
+    .catch(err => {
+      throw new Error(`fetch putData failed ${err}`);
+    });
+};
