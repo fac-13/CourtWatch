@@ -36,10 +36,6 @@ export default class NewHearing extends React.Component {
     this.setState({ court: selected, court_options: [] });
   }
 
-  updateCourt = (selected) => {
-    this.setState({ court: selected, court_options: [] });
-  };
-
   render() {
     return (
       <React.Fragment >
