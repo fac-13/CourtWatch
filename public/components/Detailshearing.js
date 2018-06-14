@@ -7,23 +7,21 @@ import { getData } from '../utils/fetch';
 export default class DetailsHearing extends React.Component {
   state = {
     attending: null,
-    viewing: null,
-    addresses: null,
-    contact: null,
   };
 
   componentDidMount() {
-    const { addresses, contact } = this.props.hearing;
-    const date = moment(hearing.date).format('dddd D MMMM YYYY');
     const viewerId = window.location.pathname.split('/')[3];
-    getData(`/profile/${viewerId}`).then(volunteer =>
-      this.setState({ viewing: volunteer, addresses, contact }, () =>
-        console.log(this.state.viewing)));
+    getData(`/profile/${viewerId}`).then(data =>
+      this.setState({ attending: data }, () => console.log(this.state.attending)));
   }
 
   // Change format of date
+  formattedDate = moment(this.props.hearing.date).format('dddd D MMMM YYYY');
 
   render() {
+    const { addresses } = this.props.hearing;
+    const { first_name } = this.state.attending;
+
     return (
       <article className="hearing_container">
         <section className="hearing_section first">
@@ -50,7 +48,10 @@ export default class DetailsHearing extends React.Component {
 
         <section className="hearing_section second">
           <h4>CourtWatchers attending the hearing:</h4>
-          <p>No CourtWatchers are booked to attend the hearing.</p>
+          {this.state.attending === null && (
+            <p>No CourtWatchers are booked to attend the hearing.</p>
+          )}
+          {this.state.attending !== null && <p>{first_name}</p>}
         </section>
       </article>
     );
