@@ -4,7 +4,6 @@ import { Async } from 'react-select';
 import 'react-select/dist/react-select.css';
 
 import { postData } from '../utils/fetch';
-import Courts from './Courts';
 import Date from './Date';
 
 export default class NewHearing extends React.Component {
@@ -19,14 +18,12 @@ export default class NewHearing extends React.Component {
   };
 
   getCourts = (input) => {
-    console.log('Input', input);
     const url = '/match-court/';
     if (!input) {
       return Promise.resolve({ options: [] });
     }
     return postData(url, input)
       .then((courts) => {
-        console.log('Courts', courts);
         const updatedCourts = courts.map(el => (
           { value: el.name, label: el.name, id: 'court' }
         ));

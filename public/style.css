@@ -71,30 +71,34 @@ h1 {
       width: 100%;
       padding: 1em 2em; }
       .home .home_section div.first_div {
-        height: 60%; }
+        height: 40%; }
         .home .home_section div.first_div h4 {
           padding-bottom: 1em;
           font-size: 1.2em; }
       .home .home_section div.second_div {
         background-color: #e2e0de;
-        height: 40%; }
+        height: 60%; }
         .home .home_section div.second_div .link {
           font-weight: bold;
           font-size: 1.2em;
           color: #be24a3; }
     .home .home_section.text {
       display: flex;
-      height: 60%;
+      height: 100%;
       align-items: left;
       flex-direction: column; }
       .home .home_section.text h4, .home .home_section.text p {
         text-align: left; }
       .home .home_section.text p {
-        line-height: 1.2em;
-        padding-bottom: 2em; }
+        line-height: 1.3em;
+        font-size: 1.3em;
+        padding-bottom: 1em; }
     .home .home_section.buttons {
       display: flex;
-      flex-direction: row; }
+      flex-direction: column;
+      align-items: center; }
+      .home .home_section.buttons h4 {
+        text-align: center; }
 
 button {
   background-color: #fffcfe;
@@ -103,6 +107,10 @@ button {
   padding: 0.5em;
   margin: 5%;
   width: 200px; }
+  button.home_button {
+    color: #fc7844;
+    background-color: #e2e0de;
+    height: 50px; }
   button.hearing_button {
     align-self: center; }
 

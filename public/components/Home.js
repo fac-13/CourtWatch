@@ -19,11 +19,11 @@ const Home = () => {
           </div>
           <div className="second_div">
             <p><Link to="/join" className="link">Join CourtWatch</Link> to monitor and report on civil and criminal court cases, so to defend the right of every woman to receive a fair and impartial trial.</p>
+            <section className="home_section buttons">
+              <Button className="home_button" link={join} text="Join CourtWatch" />
+              <Button className="home_button" link={addHearing} text="Add a hearing" />
+            </section>
           </div>
-        </section>
-        <section className="home_section buttons">
-          <Button className="home_button" link={join} text="Join CourtWatch" />
-          <Button className="home_button" link={addHearing} text="Add a hearing" />
         </section>
       </section>
     </React.Fragment>

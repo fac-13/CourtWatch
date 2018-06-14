@@ -7,7 +7,7 @@ const Button = (props) => {
 
   return (
     <button className={className} >
-      <Link to={link} className="link">{text}</Link>
+      <h4><Link to={link} className="link">{text}</Link></h4>
     </button >
   )
 }
