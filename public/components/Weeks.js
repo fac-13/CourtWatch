@@ -19,6 +19,9 @@ const Weeks = (props) => {
     //Find if any hearings are taking place on the same date, in order to add hearing to row
     const match = hearings.filter(hearing => hearing.hearing_date === date);
 
+    // Create one list item for every hearing on the same date
+    const Hearings = () => match.map((el, index) => <li key={index}><Link to={`/hearing/${el._id}`} className="link">{el.court_name}</Link></li>);
+
     return (
       <article key={index} className="schedule_article">
         <section className="schedule_section left_column">
@@ -27,9 +30,11 @@ const Weeks = (props) => {
         </section>
 
         <section className="schedule_section right_column">
-          {match.length > 0 &&
-            <p><Link to={`/hearing/${match[0]._id}`} className="link">{match[0].court_name}</Link></p>
-          }
+          <ul>
+            {match.length > 0 &&
+              <Hearings />
+            }
+          </ul>
         </section>
       </article >
     );
