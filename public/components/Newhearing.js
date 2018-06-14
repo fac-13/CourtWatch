@@ -11,12 +11,37 @@ export default class NewHearing extends React.Component {
   state = {
     date: '',
     court: '',
-    court_options: [],
     name: '',
     type: '',
     email: '',
     phone: '',
+    error: '',
   };
+
+  getCourts = (input) => {
+    console.log('Input', input);
+    const url = '/match-court/';
+    if (!input) {
+      return Promise.resolve({ options: [] });
+    }
+    return postData(url, input)
+      .then((courts) => {
+        console.log('Courts', courts);
+        const updatedCourts = courts.map(el => (
+          { value: el.name, label: el.name, id: 'court' }
+        ));
+        return { options: updatedCourts };
+      });
+  }
+
+  getValue = () => {
+    const { court } = this.state;
+    if (court) {
+      return (
+        { value: court, label: court }
+      );
+    }
+  }
 
   handleChange = (event) => {
     const { target } = event;
@@ -30,23 +55,8 @@ export default class NewHearing extends React.Component {
       const { value, id } = option;
       console.log('value', value);
       console.log('id', id);
-      this.setState({ [id]: value });
+      this.setState({ [id]: value }, () => console.log('This state court', this.state.court));
     }
-  }
-
-  handleAutocomplete = (event) => {
-    const { target } = event;
-    const { value } = target;
-    const url = '/match-court/';
-    this.setState({ court: value }, () => {
-      postData(url, this.state.court)
-        .then(data =>
-          this.setState({ court_options: data }));
-    });
-  }
-
-  updateCourt = (selected) => {
-    this.setState({ court: selected, court_options: [] });
   }
 
   handleSubmit = (e) => {
@@ -65,8 +75,8 @@ export default class NewHearing extends React.Component {
         if (response.success === true) {
           setTimeout(() => { this.props.history.push('/thanks?q=hearing'); }, 500);
         } else {
-          this.setState({ database_error: 'Database error' }, () => {
-            setTimeout(() => { this.setState({ duplicate_error: '' }); }, 1000);
+          this.setState({ error: 'Database error' }, () => {
+            setTimeout(() => { this.setState({ error: '' }); }, 1000);
           });
         }
       });
@@ -97,25 +107,12 @@ export default class NewHearing extends React.Component {
             <Async
               name="court"
               id="court"
-              value={this.state.court}
+              value={this.getValue()}
               onChange={this.handleSelect}
               loadOptions={this.getCourts}
+              clearable
             />
 
-            {/*
-            <input
-              id="court"
-              name="court"
-              className="input"
-              value={this.state.court}
-              onChange={this.handleAutocomplete}
-            />
-            <ul className="list">
-              {this.state.court_options.length > 0 && (
-                <Courts courts={this.state.court_options} updateCourt={this.updateCourt} />
-              )}
-            </ul>
-          */}
           </section>
 
           <h4>Contact details (optional):</h4>
