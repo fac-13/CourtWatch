@@ -1,4 +1,7 @@
 import React from 'react';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+
 import { postData } from '../utils/fetch';
 import Courts from './Courts';
 import Date from './Date';
@@ -20,6 +23,14 @@ export default class NewHearing extends React.Component {
     const key = target.name;
     this.setState({ [key]: value });
   };
+
+  handleSelect = (option) => {
+    console.log('Option', option);
+    const { value, id } = option;
+    console.log('value', value);
+    console.log('id', id);
+    this.setState({ [id]: value });
+  }
 
   handleAutocomplete = (event) => {
     const { target } = event;
@@ -111,29 +122,31 @@ export default class NewHearing extends React.Component {
 
           <section className="form_section">
             <label htmlFor="type">I am a...</label>
-            <select
-              id="type"
+            <Select
               name="type"
-              className="select"
+              id="type"
               value={this.state.type}
-              onChange={this.handleChange}
-            >
-              <option value="" selected disabled hidden>
-                Please select one:
-              </option>
-              <option value="Solicitor" className="select_item">
-                Solicitor
-              </option>
-              <option value="Social worker" className="select_item">
-                Social worker
-              </option>
-              <option value="Defendant" className="select_item">
-                Defendant
-              </option>
-              <option value="Other" className="select_item">
-                Other
-              </option>
-            </select>
+              onChange={this.handleSelect}
+              options={[
+                { value: 'Solicitor', label: 'Solicitor', id: 'type' },
+                { value: 'Social worker', label: 'Social worker', id: 'type' },
+                { value: 'Defendant', label: 'Defendant', id: 'type' },
+                { value: 'Other', label: 'Other', id: 'type' },
+              ]}
+            />
+            {/* <Select
+              name="type"
+              id="type"
+              value={this.state.type}
+              onChange={this.handleSelect}
+              options={[
+                { value: 'Solicitor', label: 'Solicitor', id: 'type' },
+                { value: 'type', label: 'Social worker', id: 'type' },
+                { value: 'type', label: 'Defendant', id: 'type' },
+                { value: 'type', label: 'Other', id: 'type' },
+
+              ]}
+            /> */}
           </section>
 
           <section className="form_section">
