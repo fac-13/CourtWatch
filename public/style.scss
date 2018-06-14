@@ -13,7 +13,7 @@ $lightgrey: #e2e0de;
     flex-direction: column; 
     width: 90%; 
     margin: 5%; 
-    border: 0.8px solid $grey; 
+    border: 0.8px solid $purple; 
 }
 
 //styles
@@ -175,10 +175,25 @@ button {
         height: 50px; 
     }
 
+    &.join_button {
+        border-color: $purple; 
+        height: 50px; 
+    }
+
     &.hearing_button {
         align-self: center;  
     }
   }
+
+// Join page 
+
+.join {
+    margin: 0 5%; 
+
+    & p {
+        text-align: justify; 
+    }
+}
 
 //Schedule page 
 

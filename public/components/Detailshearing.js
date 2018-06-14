@@ -19,7 +19,6 @@ export default class DetailsHearing extends React.Component {
   }
 
   updateAttendants = () => {
-    console.log('button clicked');
     console.log(
       'data to pass: ',
       this.props.hearing.court_id,

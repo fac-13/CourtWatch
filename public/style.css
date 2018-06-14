@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 90%;
   margin: 5%;
-  border: 0.8px solid #424242; }
+  border: 0.8px solid #be24a3; }
 
 * {
   margin: 0;
@@ -111,8 +111,16 @@ button {
     color: #fc7844;
     background-color: #e2e0de;
     height: 50px; }
+  button.join_button {
+    border-color: #be24a3;
+    height: 50px; }
   button.hearing_button {
     align-self: center; }
+
+.join {
+  margin: 0 5%; }
+  .join p {
+    text-align: justify; }
 
 .schedule_header {
   display: flex;

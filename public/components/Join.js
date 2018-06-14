@@ -40,24 +40,29 @@ export default class Join extends React.Component {
     return (
       <React.Fragment >
         <h1>Join CourtWatch</h1>
-        <form className="form" onSubmit={this.handleSubmit}>
+        <section className="join">
+          <p>If you are interested in becoming a CourtWatch volunteer, please fill in the form below and we will send you an email with more details about the project and how to sign up.</p>
+          <form className="form" onSubmit={this.handleSubmit}>
 
-          <section className="form_section">
-            <label htmlFor="name">Name:</label>
-            <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange} />
-          </section>
-
-          <section className="form_section">
-            <label htmlFor="email">Email:</label>
-            <input type="text" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
-          </section>
-          {error &&
-            <section>
-              <p className="form_error">Sorry, there has been an error with our database. Please try to submit the form again.</p>
+            <section className="form_section">
+              <label htmlFor="name">Name:</label>
+              <input type="text" name="name" className="input" value={this.state.name} onChange={this.handleChange} />
             </section>
-          }
-          <button type="submit">Submit</button>
-        </form>
+
+            <section className="form_section">
+              <label htmlFor="email">Email:</label>
+              <input type="text" name="email" className="input" value={this.state.email} onChange={this.handleChange} />
+            </section>
+            {error &&
+              <section>
+                <p className="form_error">Sorry, there has been an error with our database. Please try to submit the form again.</p>
+              </section>
+            }
+            <button type="submit" className="join_button">
+              <h4>Submit</h4>
+            </button>
+          </form>
+        </section>
       </React.Fragment >
     );
   }
