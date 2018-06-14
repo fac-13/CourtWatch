@@ -1,69 +1,84 @@
 import React from 'react';
 import moment from 'moment';
-import Button from './Button';
+// import Button from './Button';
+import Address from './Address';
+import { getData, putData } from '../utils/fetch';
 
-const DetailsHearings = (props) => {
-  const { hearing } = props;
-  const { addresses, contact } = hearing;
+export default class DetailsHearing extends React.Component {
+  state = {
+    attending: null,
+    click: false,
+  };
 
-  // Change format of date
-  const date = moment(hearing.date).format('dddd D MMMM YYYY');
+  componentDidMount() {
+    const viewerId = window.location.search.split('?attend=')[1];
+    console.log('Viewer Id: ', viewerId);
+    console.log('Hearing: ', this.props.hearing);
+    getData(`/profile/${viewerId}`).then(data =>
+      this.setState({ attending: data }, () => console.log(this.state.attending)));
+  }
 
-  // Regex and filter function to render only address for visits (not postal address)
-  const regex = /visit/i;
-  const addressBlock = addresses.filter(item => regex.test(item.type) === true);
+  updateAttendants = () => {
+    console.log('button clicked');
+    console.log(
+      'data to pass: ',
+      this.props.hearing.court_id,
+      this.state.attending._id,
+      this.state.attending.first_name,
+      this.state.attending.last_name,
+    );
+    putData('/update-hearing', {
+      hearingId: this.props.hearing._id,
+      volunteerId: this.state.attending._id,
+      firstName: this.state.attending.first_name,
+      lastName: this.state.attending.last_name,
+    }).then((result) => {
+      console.log(result);
+      if (result.ok === 1) {
+        this.setState({ click: !this.state.click }, () => console.log('Hello HAydn!!'));
+      }
+    });
+  };
 
-  // Replace new line symbol with break
-  const Address = () => addressBlock[0].address.replace(/\n\n/, '\n').split('\n').map((item, key) => <span key={key}>{item}<br /></span>);
+  render() {
+    const { addresses, court_name } = this.props.hearing;
+    const { attending, click } = this.state;
 
-  return (
-    <article className="hearing_container">
+    const date = this.props.hearing.hearing_date;
+    const formattedDate = moment(date).format('dddd D MMMM YYYY');
 
-      <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4> Date:</h4>
+    return (
+      <article className="hearing_container">
+        <section className="hearing_section first">
+          <section className="hearing_left_column">
+            <h4> Date:</h4>
+          </section>
+          <section className="hearing_right_column">
+            <span>{formattedDate}</span>
+          </section>
         </section>
-        <section className="hearing_right_column">
-          <span>{date}</span>
-        </section>
-      </section>
 
-      <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4>Court:</h4>
+        <section className="hearing_section first">
+          <section className="hearing_left_column">
+            <h4>Court:</h4>
+          </section>
+          <section className="hearing_right_column">
+            <span>{court_name}</span>
+          </section>
         </section>
-        <section className="hearing_right_column">
-          <span>{hearing.court_name}</span>
-        </section>
-      </section>
 
-      <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4>Address:</h4>
-        </section>
-        <section className="hearing_right_column">
-          <Address />
-          <span>{addressBlock[0].town}<br /></span>
-          <span>{addressBlock[0].county}</span>
-        </section>
-      </section>
+        <Address addresses={addresses} />
 
-      <section className="hearing_section first">
-        <section className="hearing_left_column">
-          <h4>Postcode:</h4>
-        </section>
-        <section className="hearing_right_column">
-          <span>{addressBlock[0].postcode}</span>
-        </section>
-      </section>
-      <Button className="hearing_button" link="/schedule" text="Attend" />
+        <button type="button" className="hearing_button" onClick={this.updateAttendants}>
+          Attend
+        </button>
 
-      <section className="hearing_section second">
-        <h4>CourtWatchers attending the hearing:</h4>
-        <p>No CourtWatchers are booked to attend the hearing.</p>
-      </section>
-    </article >
-  );
-};
-
-export default DetailsHearings;
+        <section className="hearing_section second">
+          <h4>CourtWatchers attending the hearing:</h4>
+          {!click && <p>No CourtWatchers are booked to attend the hearing.</p>}
+          {click && <p>{attending.first_name}</p>}
+        </section>
+      </article>
+    );
+  }
+}
