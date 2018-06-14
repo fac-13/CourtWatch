@@ -1,6 +1,15 @@
-const { createVolunteer } = require('../database/query');
+const { createVolunteer, getVolunteer } = require('../database/query');
 const bcrypt = require('bcrypt');
 
+exports.get = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const volunteer = await getVolunteer(id);
+    res.send(volunteer);
+  } catch (err) {
+    console.log('getVolunteer error', err);
+  }
+};
 // Add new volunteer to database
 exports.post = async (req, res) => {
   const {

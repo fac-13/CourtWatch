@@ -4,7 +4,12 @@ const moment = require('moment');
 require('dotenv').config();
 
 const {
-  createHearing, getHearing, getCourt, getAllVolunteers,
+  createHearing,
+  getAllVolunteers,
+  getHearing,
+  getCourt,
+  getVolunteer,
+  updateHearing,
 } = require('../database/query');
 
 // set send-grid credentials and config
@@ -71,5 +76,22 @@ exports.post = async (req, res) => {
       });
   } catch (err) {
     console.log('add hearing error', err);
+  }
+};
+
+exports.put = async (req, res) => {
+  const {
+    hearingId, volunteerId, firstName, lastName,
+  } = req.body.data;
+  // console.log(hearingId, volunteerId, firstName, lastName);
+  try {
+    // const watcher = await getVolunteer(volunteerId, 'first_name last_name contact _id');
+    const updatedHearing = await updateHearing(hearingId, {
+      'watching.0.volunteer_id': `${volunteerId}`,
+      'watching.0.full_name': `${firstName} ${lastName}`,
+    });
+    res.send(updatedHearing);
+  } catch (err) {
+    console.log('update hearing error', err);
   }
 };
