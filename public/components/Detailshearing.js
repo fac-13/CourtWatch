@@ -7,20 +7,28 @@ import { getData } from '../utils/fetch';
 export default class DetailsHearing extends React.Component {
   state = {
     attending: null,
+    click: false,
   };
 
   componentDidMount() {
-    const viewerId = window.location.pathname.split('/')[3];
+    const viewerId = window.location.search.split('?attend=')[1];
+    console.log('Viewer Id: ', viewerId);
+    console.log('Hearing: ', this.props.hearing);
     getData(`/profile/${viewerId}`).then(data =>
       this.setState({ attending: data }, () => console.log(this.state.attending)));
   }
 
-  // Change format of date
-  formattedDate = moment(this.props.hearing.date).format('dddd D MMMM YYYY');
+  updateAttendants = (e) => {
+    console.log('button clicked');
+    this.setState({ click: !this.state.click });
+  };
 
   render() {
-    const { addresses } = this.props.hearing;
-    const { first_name } = this.state.attending;
+    const { addresses, court_name } = this.props.hearing;
+    const { attending, click } = this.state;
+
+    const date = this.props.hearing.hearing_date;
+    const formattedDate = moment(date).format('dddd D MMMM YYYY');
 
     return (
       <article className="hearing_container">
@@ -29,7 +37,7 @@ export default class DetailsHearing extends React.Component {
             <h4> Date:</h4>
           </section>
           <section className="hearing_right_column">
-            <span>{date}</span>
+            <span>{formattedDate}</span>
           </section>
         </section>
 
@@ -38,18 +46,20 @@ export default class DetailsHearing extends React.Component {
             <h4>Court:</h4>
           </section>
           <section className="hearing_right_column">
-            <span>{hearing.court_name}</span>
+            <span>{court_name}</span>
           </section>
         </section>
 
         <Address addresses={addresses} />
 
-        <Button className="hearing_button" link="/schedule" text="Attend" />
+        <button type="button" className="hearing_button" onClick={this.updateAttendants}>
+          Attend
+        </button>
 
         <section className="hearing_section second">
           <h4>CourtWatchers attending the hearing:</h4>
-          {!this.state.attending && <p>No CourtWatchers are booked to attend the hearing.</p>}
-          {this.state.attending && <p>{first_name}</p>}
+          {!click && <p>No CourtWatchers are booked to attend the hearing.</p>}
+          {click && <p>{attending.first_name}</p>}
         </section>
       </article>
     );
