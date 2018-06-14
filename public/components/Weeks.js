@@ -18,7 +18,6 @@ const Weeks = (props) => {
 
     //Find if any hearings are taking place on the same date, in order to add hearing to row
     const match = hearings.filter(hearing => hearing.hearing_date === date);
-    console.log("Match", match)
 
     // Create one list item for every hearing on the same date
     const Hearings = () => match.map((el, index) => <li key={index}><Link to={`/hearing/${el._id}`} className="link">{el.court_name}</Link></li>);
