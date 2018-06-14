@@ -48,10 +48,8 @@ export default class DetailsHearing extends React.Component {
 
         <section className="hearing_section second">
           <h4>CourtWatchers attending the hearing:</h4>
-          {this.state.attending === null && (
-            <p>No CourtWatchers are booked to attend the hearing.</p>
-          )}
-          {this.state.attending !== null && <p>{first_name}</p>}
+          {!this.state.attending && <p>No CourtWatchers are booked to attend the hearing.</p>}
+          {this.state.attending && <p>{first_name}</p>}
         </section>
       </article>
     );
