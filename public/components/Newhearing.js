@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import { Async } from 'react-select';
 import 'react-select/dist/react-select.css';
 
 import { postData } from '../utils/fetch';
@@ -25,11 +26,12 @@ export default class NewHearing extends React.Component {
   };
 
   handleSelect = (option) => {
-    console.log('Option', option);
-    const { value, id } = option;
-    console.log('value', value);
-    console.log('id', id);
-    this.setState({ [id]: value });
+    if (option) {
+      const { value, id } = option;
+      console.log('value', value);
+      console.log('id', id);
+      this.setState({ [id]: value });
+    }
   }
 
   handleAutocomplete = (event) => {
@@ -72,7 +74,6 @@ export default class NewHearing extends React.Component {
 
   render() {
     const { error } = this.state;
-
     return (
       <React.Fragment >
         <h1>Add a new hearing</h1>
@@ -80,19 +81,28 @@ export default class NewHearing extends React.Component {
 
           <section className="form_section">
             <label htmlFor="date">Date:</label>
-            <select
-              id="date"
+
+            <Select
               name="date"
-              className="select"
+              id="date"
               value={this.state.date}
-              onChange={this.handleChange}
-            >
-              <Date />
-            </select>
+              onChange={this.handleSelect}
+              options={Date}
+            />
+
           </section>
 
           <section className="form_section autocomplete">
             <label htmlFor="court">Court:</label>
+            <Async
+              name="court"
+              id="court"
+              value={this.state.court}
+              onChange={this.handleSelect}
+              loadOptions={this.getCourts}
+            />
+
+            {/*
             <input
               id="court"
               name="court"
@@ -105,6 +115,7 @@ export default class NewHearing extends React.Component {
                 <Courts courts={this.state.court_options} updateCourt={this.updateCourt} />
               )}
             </ul>
+          */}
           </section>
 
           <h4>Contact details (optional):</h4>
@@ -134,19 +145,6 @@ export default class NewHearing extends React.Component {
                 { value: 'Other', label: 'Other', id: 'type' },
               ]}
             />
-            {/* <Select
-              name="type"
-              id="type"
-              value={this.state.type}
-              onChange={this.handleSelect}
-              options={[
-                { value: 'Solicitor', label: 'Solicitor', id: 'type' },
-                { value: 'type', label: 'Social worker', id: 'type' },
-                { value: 'type', label: 'Defendant', id: 'type' },
-                { value: 'type', label: 'Other', id: 'type' },
-
-              ]}
-            /> */}
           </section>
 
           <section className="form_section">
@@ -177,7 +175,7 @@ export default class NewHearing extends React.Component {
           }
           <button type="submit">Add hearing</button>
         </form>
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }
