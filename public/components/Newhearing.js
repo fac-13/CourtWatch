@@ -36,11 +36,36 @@ export default class NewHearing extends React.Component {
     this.setState({ court: selected, court_options: [] });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      date: this.state.date,
+      court: this.state.court,
+      name: this.state.name,
+      type: this.state.type,
+      email: this.state.email,
+      phone: this.state.phone,
+    };
+
+    postData('/add-hearing', data)
+      .then((response) => {
+        if (response.success === true) {
+          setTimeout(() => { this.props.history.push('/thanks?q=hearing'); }, 500);
+        } else {
+          this.setState({ database_error: 'Database error' }, () => {
+            setTimeout(() => { this.setState({ duplicate_error: '' }); }, 1000);
+          });
+        }
+      });
+  }
+
   render() {
+    const { error } = this.state;
+
     return (
       <React.Fragment >
         <h1>Add a new hearing</h1>
-        <form action="/add-hearing" method="post" className="form">
+        <form className="form" onSubmit={this.handleSubmit}>
 
           <section className="form_section">
             <label htmlFor="date">Date:</label>
@@ -132,7 +157,11 @@ export default class NewHearing extends React.Component {
               onChange={this.handleChange}
             />
           </section>
-
+          {error &&
+            <section>
+              <p className="form_error">Sorry, there has been an error with our database. Please try to add the hearing again.</p>
+            </section>
+          }
           <button type="submit">Add hearing</button>
         </form>
       </React.Fragment>

@@ -29,14 +29,17 @@ exports.get = async (req, res) => {
 exports.post = async (req, res) => {
   const {
     date, court, name, type, email, phone,
-  } = req.body;
+  } = req.body.data;
+
   const contact = {
     name,
     type,
     email,
     phone,
   };
-  const hearingDate = moment(date).format('YYYY-MM-D');
+
+  const hearingDate = moment(date, 'dddd DD MMMM YYYY').format('YYYY-MM-D');
+
   const courtName = court.trim();
   try {
     const courtData = await getCourt(courtName);
@@ -52,8 +55,8 @@ exports.post = async (req, res) => {
     const messageBody = [
       {
         type: 'text/html',
-        value: `<p>Alert!<br />Hearings involving women are scheduled to take place from 10am on ${hearingDate} at ${courtName}. If you can observe these hearings please visit the court watch 
-        <a href="https://court-watch.herokuapp.com/hearing/${hearingId}?attend={{volunteer_id}}">hearing details</a> 
+        value: `<p>Alert!<br />Hearings involving women are scheduled to take place from 10am on ${hearingDate} at ${courtName}. If you can observe these hearings please visit the court watch
+        <a href="https://court-watch.herokuapp.com/hearing/${hearingId}?attend={{volunteer_id}}">hearing details</a>
         page to confirm your attendance.<br />Regards, the Court Watch Team.</p>`,
       },
     ];
@@ -74,8 +77,10 @@ exports.post = async (req, res) => {
         const { message } = error;
         throw new Error(`Error sending email to multiple recipients: ${message}`);
       });
+    res.send({ success: true });
   } catch (err) {
     console.log('add hearing error', err);
+    res.send({ success: false });
   }
 };
 
