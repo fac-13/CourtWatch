@@ -12,21 +12,13 @@ export default class DetailsHearing extends React.Component {
 
   componentDidMount() {
     const viewerId = window.location.search.split('?attend=')[1];
-    console.log('Viewer Id: ', viewerId);
-    console.log('Hearing: ', this.props.hearing);
-    getData(`/profile/${viewerId}`).then(data =>
-      this.setState({ attending: data }, () => console.log(this.state.attending)));
+    if (viewerId) {
+      getData(`/profile/${viewerId}`).then(data =>
+        this.setState({ attending: data }));
+    }
   }
 
   updateAttendants = () => {
-    console.log('button clicked');
-    console.log(
-      'data to pass: ',
-      this.props.hearing.court_id,
-      this.state.attending._id,
-      this.state.attending.first_name,
-      this.state.attending.last_name,
-    );
     putData('/update-hearing', {
       hearingId: this.props.hearing._id,
       volunteerId: this.state.attending._id,
@@ -35,7 +27,7 @@ export default class DetailsHearing extends React.Component {
     }).then((result) => {
       console.log(result);
       if (result.ok === 1) {
-        this.setState({ click: !this.state.click }, () => console.log('Hello HAydn!!'));
+        this.setState({ click: !this.state.click });
       }
     });
   };

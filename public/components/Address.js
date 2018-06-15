@@ -4,7 +4,6 @@ const Address = (props) => {
   const { addresses } = props;
   const regex = /visit/i;
   const visitingAddress = addresses.filter(item => regex.test(item.type) === true);
-  console.log(visitingAddress);
 
   return (
     <React.Fragment>

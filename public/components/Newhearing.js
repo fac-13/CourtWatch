@@ -1,18 +1,46 @@
 import React from 'react';
+import Select from 'react-select';
+import { Async } from 'react-select';
+import 'react-select/dist/react-select.css';
+
 import { postData } from '../utils/fetch';
-import Courts from './Courts';
 import Date from './Date';
 
 export default class NewHearing extends React.Component {
   state = {
     date: '',
     court: '',
-    court_options: [],
+    court_id: '',
     name: '',
     type: '',
     email: '',
     phone: '',
+    error: '',
   };
+
+  getCourts = (input) => {
+    const url = '/match-court/';
+    if (!input) {
+      return Promise.resolve({ options: [] });
+    }
+    return postData(url, input)
+      .then((courts) => {
+        console.log('Courts', courts);
+        const updatedCourts = courts.map(el => (
+          { value: el._id, label: el.name, id: 'court' }
+        ));
+        return { options: updatedCourts };
+      });
+  }
+
+  getValue = () => {
+    const { court } = this.state;
+    if (court) {
+      return (
+        { value: court, label: court }
+      );
+    }
+  }
 
   handleChange = (event) => {
     const { target } = event;
@@ -21,19 +49,12 @@ export default class NewHearing extends React.Component {
     this.setState({ [key]: value });
   };
 
-  handleAutocomplete = (event) => {
-    const { target } = event;
-    const { value } = target;
-    const url = '/match-court/';
-    this.setState({ court: value }, () => {
-      postData(url, this.state.court)
-        .then(data =>
-          this.setState({ court_options: data }));
-    });
-  }
-
-  updateCourt = (selected) => {
-    this.setState({ court: selected, court_options: [] });
+  handleSelect = (option) => {
+    if (option) {
+      const { id, label, value } = option;
+      const { court_id } = this.state;
+      this.setState({ [id]: label, court_id: value }, () => console.log('This state court', this.state.court));
+    }
   }
 
   handleSubmit = (e) => {
@@ -52,8 +73,8 @@ export default class NewHearing extends React.Component {
         if (response.success === true) {
           setTimeout(() => { this.props.history.push('/thanks?q=hearing'); }, 500);
         } else {
-          this.setState({ database_error: 'Database error' }, () => {
-            setTimeout(() => { this.setState({ duplicate_error: '' }); }, 1000);
+          this.setState({ error: 'Database error' }, () => {
+            setTimeout(() => { this.setState({ error: '' }); }, 1000);
           });
         }
       });
@@ -61,7 +82,6 @@ export default class NewHearing extends React.Component {
 
   render() {
     const { error } = this.state;
-
     return (
       <React.Fragment >
         <h1>Add a new hearing</h1>
@@ -69,31 +89,27 @@ export default class NewHearing extends React.Component {
 
           <section className="form_section">
             <label htmlFor="date">Date:</label>
-            <select
-              id="date"
+
+            <Select
               name="date"
-              className="select"
+              id="date"
               value={this.state.date}
-              onChange={this.handleChange}
-            >
-              <Date />
-            </select>
+              onChange={this.handleSelect}
+              options={Date}
+            />
+
           </section>
 
           <section className="form_section autocomplete">
             <label htmlFor="court">Court:</label>
-            <input
-              id="court"
+            <Async
               name="court"
-              className="input"
-              value={this.state.court}
-              onChange={this.handleAutocomplete}
+              id="court"
+              value={this.getValue()}
+              onChange={this.handleSelect}
+              loadOptions={this.getCourts}
             />
-            <ul className="list">
-              {this.state.court_options.length > 0 && (
-                <Courts courts={this.state.court_options} updateCourt={this.updateCourt} />
-              )}
-            </ul>
+
           </section>
 
           <h4>Contact details (optional):</h4>
@@ -111,29 +127,18 @@ export default class NewHearing extends React.Component {
 
           <section className="form_section">
             <label htmlFor="type">I am a...</label>
-            <select
-              id="type"
+            <Select
               name="type"
-              className="select"
+              id="type"
               value={this.state.type}
-              onChange={this.handleChange}
-            >
-              <option value="" selected disabled hidden>
-                Please select one:
-              </option>
-              <option value="Solicitor" className="select_item">
-                Solicitor
-              </option>
-              <option value="Social worker" className="select_item">
-                Social worker
-              </option>
-              <option value="Defendant" className="select_item">
-                Defendant
-              </option>
-              <option value="Other" className="select_item">
-                Other
-              </option>
-            </select>
+              onChange={this.handleSelect}
+              options={[
+                { value: 'Solicitor', label: 'Solicitor', id: 'type' },
+                { value: 'Social worker', label: 'Social worker', id: 'type' },
+                { value: 'Defendant', label: 'Defendant', id: 'type' },
+                { value: 'Other', label: 'Other', id: 'type' },
+              ]}
+            />
           </section>
 
           <section className="form_section">
@@ -164,7 +169,7 @@ export default class NewHearing extends React.Component {
           }
           <button type="submit">Add hearing</button>
         </form>
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }
