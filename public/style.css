@@ -114,13 +114,23 @@ button {
   button.join_button {
     border-color: #be24a3;
     height: 50px; }
+    button.join_button h4 {
+      font-weight: bold;
+      font-size: 1.2em; }
   button.hearing_button {
     align-self: center; }
 
 .join {
-  margin: 0 5%; }
+  margin: 0 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center; }
   .join p {
-    text-align: justify; }
+    text-align: center;
+    line-height: 1.2em;
+    padding-bottom: 2em; }
 
 .schedule_header {
   display: flex;

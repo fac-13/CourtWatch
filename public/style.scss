@@ -178,6 +178,11 @@ button {
     &.join_button {
         border-color: $purple; 
         height: 50px; 
+
+        & h4 {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
     }
 
     &.hearing_button {
@@ -188,10 +193,17 @@ button {
 // Join page 
 
 .join {
-    margin: 0 5%; 
+    margin: 0 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 
     & p {
-        text-align: justify; 
+        text-align: center;
+        line-height: 1.2em;
+        padding-bottom: 2em;
     }
 }
 
