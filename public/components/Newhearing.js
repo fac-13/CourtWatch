@@ -10,6 +10,7 @@ export default class NewHearing extends React.Component {
   state = {
     date: '',
     court: '',
+    court_id: '',
     name: '',
     type: '',
     email: '',
@@ -24,8 +25,9 @@ export default class NewHearing extends React.Component {
     }
     return postData(url, input)
       .then((courts) => {
+        console.log('Courts', courts);
         const updatedCourts = courts.map(el => (
-          { value: el.name, label: el.name, id: 'court' }
+          { value: el._id, label: el.name, id: 'court' }
         ));
         return { options: updatedCourts };
       });
@@ -49,10 +51,9 @@ export default class NewHearing extends React.Component {
 
   handleSelect = (option) => {
     if (option) {
-      const { value, id } = option;
-      console.log('value', value);
-      console.log('id', id);
-      this.setState({ [id]: value }, () => console.log('This state court', this.state.court));
+      const { id, label, value } = option;
+      const { court_id } = this.state;
+      this.setState({ [id]: label, court_id: value }, () => console.log('This state court', this.state.court));
     }
   }
 
@@ -107,7 +108,6 @@ export default class NewHearing extends React.Component {
               value={this.getValue()}
               onChange={this.handleSelect}
               loadOptions={this.getCourts}
-              clearable
             />
 
           </section>

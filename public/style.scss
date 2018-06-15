@@ -207,7 +207,15 @@ button {
     }
 }
 
-//Schedule page 
+//Schedule page
+
+.schedule {
+    margin: 0 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 
 .schedule_list {
     @extend %container_shared; 
@@ -258,6 +266,7 @@ button {
     p {
         padding: inherit 0.5em; 
     }
+}
 }
 
 //Form (add hearing)

@@ -24,9 +24,11 @@ export default class Schedule extends React.Component {
         }
         {this.state.data &&
           <React.Fragment>
-            <Button className="schedule_button" link={this.addHearing} text="Add a hearing" />
-            <section>
-              <ListHearings hearings={this.state.data} />
+            <section className="schedule">
+              <Button className="schedule_button" link={this.addHearing} text="Add a hearing" />
+              <section>
+                <ListHearings hearings={this.state.data} />
+              </section>
             </section>
           </React.Fragment>
         }
