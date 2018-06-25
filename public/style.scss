@@ -8,6 +8,7 @@ $orange: #fc7844;
 $lightgrey: #e2e0de;  
 
 
+//shared properties 
 %container_shared {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -221,9 +222,9 @@ button {
         height: 50px; 
     }
 
-    &.schedule_button {
-        margin: 
-    }
+    // &.schedule_button {
+    //     margin: 
+    // }
 
     &.join_button {
         border-color: $purple; 
