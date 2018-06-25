@@ -9,8 +9,13 @@ $lightgrey: #e2e0de;
 
 
 %container_shared {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; 
-    flex-direction: column; 
+    -webkit-box-orient: vertical; 
+    -webkit-box-direction: normal; 
+        -ms-flex-direction: column; 
+            flex-direction: column; 
     width: 90%; 
     margin: 5%; 
     border: 0.8px solid $purple; 
@@ -20,7 +25,8 @@ $lightgrey: #e2e0de;
 * {
     margin: 0; 
     padding: 0; 
-    box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+            box-sizing: border-box; 
     font-family: $font-stack; 
     text-align: center; 
     font-size: 1em; 
@@ -33,8 +39,12 @@ html, body, #root {
 .main {
     @extend  %container_shared;
     border: none; 
-    justify-content: space around; 
-    align-items: center; 
+    -webkit-box-pack: space around; 
+        -ms-flex-pack: space around; 
+            justify-content: space around; 
+    -webkit-box-align: center; 
+        -ms-flex-align: center; 
+            align-items: center; 
 
     & p, h4 {
     padding:0.5em; 
@@ -61,18 +71,35 @@ html, body, #root {
 
 .nav_container {
       list-style: none; 
+      display: -webkit-box; 
+      display: -ms-flexbox; 
       display: flex; 
-      flex-direction: row; 
-      align-items: center; 
-      justify-content: space-between; 
+      -webkit-box-orient: horizontal; 
+      -webkit-box-direction: normal; 
+          -ms-flex-direction: row; 
+              flex-direction: row; 
+      -webkit-box-align: center; 
+          -ms-flex-align: center; 
+              align-items: center; 
+      -webkit-box-pack: justify; 
+          -ms-flex-pack: justify; 
+              justify-content: space-between; 
       padding: 1em 2em; 
     }
 
 .nav_list {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex; 
-        flex-direction: row; 
-        align-items: center; 
-        justify-content: space-around; 
+        -webkit-box-orient: horizontal; 
+        -webkit-box-direction: normal; 
+            -ms-flex-direction: row; 
+                flex-direction: row; 
+        -webkit-box-align: center; 
+            -ms-flex-align: center; 
+                align-items: center; 
+        -ms-flex-pack: distribute; 
+            justify-content: space-around; 
     }
 
 .nav_list li {
@@ -103,10 +130,15 @@ h1 {
     }
 
 & .home_section{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; 
  
     & div {
-        flex-direction: column; 
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column; 
         width: 100%; 
         padding: 1em 2em; 
 
@@ -132,10 +164,17 @@ h1 {
         }
     }
     &.text{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex; 
         height: 100%; 
-        align-items:left; 
-        flex-direction: column; 
+        -webkit-box-align:left; 
+            -ms-flex-align:left; 
+                align-items:left; 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+            -ms-flex-direction: column; 
+                flex-direction: column; 
 
         h4, p {
             text-align: left; 
@@ -148,9 +187,16 @@ h1 {
     }
 
     &.buttons {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center; 
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; 
         
         & h4 {
             text-align: center; 
@@ -169,10 +215,14 @@ button {
     margin: 5%; 
     width: 200px; 
     
-    &.home_button {
-        color: $orange;
+    &.home_button, .schedule_button {
+        color: $purple;
         background-color: $lightgrey; 
         height: 50px; 
+    }
+
+    &.schedule_button {
+        margin: 
     }
 
     &.join_button {
@@ -186,7 +236,8 @@ button {
     }
 
     &.hearing_button {
-        align-self: center;  
+        -ms-flex-item-align: center;
+            align-self: center;  
     }
   }
 
@@ -195,10 +246,19 @@ button {
 .join {
     margin: 0 5%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     & p {
         text-align: center;
@@ -210,30 +270,39 @@ button {
 //Schedule page
 
 .schedule {
-    margin: 0 5%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
 
 .schedule_list {
     @extend %container_shared; 
 }
 
 .schedule_header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; 
-    flex-direction: row; 
+    -webkit-box-orient: horizontal; 
+    -webkit-box-direction: normal; 
+        -ms-flex-direction: row; 
+            flex-direction: row; 
     padding: 0.5em; 
-    align-items: center; 
-    justify-content: center; 
+    -webkit-box-align: center; 
+        -ms-flex-align: center; 
+            align-items: center; 
+    -webkit-box-pack: center; 
+        -ms-flex-pack: center; 
+            justify-content: center; 
     height: 30px; 
     font-size: 1.2em; 
 }
 
 .schedule_article {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; 
-    flex-direction: row; 
+    -webkit-box-orient: horizontal; 
+    -webkit-box-direction: normal; 
+        -ms-flex-direction: row; 
+            flex-direction: row; 
     min-height: 40px;  
 }
 
@@ -273,16 +342,23 @@ button {
 
 .form {
     @extend %container_shared; 
-    justify-content: space-around;
+    -ms-flex-pack: distribute; 
+        justify-content: space-around;
    
    & button {
-       align-self: center; 
+       -ms-flex-item-align: center;
+           align-self: center; 
      }
 
    & .form_section {
     margin: 5%; 
+    display: -webkit-box; 
+    display: -ms-flexbox; 
     display: flex; 
-    flex-direction: column; 
+    -webkit-box-orient: vertical; 
+    -webkit-box-direction: normal; 
+        -ms-flex-direction: column; 
+            flex-direction: column; 
 
     label {
         text-align: left; 
@@ -342,15 +418,24 @@ button {
 }
 
 .hearing_section {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; 
 
     &.first{
-    flex-direction: row; 
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; 
     }
 
     &.second{
-        flex-direction: column;
-        justify-content: space-around; 
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; 
         padding: 1em; 
         min-height: 150px; 
 

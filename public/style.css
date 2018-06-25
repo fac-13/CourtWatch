@@ -1,4 +1,4 @@
-.main, .schedule_list, .form, .hearing_container {
+.main, .schedule .schedule_list, .form, .hearing_container {
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -107,8 +107,8 @@ button {
   padding: 0.5em;
   margin: 5%;
   width: 200px; }
-  button.home_button {
-    color: #fc7844;
+  button.home_button, button .schedule_button {
+    color: #be24a3;
     background-color: #e2e0de;
     height: 50px; }
   button.join_button {
@@ -132,38 +132,39 @@ button {
     line-height: 1.2em;
     padding-bottom: 2em; }
 
-.schedule_header {
-  display: flex;
-  flex-direction: row;
-  padding: 0.5em;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  font-size: 1.2em; }
-
-.schedule_article {
-  display: flex;
-  flex-direction: row;
-  min-height: 40px; }
-
-.schedule_section {
-  padding: 0.3em; }
-  .schedule_section.left_column {
-    font-size: 1em;
-    width: 30%;
-    padding: 0.5em; }
-  .schedule_section.right_column {
-    width: 70%;
-    color: #be24a3;
-    text-decoration: underline; }
-    .schedule_section.right_column ul {
-      list-style: none;
+.schedule {
+  margin: 0 5%;
+  height: 100%; }
+  .schedule .schedule_header {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    font-size: 1.2em; }
+  .schedule .schedule_article {
+    display: flex;
+    flex-direction: row;
+    min-height: 40px; }
+  .schedule .schedule_section {
+    padding: 0.3em; }
+    .schedule .schedule_section.left_column {
+      font-size: 1em;
+      width: 30%;
       padding: 0.5em; }
-      .schedule_section.right_column ul li {
-        padding-bottom: 0.5em;
-        text-align: left; }
-  .schedule_section p {
-    padding: inherit 0.5em; }
+    .schedule .schedule_section.right_column {
+      width: 70%;
+      color: #be24a3;
+      text-decoration: underline; }
+      .schedule .schedule_section.right_column ul {
+        list-style: none;
+        padding: 0.5em; }
+        .schedule .schedule_section.right_column ul li {
+          padding-bottom: 0.5em;
+          text-align: left; }
+    .schedule .schedule_section p {
+      padding: inherit 0.5em; }
 
 .form {
   justify-content: space-around; }
