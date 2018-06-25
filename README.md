@@ -9,7 +9,7 @@ An MVP developed over three weeks for the charity [Women in Prison](http://www.w
 
 ## Problem statement
 
-During design week we met with Women in Prison to define their problem and come up with a possible tech solution. The charity would like to set up a volunteer-led project called CourtWatch to monitor court hearings involving women. To do so, however, it needs a way to let volunteer know when a hearing is coming up - even at short notice - so they can book to attend it and report on it. In the medium term the data gathered by volunteers will be used for campaigns and awareness raising activities.
+During design week we met with Women in Prison to define their problem and come up with a possible tech solution. The charity would like to set up a volunteer-led project called CourtWatch to monitor court hearings involving women. To do so, however, it needs a way to let volunteers know when a hearing is coming up so that they can book to attend it and report on it. In the medium term the data gathered by volunteers will be used for campaigns and awareness raising activities.
 
 The problem statement we defined for our MVP is: 
 
