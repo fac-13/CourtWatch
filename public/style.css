@@ -42,7 +42,8 @@ html, body, #root {
 
 .navbar {
   min-height: 8%;
-  width: 100%; }
+  width: 100%;
+  background-color: #fc7844; }
 
 .nav_container {
   list-style: none;
@@ -97,7 +98,11 @@ h1 {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  background-image: url("./shape.svg");
+  background-repeat: no-repeat;
+  background-position: -20% -10%;
+  background-size: 100%; }
   .home .home_title {
     width: 100%; }
     .home .home_title h1 {

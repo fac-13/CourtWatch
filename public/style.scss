@@ -68,6 +68,7 @@ html, body, #root {
 .navbar {
     min-height: 8%; 
     width: 100%; 
+    background-color: $orange;
     }
 
 .nav_container {
@@ -135,6 +136,10 @@ h1 {
   -webkit-box-direction: normal; 
       -ms-flex-direction: column; 
           flex-direction: column; 
+    background-image : url("./shape.svg"); 
+    background-repeat: no-repeat; 
+    background-position: -20% -10%; 
+    background-size: 100%; 
 
     & .home_title {
         width: 100%; 
