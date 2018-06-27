@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from './Navbar';
 import { postData } from '../utils/fetch';
 
 export default class Join extends React.Component {
@@ -39,6 +40,7 @@ export default class Join extends React.Component {
 
     return (
       <React.Fragment >
+        <Navbar />
         <h1>Join CourtWatch</h1>
         <section className="join">
           <p>If you are interested in becoming a CourtWatch volunteer, please fill in the form below and we will send you an email with more details about the project and how to sign up.</p>

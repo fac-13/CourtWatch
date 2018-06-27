@@ -1,7 +1,9 @@
-import React from 'react';
 import Select from 'react-select';
 import { Async } from 'react-select';
 import 'react-select/dist/react-select.css';
+import React from 'react';
+import Navbar from './Navbar';
+
 
 import { postData } from '../utils/fetch';
 import Date from './Date';
@@ -84,6 +86,7 @@ export default class NewHearing extends React.Component {
     const { error } = this.state;
     return (
       <React.Fragment >
+        <Navbar />
         <h1>Add a new hearing</h1>
         <form className="form" onSubmit={this.handleSubmit}>
 

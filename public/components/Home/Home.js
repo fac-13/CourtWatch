@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import Button from './Button';
+import Navbar from '../Navbar';
+import Button from '../Button';
 
 const Home = () => {
   const join = '/join';
@@ -9,6 +10,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <section className="home">
+        <Navbar />
         <section className="home_title">
           <h1>CourtWatch</h1>
         </section>
@@ -22,6 +24,7 @@ const Home = () => {
           <Button className="home_button" link={join} text="Become a volunteer" />
           <Button className="home_button" link={addHearing} text="Add a hearing" />
         </section>
+        <footer />
       </section>
     </React.Fragment>
   );
