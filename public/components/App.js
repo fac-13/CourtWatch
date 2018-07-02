@@ -2,10 +2,9 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './Home';
-import Navbar from './Navbar';
+import Home from './Home/Home';
 import Schedule from './Schedule';
-import Resources from './Resources';
+import Resources from './Resources/Resources';
 import Hearing from './Hearing';
 import NewHearing from './Newhearing';
 import Join from './Join';
@@ -18,7 +17,6 @@ export default class App extends React.Component {
 		return (
 			<Router>
 				<React.Fragment>
-					<Navbar />
 					<Route exact path="/" component={Home} />
 					<Route path="/schedule" component={Schedule} />
 					<Route path="/resources" component={Resources} />

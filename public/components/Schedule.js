@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from './Navbar';
 import { getData } from '../utils/fetch';
 import Button from './Button';
 import ListHearings from './Listhearings';
@@ -18,6 +19,7 @@ export default class Schedule extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Navbar />
         <h1 > Schedule</h1>
         {!this.state.data &&
           <h3>Loading schedule...</h3>
