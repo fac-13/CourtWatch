@@ -69,7 +69,8 @@ body, #root {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1em 2em;
-  width: 100%; }
+  width: 100%;
+  max-width: 800px; }
 
 .nav_list {
   display: -webkit-box;
@@ -149,6 +150,14 @@ h1 {
       border: 2px solid #8145A5;
       width: 160px;
       margin: 2%; }
+  @media screen and (min-width: 480px) {
+    .home {
+      background-position: 0% -20%; } }
+  @media screen and (min-width: 610px) {
+    .home {
+      background-image: none; }
+      .home .navbar {
+        background-color: #fc7844; } }
 
 .footer {
   width: 100%;
