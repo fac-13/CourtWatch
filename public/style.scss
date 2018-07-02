@@ -8,6 +8,12 @@ $lightpurple: #DCA2FF;
 $orange: #fc7844;
 $lightgrey: #e2e0de;  
 
+//mixins
+@mixin tablet {
+    @media (min-width: 480px) and (max-width: 800px) {
+      @content;
+    }
+  }
 
 //shared properties 
 %container_shared {
@@ -37,7 +43,12 @@ $lightgrey: #e2e0de;
 }
 
 html {
-    width: 100%; 
+    width: 100vw; 
+    height: 100vh; 
+}
+
+body, #root {
+    height: 100%; 
 }
 
 .main {
@@ -205,11 +216,12 @@ h1 {
         }
     }
 
-    & .home_footer {
-        width: 100%; 
-        height: 50px; 
-        background-color: $orange; 
-    }
+}
+
+.footer {
+    width: 100%; 
+    height: 50px; 
+    background-color: $orange; 
 }
 
 //Buttons

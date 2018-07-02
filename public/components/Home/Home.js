@@ -24,8 +24,8 @@ const Home = () => {
           <Button className="home_button" link={join} text="Become a volunteer" />
           <Button className="home_button" link={addHearing} text="Add a hearing" />
         </section>
-        <footer className="home_footer" />
       </section>
+      <footer className="footer" />
     </React.Fragment>
   );
 };
