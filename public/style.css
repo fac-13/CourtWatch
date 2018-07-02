@@ -7,6 +7,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   width: 90%;
+  min-width: 300px;
   margin: 5%;
   border: 0.8px solid #8145A5; }
 
@@ -17,7 +18,8 @@
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
   text-align: center;
-  font-size: 1em; }
+  font-size: 1em;
+  color: #0f0e0e; }
 
 html {
   width: 100%; }
@@ -64,8 +66,7 @@ html {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1em 2em;
-  width: 100%;
-  max-width: 800px; }
+  width: 100%; }
 
 .nav_list {
   display: -webkit-box;
@@ -84,12 +85,12 @@ html {
 .nav_list li {
   padding: 0.5em; }
   .nav_list li .link {
-    color: #303030; }
+    color: #0f0e0e; }
 
 h1 {
   font-size: 1.5em;
   padding: 10%;
-  color: #303030; }
+  color: #0f0e0e; }
 
 .home {
   background-color: #FFF6F1;
@@ -152,8 +153,8 @@ h1 {
 
 button {
   background-color: #FFF6F1;
-  color: #424242;
-  border-color: #424242;
+  color: #0f0e0e;
+  border: 2px solid #8145A5;
   padding: 0.5em;
   margin: 5%;
   width: 200px; }
